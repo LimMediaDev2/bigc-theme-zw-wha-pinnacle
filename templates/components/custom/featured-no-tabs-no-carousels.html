@@ -1,0 +1,16 @@
+<div class="standard-grid no-tabs-no-carousels">
+{{#if products.featured}}
+  <h2 class="page-heading">{{lang 'products.featured' }}</h2>
+           {{> components/products/featured products=products.featured columns=theme_settings.homepage_productGrid_column_count}}
+       {{/if}}
+
+       {{#if products.top_sellers}}
+         <h2 class="page-heading">{{lang 'products.top' }}</h2>
+           {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_productGrid_column_count}}
+       {{/if}}
+
+       {{#if products.new}}
+       <h2 class="page-heading">{{lang 'products.new' }}</h2>
+           {{> components/products/new products=products.new columns=theme_settings.homepage_productGrid_column_count}}
+       {{/if}}
+</div>

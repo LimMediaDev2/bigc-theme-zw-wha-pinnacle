@@ -1,0 +1,28 @@
+.productView-title-bulkPricing {
+    font-size: remCalc(24px);
+    font-weight: 700;
+}
+
+.productView-info-bulkPricing {
+    align-items: center;
+    column-gap: 2rem;
+    font-family: 'Lato';
+    padding: 3rem 0;
+    width: 100%;
+}
+
+.productView-table-bulkPricing,
+.productView-table-bulkPricing th,
+.productView-table-bulkPricing td {
+    background-color: stencilColor("bulkDiscounts-table-background");
+    border: 1px solid black;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: remCalc(5px) remCalc(10px);
+    text-align: center;
+}
+
+.productView-table-bulkPricing th:last-child,
+.productView-table-bulkPricing td:last-child {
+    color: stencilColor("color-primaryDarker");
+}

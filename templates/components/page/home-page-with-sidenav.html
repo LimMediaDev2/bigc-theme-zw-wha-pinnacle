@@ -1,0 +1,98 @@
+{{#if banners.top}}
+    <div class="banners top top-site-banner" data-banner-location="top">
+        <div class="banner">
+          {{{limit banners.top 1}}}
+        </div> <!-- banner -->
+    </div> <!-- banners -->
+ {{/if}}
+
+<div class="slider{{#if theme_settings.slider_width '!==' 'full-width'}} in-container{{/if}} {{#if theme_settings.slide_content_background '===' 'without-bg'}} slide-content-no-bg{{/if}}">
+  {{{region name="home_below_menu"}}}
+  {{#if carousel}}
+    {{#if theme_settings.slider_content_alignment '===' 'left'}}
+    <div class="left-aligned-content">
+      {{> components/carousel}}
+    </div>
+    {{/if}}
+
+    {{#if theme_settings.slider_content_alignment '===' 'center'}}
+    <div class="center-aligned-content">
+      {{#if carousel}}
+            {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
+        {{/if}}
+    </div>
+    {{/if}}
+
+    {{#if theme_settings.slider_content_alignment '===' 'right'}}
+    <div class="right-aligned-content">
+      {{> components/carousel}}
+    </div>
+    {{/if}}
+  {{/if}}
+</div> <!-- slider -->
+<div class="clear"></div>
+{{{region name="home_below_carousel"}}}
+
+<div class="main full home">
+  <div class="main">
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+        {{> components/custom/sidenav}}
+
+<!-- BEGIN FEATURED CUSTOM BANNERS -->
+  {{#if theme_settings.show_homepage_featured_banners '===' true}}
+    {{> components/custom/home-featured-banners}}
+  {{/if}}
+<!-- END FEATURED CUSTOM BANNERS -->
+
+      <div id="showcase-products" class="featured-products-section">
+        {{{region name="home_below_featured_banners"}}}
+        {{#if theme_settings.featured_products_layout '===' 'no-tabs-in-carousels'}}
+	           {{> components/custom/featured-no-tabs-in-carousels}}
+        {{/if}}
+
+        {{#if theme_settings.featured_products_layout '===' 'in-tabs-in-carousels'}}
+	           {{> components/custom/featured-in-tabs-in-carousels}}
+        {{/if}}
+
+        {{#if theme_settings.featured_products_layout '===' 'no-tabs-no-carousels'}}
+	        {{> components/custom/featured-no-tabs-no-carousels}}
+        {{/if}}
+
+        {{#if theme_settings.featured_products_layout '===' 'in-tabs-no-carousels'}}
+	        {{> components/custom/featured-in-tabs-no-carousels}}
+        {{/if}}
+
+            <div class="clear"></div>
+
+            <!-- NEWS/BLOG FEED -->
+            {{#if theme_settings.latest_news_visibility '===' 'visible'}}
+    	        {{> components/custom/blog-feed}}
+            {{/if}}
+
+            {{{region name="home_below_blog_feed"}}}
+
+            <!-- BRANDS FEED -->
+            {{#if theme_settings.brands_slider_visibility '===' 'visible'}}
+              {{> components/custom/brands-feed}}
+            {{/if}}
+
+            {{{region name="home_below_brands_feed"}}}
+
+            <!-- INSTAGRAM FEED -->
+            {{#if theme_settings.feed_position '===' 'above-footer'}}
+            <div class="instagram-feed above-footer">
+              {{> components/custom/instagram-feed}}
+              <div class="clear"></div>
+            </div>
+            {{/if}}
+      </div>
+
+    </div> <!-- right-main -->
+
+    <div class="clear"></div>
+
+</div> <!-- main full home -->

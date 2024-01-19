@@ -1,0 +1,44 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#partial "page"}}
+<div class="blog single {{#if theme_settings.blog_post_with_sidenav '!==' false}} blog-post-with-sidenav{{/if}}">
+
+  {{#if theme_settings.blog_post_with_sidenav '===' false}}
+    <div class="blog-post-content no-sidenav">
+      {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+      {{> components/blog/post post=blog.post show_tags=true}}
+      <!-- INSTAGRAM FEED -->
+      {{#if theme_settings.feed_position '===' 'above-footer'}}
+      {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+        <div class="instagram-feed above-footer">
+          {{> components/custom/instagram-feed}}
+          <div class="clear"></div>
+        </div>
+        {{/if}}
+        {{/if}}
+    </div> <!-- blog-post-content no-sidenav -->
+  {{/if}}
+
+  {{#if theme_settings.blog_post_with_sidenav '===' true}}
+    {{> components/custom/sidenav}}
+    <div class="blog-post-content with-sidenav">
+      {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+      {{> components/blog/post post=blog.post show_tags=true}}
+      <!-- INSTAGRAM FEED -->
+      {{#if theme_settings.feed_position '===' 'above-footer'}}
+      {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+        <div class="instagram-feed above-footer">
+          {{> components/custom/instagram-feed}}
+          <div class="clear"></div>
+        </div>
+      {{/if}}
+      {{/if}}
+    </div> <!-- blog-post-content no-sidenav -->
+  {{/if}}
+</div>
+
+{{/partial}}
+{{> layout/base}}

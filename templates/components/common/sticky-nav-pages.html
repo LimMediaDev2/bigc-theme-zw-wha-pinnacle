@@ -1,0 +1,31 @@
+<div class="sideCategoryList desktop alternate no-images no-brands sticky" id="side-categories" data-menu>
+    <div class="categories">
+      <div class="alt-toggle">
+        <h2 class="container-header btn"><span class="down-arrrow burger-menu"><i class="burger open" aria-hidden="true"><svg><use xlink:href="#icon-Menu" /></svg></i><i class="menu close" aria-hidden="true"><svg><use xlink:href="#icon-close" /></svg></i></span></h2>
+        <h2 class="container-header text"><span class="mega-shop-text">{{theme_settings.sticky_mega_nav_name}}</span></h2>
+      </div>
+        <div class="alt-menu-container">
+
+          <div id="page-wrapper" class="drop-down">
+          <div class="category-list">
+            <h2 class="container-header shop-by by-category">Pages</h2>
+            {{#each pages}}
+                <li class="navPages-item sideTopLevel">
+                    {{> components/common/sticky-navigation-list}}
+                </li>
+            {{/each}}
+            <!-- <div class="scroller"><span>SCROLL</span></div> -->
+            {{#each categories}}
+                <li class="navPages-item sideTopLevel">
+
+                </li>
+            {{/each}}
+
+            <!-- <hr class="sidenav"/> -->
+          </div> <!-- category-list -->
+          </div>
+
+</div> <!-- sideCategoryList -->
+
+</div>
+</div> <!-- sideCategoryList -->

@@ -1,0 +1,39 @@
+.iq__message {
+    display: inline-block;
+    margin: 0 0 1rem 0;
+    padding: 6px 10px;
+    font-size: 1rem;
+    background-color: #efefef;
+    border-radius: 4px;
+    border-left: 3px solid #999;
+}
+
+.productView-title-bulkPricing {
+    font-size: 1.71429rem;
+    font-weight: 700
+}
+
+.productView-info-bulkPricing {
+    -ms-flex-align: center;
+    align-items: center;
+    column-gap: 2rem;
+    font-family: Lato;
+    padding: 3rem 0;
+    width: 100%
+}
+
+.productView-table-bulkPricing,
+.productView-table-bulkPricing td,
+.productView-table-bulkPricing th {
+    background-color: #fff4d1;
+    border: 1px solid #000;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: .35714rem .71429rem;
+    text-align: center
+}
+
+.productView-table-bulkPricing td:last-child,
+.productView-table-bulkPricing th:last-child {
+    color: #cb0039
+}

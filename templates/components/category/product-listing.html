@@ -1,0 +1,32 @@
+{{!-- LimMedia.io --}}
+{{> components/products/filter sort=pagination.category.sort}}
+
+{{#if theme_settings.product_layout_view '===' 'grid'}}
+  <form class="grid-only" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings hide_as_low_as=hide_as_low_as}}
+  </form>
+{{/if}}
+
+{{#if theme_settings.product_layout_view '===' 'list'}}
+  <form class="list-only" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings hide_as_low_as=hide_as_low_as}}
+  </form>
+{{/if}}
+
+{{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+  <form class="both-grid-default" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/grid-default products=category.products show_compare=category.show_compare theme_settings=theme_settings hide_as_low_as=hide_as_low_as}}
+    {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings hide_as_low_as=hide_as_low_as}}
+    <div class="clear"></div>
+  </form>
+{{/if}}
+
+{{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+  <form class="both-list-default" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/list-default products=category.products show_compare=category.show_compare theme_settings=theme_settings hide_as_low_as=hide_as_low_as}}
+    {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings hide_as_low_as=hide_as_low_as}}
+    <div class="clear"></div>
+  </form>
+{{/if}}
+
+{{> components/common/paginator pagination.category}}

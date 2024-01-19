@@ -1,0 +1,12 @@
+{{!-- LimMedia.io --}}
+<div class="related-products in-tabs-in-carousels">
+  <ul class="productGrid productGrid--maxCol{{ columns }}">
+    {{#each products}}
+    <li class="product">
+        {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+    </li>
+    {{/each}}
+  </ul>
+    <div class="clear"></div>
+</div>
+  <div class="clear"></div>

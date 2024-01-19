@@ -1,0 +1,18 @@
+<ul class="brandGrid productGrid--maxCol{{ columns }}">
+    {{#each brands}}
+        <li class="brand">
+            <article class="card {{#if alternate}}card--alternate{{/if}}">
+                <figure class="card-figure">
+                    <a class="image-link" href="{{url}}">
+                        <img class="card-image" src="{{getImage image 'gallery' (cdn ../theme_settings.default_image_brand)}}" alt="{{name}}" title="{{name}}">
+                    </a>
+                </figure>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a class="name-link" href="{{url}}">{{name}}</a>
+                    </h4>
+                </div>
+            </article>
+        </li>
+    {{/each}}
+</ul>

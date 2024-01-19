@@ -1,0 +1,56 @@
+{{!-- LimMedia.io --}}
+<!-- No Tabs, In Carousels -->
+{{#if theme_settings.featured_products_layout '===' 'no-tabs-in-carousels'}}
+<div class="featured-products no-tabs-in-carousels">
+  <ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured">
+    {{#each products}}
+        <li class="product">
+            {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+        </li>
+    {{/each}}
+</ul>
+  <div class="clear"></div>
+</div>
+{{/if}}
+
+<!-- In Tabs, In Carousels -->
+{{#if theme_settings.featured_products_layout '===' 'in-tabs-in-carousels'}}
+<div class="featured-products in-tabs-in-carousels">
+  <ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured">
+    {{#each products}}
+        <li class="product">
+          {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+        </li>
+    {{/each}}
+  </ul>
+  <div class="clear"></div>
+</div>
+{{/if}}
+
+<!-- No Tabs, No Carousels -->
+{{#if theme_settings.featured_products_layout '===' 'no-tabs-no-carousels'}}
+<div class="featured-products no-tabs-no-carousels">
+  <ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured">
+    {{#each products}}
+        <li class="product">
+            {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+        </li>
+    {{/each}}
+</ul>
+  <div class="clear"></div>
+</div>
+{{/if}}
+
+<!-- In Tabs, No Carousels -->
+{{#if theme_settings.featured_products_layout '===' 'in-tabs-no-carousels'}}
+<div class="featured-products in-tabs-no-carousels">
+  <ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured">
+    {{#each products}}
+        <li class="product">
+            {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+        </li>
+    {{/each}}
+</ul>
+  <div class="clear"></div>
+</div>
+{{/if}}

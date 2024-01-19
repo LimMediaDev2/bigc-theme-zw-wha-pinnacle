@@ -1,0 +1,21 @@
+<div class="navPage-subMenu navPage-subMenu-horizontal flyout second-level no-images" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+  <div class="category-title"><h2><a class="category-title" href="{{url}}">{{name}}</a></h2></div>
+    <ul class="navPage-subMenu-list all-second-level-plus-container">
+        <li class="navPage-subMenu-item-parent">
+            <a class="navPage-subMenu-action navPages-action navPages-action-depth-max {{#if is_active}} activePage{{/if}}" href="{{url}}">{{lang 'category.view_all.name' category=name}}</a>
+        </li>
+        {{#each children}}
+            <li class="navPage-subMenu-item-child second-level-subMenu-plus">
+                {{#if children}}
+                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+                        <span class="top-level-sub">{{name}}</span>
+                    </a>
+
+                {{else}}
+
+                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="top-level-sub">{{name}}</span></a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>

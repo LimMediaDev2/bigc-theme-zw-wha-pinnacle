@@ -1,0 +1,37 @@
+---
+brands:
+
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{#partial "page"}}
+
+<main class="page brands{{#if theme_settings.brands_page_with_sidenav '!==' false}} brands-page-with-sidenav{{/if}}">
+
+    {{#if ../theme_settings.brands_page_with_sidenav '===' false}}
+      <div class="brands-list-content">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+          <h1 class="page-heading">{{lang 'brand.label'}}</h1>
+          {{{region name="brands_below_header_no_sidenav"}}}
+          {{> components/custom/brands-grid columns=theme_settings.brands_column_count}}
+          {{> components/common/paginator pagination.brands}}
+          {{{region name="brands_below_content_no_sidenav"}}}
+      </div>
+    {{/if}}
+
+    {{#if ../theme_settings.brands_page_with_sidenav '===' true}}
+        {{> components/custom/sidenav}}
+        <div class="brands-list-content with-sidenav">
+          {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+            <h1 class="page-heading">{{lang 'brand.label'}}</h1>
+            {{{region name="brands_below_header_with_sidenav"}}}
+            {{> components/custom/brands-grid columns=theme_settings.brands_column_count}}
+          {{> components/common/paginator pagination.brands}}
+          {{{region name="brands_below_content_with_sidenav"}}}
+        </div>
+    {{/if}}
+</main>
+{{/partial}}
+{{> layout/base}}

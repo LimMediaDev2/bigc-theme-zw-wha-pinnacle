@@ -1,0 +1,93 @@
+<div class="sideCategoryList desktop vertical in-body" id="side-categories" data-menu>
+    <div class="categories">
+        <div class="category-list">
+            {{#each categories}}
+                <li class="navPages-item">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
+            {{/each}}
+        </div> <!-- category-list -->
+    </div> <!-- categories -->
+    <div class="brands-option{{#if theme_settings.brands_visibility '!==' 'no-brands'}} with-brands{{/if}}">
+      <div class="brands">
+        <li class="navPages-item is-root">
+          <a class="brand top-level navPages-action navPages-action-depth-max has-submenu is-root active" href="/brands/">Shop by Brand</a>
+          <span class="down-arrow"><i class="" aria-hidden="true"><svg><use xlink:href="#icon-angle-up" /></svg></i></span>
+        </li>
+        <div class="brands-list">
+          {{#each shop_by_brand}}
+              <li class="navPage-subMenu-item-child is-root">
+                  <a class="navPages-action" href="{{url}}">{{name}}</a>
+              </li>
+          {{/each}}
+              <li class="all-brands">
+                  <a class="navPages-action" href="/brands/">View all Brands</a>
+              </li>
+        </div> <!-- brand-list -->
+      </div> <!--brands-->
+    </div> <!--brands-option-->
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}}
+
+    {{#if theme_settings.show_sidenav_featured_banner '===' true}}
+      {{#if theme_settings.external_link_sidenav '===' true}}
+        <!-- BEGIN SIDENAV BANNER -->
+          <div class="sidenav-banner zoom-image-container">
+            <a target="_blank" href="{{theme_settings.featured_sidenav_link}}">
+              <img class="sidenav-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.featured_sidenav_image}}" alt="{{theme_settings.featured_sidenav_banner_name}}" title="{{theme_settings.featured_sidenav_banner_name}}" />
+            </a>
+          </div>
+        <!-- END SIDENAV BANNER -->
+      {{/if}}
+      {{#if theme_settings.external_link_sidenav '===' false}}
+        <!-- BEGIN SIDENAV BANNER -->
+          <div class="sidenav-banner zoom-image-container">
+            <a target="_self" href="/{{theme_settings.featured_sidenav_link}}">
+              <img class="sidenav-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.featured_sidenav_image}}" alt="{{theme_settings.featured_sidenav_banner_name}}" title="{{theme_settings.featured_sidenav_banner_name}}" />
+            </a>
+          </div>
+        <!-- END SIDENAV BANNER -->
+      {{/if}}
+    {{/if}}
+
+</div> <!-- sideCategoryList -->
+
+<div class="sideCategoryList mobile" id="side-categories" data-menu>
+<div class="categories">
+    <!-- <h2 class="container-header">Shop by Category</h2> -->
+    <div class="category-list">
+        {{#each categories}}
+            <li class="navPages-item">
+                {{> components/common/navigation-list}}
+            </li>
+        {{/each}}
+    </div> <!-- category-list -->
+</div> <!-- categories -->
+<div class="brands">
+    <h2 class="container-header">Shop by Brand</h2>
+    <div class="brands-list">
+        {{#each shop_by_brand}}
+            <li>
+                <a href="{{url}}">{{name}}</a>
+            </li>
+        {{/each}}
+            <li>
+                <a href="/brands/">View all Brands</a>
+            </li>
+    </div> <!-- brand-list -->
+</div> <!-- brands -->
+
+</div> <!-- sideCategoryList -->

@@ -1,0 +1,177 @@
+---
+product_results:
+    limit: {{theme_settings.categorypage_products_per_page}}
+
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{inject 'categoryTree' forms.search.category_options}}
+{{inject 'searchProductsPerPage' theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.product_results.previous}}
+        <link rel="prev" href="{{pagination.product_results.previous}}">
+    {{/if}}
+    {{#if pagination.product_results.next}}
+        <link rel="next" href="{{pagination.product_results.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+{{{region name="search_below_menu"}}}
+<div class="search-results">
+
+{{> components/custom/search-results-sidenav}}
+
+    <div class="search category main {{#if theme_settings.top_pagination_visibility '===' false}}top-pagination-hidden {{/if}} {{#if theme_settings.bottom_pagination_visibility '===' false}}bottom-pagination-hidden {{/if}}">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+
+{{{snippet 'search'}}}
+<section class="nav">
+    {{#if forms.search.query}}
+        <div id="search-results-heading">
+            {{>components/search/heading}}
+        </div>
+    {{/if}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+            <li class="navBar-item products">
+                <a id="search-results-product-count" class="navBar-action" href="{{forms.search.product_url}}" data-product-results-toggle>
+                    {{>components/search/product-count}}
+                </a>
+            </li>
+            <li class="navBar-item">
+                <a class="navBar-action" href="{{forms.search.content_url}}" data-content-results-toggle>
+                    {{lang 'search.results.content_count' count=pagination.content_results.total}}
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    {{#unless product_results.faceted_search_enabled}}
+        {{>components/search/advanced-search}}
+    {{/unless}}
+</section>
+
+<section class="page">
+    {{#if product_results.products}}
+        <main class="page-content page-content search{{#if theme_settings.product_layout_view '===' 'both_grid_default'}} both-grid-list-views{{/if}} {{#if theme_settings.product_layout_view '===' 'both_list_default'}} both-grid-list-views list-default{{/if}}" id="product-listing-container">
+    {{else}}
+        <!-- <main class="page-content page-content search"> -->
+    {{/if}}
+    {{#if forms.search.has_suggestions}}
+        <div class="panel panel--large">
+            <div class="panel-body">
+              {{#if forms.search.suggested_query}}
+                  <div class="search-suggestion">
+                      {{lang 'forms.search.did_you_mean'}} <strong>{{forms.search.suggested_query.query}}</strong>
+                      <a href="{{forms.search.suggested_query.url}}" class="search-refine">{{lang 'forms.search.refine'}}</a>
+                  </div>
+
+                  {{#if result_count '===' 0}}
+                      <div class="search-suggestion">
+                          <p>
+                              {{lang 'forms.search.your_search_for'}}
+                              "<strong>{{forms.search.query}}</strong>"
+
+                          </p>
+                      </div>
+                  {{/if}}
+              {{/if}}
+
+
+                {{#if category_results.length}}
+                    <div class="search-suggestion">
+                        <h3 class="suggestion-title">{{lang 'forms.search.categories'}}</h3>
+                        <ul class="category-suggestion-list">
+
+                            {{#each category_results}}
+                            <li class="category-suggestion">
+
+                                {{#each this}}
+                                    <a href="{{url}}">{{name}}</a>
+                                    {{#unless @last}} > {{/unless}}
+                                {{/each}}
+
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/if}}
+
+                {{#if brand_results.length}}
+                    <div class="search-suggestion">
+                        <h3 class="suggestion-title">{{lang 'forms.search.brand'}}</h3>
+                        {{#each brand_results}}
+                            <a href="{{url}}">{{name}}</a>
+                            {{#unless @last}}, {{/unless}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+
+                {{#if result_count '===' 0}}
+                    <div class="search-suggestion">
+                        <h3 class="suggestion-title">{{lang 'forms.search.suggestions.title'}}</h3>
+                        <ul>
+                            <li>{{lang 'forms.search.suggestions.line1'}}</li>
+                            <li>{{lang 'forms.search.suggestions.line2'}}</li>
+                            <li>{{lang 'forms.search.suggestions.line3'}}</li>
+                        </ul>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    {{/if}}
+
+        <!-- GRID/LIST TOGGLE BUTTONS - GRID BY DEFAULT -->
+        {{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+          <div class="grid-list-view toggle">
+            <a class="toggle-link grid active" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+            <a class="toggle-link list" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+            <div class="clear"></div>
+          </div>
+        {{/if}}
+
+        <!-- GRID/LIST TOGGLE BUTTONS - LIST BY DEFAULT -->
+        {{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+          <div class="grid-list-view toggle">
+            <a class="toggle-link list active" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+            <a class="toggle-link grid" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+            <div class="clear"></div>
+          </div>
+        {{/if}}
+
+        {{#if content_results}}
+            <div id="search-results-content" {{#if forms.search.section '!=' 'content'}}class="u-hiddenVisually"{{/if}}>
+                {{> components/search/content-sort-box sort=pagination.content_results.sort}}
+                <ul>
+                    {{#each content_results}}
+                        <strong><a href="{{url}}">{{title}}</a></strong>({{type}})
+                        <p>{{content}}</p>
+                    {{/each}}
+                </ul>
+                {{> components/common/paginator pagination.content_results reload=true}}
+            </div>
+
+        {{/if}}
+
+        <div id="product-listing-container" {{#if forms.search.section '!=' 'product'}}class="u-hiddenVisually"{{/if}}>
+            {{> components/search/product-listing columns=theme_settings.category_brand_search_productGrid_column_count}}
+        </div>
+
+        </div>
+
+        <div class="compare">
+                <a class="navUser-action navUser-item--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'Compare Selected'}}</a>
+            </div>
+        <div class="clear"></div>
+
+        {{{region name="search_below_content"}}}
+
+    </main>
+</section>
+</div>
+</div>
+{{/partial}}
+{{> layout/base}}

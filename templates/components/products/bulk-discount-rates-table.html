@@ -1,0 +1,44 @@
+{{!-- LimMedia.io --}}
+{{#if bulk_discount_rates.length '>' 0}}
+<h2 class="productView-title-bulkPricing">{{lang 'products.bulk_pricing.title'}}</h2>
+<table class="productView-table-bulkPricing">
+    <tr>
+        <th>{{lang 'products.bulk_pricing.quantity_text'}}</th>
+        <th>{{lang 'products.bulk_pricing.price_text'}}</th>
+        <th>{{lang 'products.bulk_pricing.saving_text'}}</th>
+    </tr>
+    <tr>
+        <td>1{{#if (subtract bulk_discount_rates.0.min 1) '>' 1}} - {{subtract bulk_discount_rates.0.min 1}}{{/if}}</td>
+        <td>{{money price.without_tax.value 2 ',' '.'}}</td>
+        <td></td>
+    </tr>
+    {{#each bulk_discount_rates}}
+        {{#if type '===' 'percent'}}
+        <tr>
+            <td>{{lang 'products.bulk_pricing.range_short' min=min max=max}}</td>
+            <td>{{money (subtract ../../price.without_tax.value (divide (multiply discount.value
+                ../../price.without_tax.value) 100))}}</td>
+            <td>{{discount.formatted}}</td>
+        </tr>
+        {{/if}}
+        {{#if type '===' 'fixed'}}
+        <tr>
+            <td>{{lang 'products.bulk_pricing.range_short' min=min max=max}}</td>
+            <td>{{discount.formatted}}</td>
+            <td>{{lang 'products.bulk_pricing.saving_percent'
+                percent=(round (divide (multiply (subtract ../../price.without_tax.value discount.value ) 100) ../../price.without_tax.value))}}
+            </td>
+        </tr>
+        {{/if}}
+        {{#if type '===' 'price'}}
+        <tr>
+            <td>{{lang 'products.bulk_pricing.range_short' min=min max=max}}</td>
+            <td>{{money (subtract ../../price.without_tax.value discount.value )}}</td>
+            <td>{{lang 'products.bulk_pricing.saving_percent'
+                percent=(round (divide (multiply discount.value 100) ../../price.without_tax.value))}}
+            </td>
+        </tr>
+        {{/if}}
+    {{/each}}
+</table>
+{{/if}}

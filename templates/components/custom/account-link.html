@@ -1,0 +1,33 @@
+{{#if settings.account_creation_enabled}}
+<ul class="account-link enabled">
+    <li class="navUser-item navUser-item--account">
+      {{#if customer}}
+      <!-- <a class="navUser-action with-logout" href="{{urls.account.index}}"><svg><use xlink:href="#icon-profile" /></svg></a> -->
+      <!-- <a class="navUser-action logout" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a> -->
+      <a class="navUser-action account signout-list" href=""><svg><use xlink:href="#icon-user" /></svg></a>
+      <div class="dropdown-menu signout-list" id="account-dropdown-signout-list">
+        <h2 class="container-header">Account Info</h2>
+          {{> components/custom/account-dropdown-info}}
+        <div class="or-text signout-list"> <hr class="left"/> <span>or</span> <hr class="right" /></div>
+        <a class="button button--primary signin-register logout-button" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+      </div>
+      {{else}}
+        <a class="navUser-action with-login" href="{{urls.auth.login}}"><svg><use xlink:href="#icon-user" /></svg></a>
+        <!-- <a class="navUser-action login" href="{{urls.auth.login}}">{{lang 'common.login'}}</a> -->
+      {{/if}}
+     </li>
+{{/if}}
+
+<li class="navUser-item navUser-item--cart desktop">
+  <a
+  class="navUser-action"
+  data-cart-preview
+  data-dropdown="cart-preview-dropdown"
+  data-options="align:right"
+  href="{{urls.cart}}">
+  <span class="navUser-item-cartLabel"><svg><use xlink:href="#icon-cart" /></svg></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+  </a>
+
+<div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+</li>
+</ul>

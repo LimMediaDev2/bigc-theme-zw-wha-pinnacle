@@ -1,0 +1,49 @@
+{{#if settings.account_creation_enabled}}
+<ul class="account-dropdown enabled">
+    <li class="navUser-item navUser-item--account">
+      {{#if customer}}
+            <a class="navUser-action account signout-list" href=""><svg><use xlink:href="#icon-user" /></svg></a>
+            <div class="dropdown-menu signout-list" id="account-dropdown-signout-list">
+              <h2 class="container-header">Account Info</h2>
+                {{> components/custom/account-dropdown-info}}
+              <div class="or-text signout-list"> <hr class="left"/> <span>or</span> <hr class="right" /></div>
+              <a class="navUser-action logout button button--primary signout-list" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+            </div>
+      {{else}}
+            <a class="navUser-action account signin-register" href=""><svg><use xlink:href="#icon-user" /></svg></a>
+            <div class="dropdown-menu signin-register" id="account-dropdown-signin-register">
+              <h2 class="container-header">{{lang 'common.login'}}</h2>
+              <form class="login-form-dropdown form signin-register" action="/login.php?action=check_login" method="post">
+                <div class="form-field form-field--input form-field--inputEmail signin-register">
+                  <input class="form-input signin-register" name="login_email" placeholder="email" id="login_email" type="email">
+                  <span style="display: none;"></span></div>
+                  <div class="form-field form-field--input form-field--inputPassword signin-register">
+                    <input class="form-input signin-register" placeholder="password" id="login_pass" type="password" name="login_pass">
+                    <span style="display: none;"></span></div>
+                    <div class="form-actions signin-register">
+                      <input type="submit" class="button button--primary signin-register" value="Login">
+                      <a class="forgot-password signin-register" href="/login.php?action=reset_password">Forgot your password?</a>
+                    </div>
+              </form>
+
+              <div class="or-text signin-register"> <hr class="left"/> <span>or</span> <hr class="right" /></div>
+              <a class="navUser-action create button button--primary register signin-register" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+            </div>
+
+      {{/if}}
+     </li>
+{{/if}}
+
+<li class="navUser-item navUser-item--cart desktop">
+  <a
+  class="navUser-action"
+  data-cart-preview
+  data-dropdown="cart-preview-dropdown"
+  data-options="align:right"
+  href="{{urls.cart}}">
+  <span class="navUser-item-cartLabel"><svg><use xlink:href="#icon-cart" /></svg></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+  </a>
+
+<div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+</li>
+</ul>

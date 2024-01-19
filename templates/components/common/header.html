@@ -1,0 +1,201 @@
+<div class="header-container main-top{{#if theme_settings.sticky_topMenu '===' true}}sticky-header{{/if}}">
+
+{{> components/custom/top-menu}}
+
+<div class="header-container full-width {{#if theme_settings.slider_width '===' 'full-width'}} full-width-auto {{/if}} full-width{{#if theme_settings.header-layout '!==' 'full-width'}} in-container{{/if}}">
+  <div class="header-padding{{#if theme_settings.header-layout '===' 'in-container-with-padding-no-margin'}} in-container-with-padding-no-margin{{/if}}">
+  <div class="header-padding{{#if theme_settings.header-layout '===' 'in-container-with-padding'}} in-container-with-padding{{/if}}">
+  <header class="header" role="banner">
+
+
+<!-- LEFT ALIGNED LOGO -->
+{{#if theme_settings.logo-position '===' "left"}}
+  <div class="header-container-left-aligned-logo">
+    <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+      {{> components/common/store-logo}}
+    </div>
+    <div class="navPages-container inside-header left-logo" id="menu" data-menu>
+      <nav class="navPages">
+        <div class="navPages-quickSearch right searchbar">
+            {{> components/common/quick-search}}
+        </div>
+      </nav>
+    </div>
+    <div class="right account-links desktop inside-header left-aligned-logo">
+          {{#if theme_settings.show_sitewide_login}}
+            {{> components/custom/account-dropdown}}
+          {{else}}
+              {{> components/custom/account-link}}
+          {{/if}}
+    </div>
+  </div>
+{{/if}}
+
+
+
+<!-- CENTER ALIGNED LOGO -->
+{{#if theme_settings.logo-position '===' "center"}}
+  <div class="header-container-centered-logo">
+    <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+      {{> components/common/store-logo}}
+    </div>
+  <div class="navPages-container inside-header center-logo" id="menu" data-menu>
+    <nav class="navPages">
+        <div class="navPages-quickSearch right searchbar">
+            {{> components/common/quick-search-centered-logo}}
+        </div>
+    </nav>
+  </div>
+  <div class="center account-links desktop inside-header center-aligned-logo">
+          {{#if theme_settings.show_sitewide_login}}
+            {{> components/custom/account-dropdown-centered}}
+          {{else}}
+              {{> components/custom/account-link-centered}}
+          {{/if}}
+  </div>
+</div>
+{{/if}}
+
+
+<!-- RIGHT ALIGNED LOGO -->
+{{#if theme_settings.logo-position '===' "right"}}
+  <div class="header-container-right-aligned-logo">
+    <div class="navPages-container inside-header right-logo" id="menu" data-menu>
+      <nav class="navPages">
+        <div class="navPages-quickSearch right searchbar">
+            {{> components/common/quick-search}}
+        </div>
+      </nav>
+    </div>
+    <div class="right account-links desktop inside-header right-aligned-logo">
+          {{#if theme_settings.show_sitewide_login}}
+            {{> components/custom/account-dropdown}}
+          {{else}}
+              {{> components/custom/account-link}}
+          {{/if}}
+    </div>
+    <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+      {{> components/common/store-logo}}
+    </div>
+  </div>
+{{/if}}
+
+
+
+<div class="clear"></div>
+<div class="mobile-menu navPages-container" id="menu" data-menu>
+
+  <div class="navPages-quickSearch right searchbar mobile-search">
+      {{> components/common/quick-search-mobile}}
+  </div>
+
+        {{> components/common/navigation-menu-mobile}}
+</div>
+</header>
+</div>
+</div>
+</div>
+
+<div class="main-nav-container{{#if theme_settings.header-layout '!==' 'in-container'}} full-width{{/if}} {{#if theme_settings.header-layout '===' 'in-container'}} in-container{{/if}}{{#if theme_settings.mainNav-align '===' 'left'}}left-align {{/if}}{{#if theme_settings.mainNav-align '===' 'center'}}center-align {{/if}}">
+  <div class="navPages-container main-nav" id="menu" data-menu>
+
+<!-- CHECK FOR ALT SHOP NAV VISIBILITY -->
+ {{#if theme_settings.shop_nav_alt_visibility '===' true}}
+   <!-- GRID VIEW WITH IMAGES - WITH BRANDS -->
+   {{#if theme_settings.flyout_grid_view '===' true}}
+     {{#if theme_settings.flyout_grid_view_with_images '===' true}}
+     {{#if theme_settings.alt_nav_brands_visbility '===' true}}
+     {{#if theme_settings.mega_menu_depth '===' 'three-plus-levels-deep'}}
+       {{> components/custom/mega-shop-nav/1-main-nav-with-images-with-brands}}
+       {{else}}
+         {{> components/custom/mega-shop-nav/1-main-nav-with-images-with-brands-two-levels-deep}}
+     {{/if}}
+     {{/if}}
+     {{/if}}
+    {{/if}}
+   <!-- GRID VIEW WITH IMAGES - NO BRANDS -->
+   {{#if theme_settings.flyout_grid_view '===' true}}
+     {{#if theme_settings.flyout_grid_view_with_images '===' true}}
+     {{#if theme_settings.alt_nav_brands_visbility '===' false}}
+     {{#if theme_settings.mega_menu_depth '===' 'three-plus-levels-deep'}}
+       {{> components/custom/mega-shop-nav/1-main-nav-with-images-no-brands}}
+      {{else}}
+        {{> components/custom/mega-shop-nav/1-main-nav-with-images-no-brands-two-levels-deep}}
+     {{/if}}
+     {{/if}}
+     {{/if}}
+   {{/if}}
+
+
+   <!-- GRID VIEW NO IMAGES IMAGES - WITH BRANDS -->
+   {{#if theme_settings.flyout_grid_view '===' true}}
+     {{#if theme_settings.flyout_grid_view_with_images '===' false}}
+     {{#if theme_settings.alt_nav_brands_visbility '===' true}}
+     {{#if theme_settings.mega_menu_depth '===' 'three-plus-levels-deep'}}
+       {{> components/custom/mega-shop-nav/1-main-nav-no-images-with-brands}}
+       {{else}}
+         {{> components/custom/mega-shop-nav/1-main-nav-no-images-with-brands-two-levels-deep}}
+     {{/if}}
+     {{/if}}
+     {{/if}}
+    {{/if}}
+
+
+    <!-- GRID VIEW NO IMAGES - NO BRANDS -->
+    {{#if theme_settings.flyout_grid_view '===' true}}
+      {{#if theme_settings.flyout_grid_view_with_images '===' false}}
+      {{#if theme_settings.alt_nav_brands_visbility '===' false}}
+      {{#if theme_settings.mega_menu_depth '===' 'three-plus-levels-deep'}}
+        {{> components/custom/mega-shop-nav/1-main-nav-no-images-no-brands}}
+       {{else}}
+         {{> components/custom/mega-shop-nav/1-main-nav-with-images-no-brands-two-levels-deep}}
+      {{/if}}
+      {{/if}}
+      {{/if}}
+    {{/if}}
+
+    <!-- LIST VIEW NO IMAGES NO BRANDS -->
+   {{#if theme_settings.flyout_grid_view '===' false}}
+     {{#if theme_settings.alt_nav_brands_visbility '===' false}}
+     {{#if theme_settings.mega_menu_depth '===' 'three-plus-levels-deep'}}
+       {{> components/custom/mega-shop-nav/1-main-nav-no-images-no-brands}}
+       {{else}}
+         {{> components/custom/mega-shop-nav/1-main-nav-no-images-no-brands-two-levels-deep}}
+    {{/if}}
+    {{/if}}
+    {{/if}}
+    <!-- LIST VIEW NO IMAGES WITH BRANDS -->
+    {{#if theme_settings.flyout_grid_view '===' false}}
+     {{#if theme_settings.alt_nav_brands_visbility '===' true}}
+     {{#if theme_settings.mega_menu_depth '===' 'three-plus-levels-deep'}}
+         {{> components/custom/mega-shop-nav/1-main-nav-no-images-with-brands}}
+         {{else}}
+           {{> components/custom/mega-shop-nav/1-main-nav-no-images-with-brands-two-levels-deep}}
+     {{/if}}
+     {{/if}}
+   {{/if}}
+ {{else}}
+ {{> components/common/sticky-nav-page-list-call}}
+{{/if}}
+<!-- END CHECK FOR ALT SHOP NAV VISIBILITY -->
+
+
+<!-- STICKY NAV - MEGA-NAV INACTIVE-->
+<div class="right-align-container sticky">
+  <div class="navPages-quickSearch right searchbar sticky">
+    {{> components/common/quick-search}}
+  </div>
+  <div class="user-links sticky">
+      {{#if theme_settings.show_sitewide_login}}
+        {{> components/custom/account-dropdown}}
+      {{else}}
+          {{> components/custom/account-link}}
+      {{/if}}
+      <div class="clear"></div>
+  </div>
+</div>
+
+</div>
+</div>
+{{{region name="header_bottom--global"}}}
+</div>

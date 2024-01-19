@@ -1,0 +1,119 @@
+<div class="top-menu">
+    <div class="content">
+         <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>
+
+        <!-- OPTIONAL SHORT MESSAGE LINK -->
+        <!-- <div class="left">
+          <a class="optional-message-link" href="">Put an optional message here.</a>
+        </div> -->
+
+        <div class="left phone-number">
+            {{#if settings.phone_number}}
+            <a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a>
+            {{/if}}
+        </div>
+
+        <!-- MOBILE LOGIN / LOGOUT -->
+        <div class="right top mobile">
+        {{#if settings.account_creation_enabled}}
+          <div class="mobile-login">
+              <li class="mobile-search">
+                <a aria-label="search" name="search" class="navUser-action account search" href="#"><svg><use xlink:href="#icon-search" /></svg></a>
+                
+              </li>            
+                 <li class="mobile-account">
+                     {{#if customer}}
+                         <a class="mobile-account-icon" href="{{urls.account.index}}"><svg><use xlink:href="#icon-user" /></svg></a>
+                         <a class="mobile-logout-text" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                     {{else}}
+                         <a class="" href="{{urls.auth.login}}"><a class="" href="{{urls.auth.login}}"><svg><use xlink:href="#icon-user" /></svg></a>
+                     {{/if}}
+                  </li>
+          </div>
+        {{/if}}
+
+        <!-- MOBILE CART -->
+        <div class="mobile-cart">
+        <li class="navUser-item navUser-item--cart mobile">
+            <a
+                class="navUser-action"
+                data-cart-preview
+                data-dropdown="cart-preview-dropdown"
+                data-options="align:right"
+                href="{{urls.cart}}">
+                <span class="navUser-item-cartLabel"><svg><use xlink:href="#icon-cart" /></svg></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+
+            <!-- <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div> -->
+        </li>
+      </div>
+    </div>
+
+        {{#if theme_settings.sticky_topMenu '===' true}}
+          <nav class="navPages sticky-nav search">
+              <div class="navPages-quickSearch searchbar">
+                  {{> components/common/quick-search}}
+              </div>
+          </nav>
+        {{/if}}
+
+        <div class="right account-links {{#if customer}} logout-visible{{/if}}">
+          {{#if settings.gift_certificates_enabled}}
+                <div class="account-link gift-certificates">
+                   <a href="{{urls.gift_certificate.purchase}}">{{lang 'Gift Certificates'}}</a>
+                </div>
+           {{/if}}
+
+           {{#if settings.show_wishlist}}
+                <div class="account-link wishlist">
+                  <a href="/wishlist.php">Wishlist</a>
+                </div>
+          {{/if}}
+
+          <div class="account-link currency-converter">
+            <ul class="navPages-list navPages-list--user">
+                {{#if currency_selector.currencies.length '>' 1}}
+                    <li class="navPages-item">
+                        <a class="navPages-action has-subMenu" href="#" data-collapsible="navPages-currency" aria-controls="navPages-currency" aria-expanded="false">
+                            {{lang 'common.currency' code=currency_selector.active_currency_code}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use></svg></i>
+                        </a>
+                        <div class="navPage-subMenu" id="navPages-currency" aria-hidden="true" tabindex="-1">
+                            <ul class="navPnavPagesage-subMenu-list">
+                                {{#each currency_selector.currencies}}
+                                <li class="navPage-subMenu-item">
+                                    <a class="navPage-subMenu-action navPages-action" href="{{{switch_url}}}">
+                                        {{#if is_active}}
+                                            <strong>{{name}}</strong>
+                                        {{else}}
+                                            {{name}}
+                                        {{/if}}
+                                    </a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </li>
+                {{/if}}
+            </ul>
+          </div>
+
+
+            {{#if settings.account_creation_enabled}}
+              <div class="mobile-login top-account-access">
+                     <li class="">
+                         {{#if customer}}
+                             <a class="" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                         {{else}}
+                             <!-- <a class="" href="{{urls.auth.login}}"><a class="" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>&nbsp;<span class="">or</span>&nbsp;<a class="" href="{{urls.auth.create_account}}">{{lang 'Sign Up'}}</a> -->
+                         {{/if}}
+                      </li>
+              </div>
+            {{/if}}
+
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,916 @@
+// =============================================================================
+// Stencil Checkout  - Customize the checkout experience
+// =============================================================================
+h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	color: stencilColor("color-textBase");
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+}
+
+p a {
+	color: stencilColor("color-textBase");
+}
+
+.header {
+	background-color: stencilColor("optimizedCheckout-body-backgroundColor");
+	border-color: stencilColor("container-border-global-color-dark");
+	border: none;
+}
+
+#tabcontent {
+	border-radius: 0;
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+#Header > .inner {
+	max-width: 960px;
+	border-bottom: 1px solid;
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+.page {
+	background-color: stencilColor("optimizedCheckout-body-backgroundColor");
+}
+
+.main .inner {
+	background-color: stencilColor("optimizedCheckout-body-backgroundColor");
+	max-width: 960px;
+}
+
+div.selector {
+	border-radius: 0;
+}
+
+input.Textbox, textarea, input[type="text"], input[type="password"] {
+	border-radius: 0;
+}
+
+input.btn {
+	border-radius: 0;
+}
+
+.header-logo a {
+	text-transform: uppercase;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 600;
+	letter-spacing: 0;
+	font-size: 32px;
+	color: stencilColor("color-textBase");
+	line-height: 32px;
+}
+
+.header-logo a:hover {
+	color: stencilColor("color-primary");
+}
+
+.Content h3 {
+	 background-color: transparent;
+   border: none;
+   text-transform: capitalize;
+   background-color: transparent;
+   font-weight: 300;
+   font-size: 28px;
+   font-family: 'Roboto', sans-serif;
+   padding-left: 0;
+   margin-bottom: 0;
+   color: stencilColor("color-textBase");
+   margin-top: 0;
+}
+
+label {
+	font-size: 14px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 600;
+	text-transform: capitalize;
+	color: stencilColor("color-textBase");
+	margin-right: 10px;
+}
+
+input.btn {
+		border-top: none !important;
+		border-left: none !important;
+		border-right: none !important;
+    // border-bottom: 3px solid !important;
+    // border-color: stencilColor("forms-submitButton-borderColor") !important;
+    // font-weight: 600;
+    // font-size: 18px;
+    // font-family: 'Roboto Condensed', sans-serif !important;
+    // background-color: stencilColor("color-primary");
+    padding: 0px 30px;
+    height: 32px;
+    line-height: 32px;
+    letter-spacing: 0;
+		font-family: stencilFontFamily("forms-submitButton-fontFamily");
+		font-weight: stencilFontWeight("forms-submitButton-fontFamily");
+		background-color: stencilColor("forms-submitButton-bgColor");
+		color: stencilColor("forms-submitButton-fontColor");
+		border-bottom: 3px solid;
+		border-color: stencilColor("forms-submitButton-borderColor");
+}
+
+input.btn:hover {
+	// background: stencilColor("button--primary-backgroundColorHover");
+	// border-bottom: 3px solid;
+	// border-color: stencilColor("forms-submitButton-borderHoverColor") !important;
+	background-color: stencilColor("forms-submitButton-bgHoverColor");
+	color: stencilColor("forms-submitButton-fontHoverColor");
+	background: stencilColor("forms-submitButton-bgHoverColor");
+	border-bottom: 3px solid;
+	border-color: stencilColor("forms-submitButton-borderHoverColor");
+}
+
+.Required {
+	color: stencilColor("color-primary");
+}
+
+.ExpressCheckoutBlockCompleted a.ChangeLink {
+	border-radius: 0;
+	border-top: none;
+		border-left: none;
+		border-right: none;
+    border-bottom: 3px solid;
+    border-color: rgba(0, 0, 0, 0.35);
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    padding: 0px 30px;
+    height: 32px;
+    line-height: 32px;
+    letter-spacing: 0.05rem;
+    color: #ffffff;
+    text-transform: uppercase;
+		font-family: stencilFontFamily("forms-submitButton-fontFamily") !important;
+		font-weight: stencilFontWeight("forms-submitButton-fontFamily") !important;
+		background-color: stencilColor("forms-submitButton-bgColor") !important;
+		color: stencilColor("forms-submitButton-fontColor") !important;
+		border-bottom: 3px solid !important;
+		border-color: stencilColor("forms-submitButton-borderColor") !important;
+}
+
+.ExpressCheckoutBlockCompleted a.ChangeLink:hover {
+	background-color: stencilColor("forms-submitButton-bgHoverColor") !important;
+	color: #ffffff !important;
+	background: stencilColor("forms-submitButton-bgHoverColor") !important;
+	border-bottom: 3px solid !important;
+	border-color: stencilColor("forms-submitButton-borderHoverColor") !important;
+}
+
+.CartContents thead {
+	background-color: stencilColor("card--alternate-backgroundColor");
+	color: stencilColor("color-textBase");
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+.CartContents tfoot .CheckoutRedeemCoupon {
+	background-color: stencilColor("card--alternate-backgroundColor");
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+.CartContents tfoot .CheckoutRedeemCoupon td {
+	border-color: stencilColor("container-border-global-color-dark");
+	padding: 10px 15px;
+}
+
+.CartContents tfoot .SubTotal td {
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+table tbody tr td, table.General tbody tr td, table.CartContents tbody tr td, .CompareFieldName {
+	color: stencilColor("color-textBase");
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+tbody tr td span.Availability {
+	color: stencilColor("color-textBase");
+}
+
+p {
+	color: stencilColor("color-textBase");
+}
+
+.ExpressCheckoutBlock {
+  border-color: stencilColor("container-border-global-color-dark");
+}
+
+tr.SubTotal {
+	color: stencilColor("color-textBase");
+}
+
+div#payment_options {
+	color: stencilColor("color-textBase");
+}
+
+.CheckoutOrderComments {
+	color: stencilColor("color-textBase");
+}
+
+.PTB20 {
+	color: stencilColor("color-textBase");
+}
+
+.ExpressCheckoutBlockCollapsed .ExpressCheckoutTitle h3 {
+	color: stencilColor("color-textBase");
+	opacity: .75
+}
+
+div.radio span {
+	/*background-position: -20px -80px;*/
+}
+
+div.radio span.checked {
+	background-position: -20px -80px;
+}
+
+textarea {
+	background-color: stencilColor("card--alternate-backgroundColor");
+	border-color: stencilColor("container-border-global-color-dark");
+	color: stencilColor("color-textBase");
+}
+
+input.Textbox {
+	background-color: stencilColor("input-bg-color");
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+.ExpressCheckoutBlock .step {
+	background-color: stencilColor("color-grey");
+}
+
+.InfoMessage {
+	background-color: stencilColor("card--alternate-backgroundColor");
+	border: 1px solid;
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+.footer-links > .inner {
+	max-width: 960px;
+}
+
+div.selector span {
+	background-color: stencilColor("input-bg-color");
+	border: none;
+	padding: 0 15px;
+	height: 35px;
+	line-height: 35px;
+}
+
+#uniform-sel_billing_address {
+	border: 1px solid;
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+div.selector {
+	border: none;
+	border: 1px solid;
+	border-color: stencilColor("container-border-global-color-dark");
+	background-color: stencilColor("input-bg-color") !important;
+	height: 37px;
+	line-height: 35px;
+	min-height: 35px !important;
+}
+
+body {
+	color: stencilColor("color-textBase");
+}
+
+form .HorizontalFormContainer dd {
+	width: 225px;
+	line-height: 35px;
+}
+
+input, select, textarea, input.Textbox, input[type="text"], #SearchForm input {
+	color: stencilColor("color-textBase");
+}
+
+.CartContents tfoot .CheckoutRedeemCoupon td .Textbox {
+	height: 32px;
+}
+
+.HorizontalFormContainer dd .selector span {
+	color: stencilColor("color-textBase");
+	border: none;
+	height: 35px;
+	line-height: 35px;
+}
+
+input, select, textarea, input.Textbox, input[type="text"], #SearchForm input {
+	height: 35px;
+}
+
+.ErrorMessage {
+    background-color: stencilColor("card--alternate-backgroundColor");
+}
+
+a.btn.js-share-button {
+	border-radius: 0;
+	background-color: stencilColor("card-figcaption-button-background");
+	color: stencilColor("card-figcaption-button-color");
+	border-bottom: 3px solid;
+	border-color: stencilColor("color-greyDarker");
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 14px;
+	letter-spacing: 0;
+	font-weight: bold;
+}
+
+#tabcontent {
+	background-color: stencilColor("card--alternate-backgroundColor");
+}
+
+#tabcontent #url {
+	color: stencilColor("color-primary");
+	padding-top: 5px;
+}
+
+a.btn.js-share-button:hover {
+	background-color: stencilColor("color-primary");
+	color: #ffffff !important;
+	border-color: stencilColor("button--default-borderColorHover");
+}
+
+.ProductActionAdd {
+	position: absolute;
+	bottom: 5px;
+	left: 15px;
+}
+
+.ProductActionAdd .btn {
+	border-radius: 0;
+	background-color: stencilColor("card-figcaption-button-background");
+	color: stencilColor("card-figcaption-button-color");
+	border-bottom: 3px solid;
+	border-color: rgba(0, 0, 0, 0.35);
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 14px;
+	letter-spacing: 0;
+	font-weight: bold;
+	padding: 5px 20px;
+}
+
+.ProductList .pname {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+em.p-price {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.ProductActionAdd .btn:hover {
+	background-color: stencilColor("color-primary");
+	color: #ffffff !important;
+	border-color: rgba(0, 0, 0, 0.35);
+}
+
+#SimilarMultiProductsByCustomerViews .ProductList {
+	margin-left: 0 !important;
+}
+
+#SimilarMultiProductsByCustomerViews .ProductList li {
+	background-color: stencilColor("card--alternate-backgroundColor");
+	padding: 0;
+	width: 19.4%;
+	margin: 0 2.5px;
+	min-height: 325px;
+	position: relative;
+}
+
+.Content h1 {
+	font-size: 28px;
+	font-family: 'Roboto', sans-serif;
+	color: stencilColor("color-textBase");
+}
+
+.ProductList .pname {
+	color: stencilColor("color-textBase");
+}
+
+.ExpressCheckoutBlock {
+	padding: 30px 0;
+}
+
+.checkout-banner {
+	border-color: stencilColor("container-border-global-color-dark");
+}
+
+.checkout-banner a {
+	color: stencilColor("color-textBase");
+}
+
+a:hover {
+	color: stencilColor("color-primary") !important;
+}
+
+.ProductList .ProductImage a, .ProductThumbImage a {
+	height: auto !important;
+}
+
+.ProductPriceRating {
+	display: none;
+}
+
+.WrappingOptions {
+	color: stencilColor("color-textBase") !important;
+}
+
+a.pname {
+	text-align: left;
+	padding: 5px 15px;
+}
+
+.ProductList .pname {
+	text-align: left !important;
+}
+
+em.p-price {
+	text-align: left !important;
+	padding: 5px 15px;
+}
+
+.ProductList .ProductDetails {
+  line-height: 1.25;
+  height: 40px;
+  overflow: hidden;
+}
+
+.ExpressCheckoutBlock .ExpressCheckoutTitle h3 {
+    display: inline-block!important;
+}
+
+form#LoginForm a {
+	color: stencilColor("contentPage-anchor-fontColor");
+}
+
+form#LoginForm a:hover {
+	color: stencilColor("contentPage-anchor-fontHoverColor") !important;
+}
+
+div.selector select {
+	background: stencilColor("input-bg-color") !important;
+}
+
+select option {
+	background: stencilColor("input-bg-color") !important;
+}
+
+#uniform-eway_ccexpm, #uniform-eway_ccexpy, #uniform-creditcard_ccexpm, #uniform-creditcard_ccexpy, #uniform-cc_ccexpm, #uniform-cc_ccexpy, #uniform-NMI_ccexpm, #uniform-NMI_ccexpy, #uniform-AuthorizeNet_ccexpm, #uniform-AuthorizeNet_ccexpy {
+	width: 100% !important;
+}
+
+.footer {
+	padding: 0;
+	border: none;
+	border-color: stencilColr(color-grey);
+}
+
+footer .footer-top .content {
+    max-width: 960px;
+    margin: 0 auto;
+    line-height: 45px;
+}
+
+.footer-top.newsletter {
+    background-color: stencilColor("newsletter-bgColor");
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-top.newsletter form.form {
+    float: right;
+    height: 45px !important;
+    line-height: 45px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 7px !important;
+		width: 35%;
+}
+
+input.button.button--primary.form-prefixPostfix-button--postfix {
+	text-transform: uppercase;
+  margin-left: 0;
+  border-radius: 0;
+  padding: 0;
+  height: 42px !important;
+  line-height: 42px;
+  padding: 0 30px;
+  margin-left: 5px;
+  border-top: none;
+	border-left: none;
+	border-right: none;
+	font-family: stencilFontFamily("forms-submitButton-fontFamily");
+	font-weight: stencilFontWeight("forms-submitButton-fontFamily");
+	background-color: stencilColor("forms-submitButton-bgColor");
+	color: stencilColor("forms-submitButton-fontColor");
+	border-bottom: 3px solid;
+	border-color: stencilColor("forms-submitButton-borderColor");
+}
+
+input.button.button--primary.form-prefixPostfix-button--postfix:hover  {
+	background-color: stencilColor("forms-submitButton-bgHoverColor");
+	color: stencilColor("forms-submitButton-fontHoverColor");
+	background: stencilColor("forms-submitButton-bgHoverColor");
+	border-bottom: 3px solid;
+	border-color: stencilColor("forms-submitButton-borderHoverColor");
+ }
+
+.footer-top.newsletter .form-prefixPostfix .button {
+    text-transform: uppercase;
+    margin-left: 0;
+    border-radius: 0;
+    padding: 0;
+    height: 32px !important;
+    line-height: 32px;
+    padding: 0 30px;
+    margin-left: 5px;
+    border-bottom: 3px solid;
+		color: #ffffff;
+		background-color: stencilColor("newsletter-button-bgColor");
+		border-color: stencilColor("newsletter-button-borderColor");
+}
+
+.footer-top.newsletter .form-prefixPostfix .button:hover {
+	background: stencilColor("newsletter-button-bgHoverColor");
+	border-bottom: 3px solid;
+	border-color: stencilColor("newsletter-button-borderHoverColor");
+	color: #ffffff;
+}
+
+.footer-top h5 {
+	float: left;
+	font-size: 20px;
+	text-transform: uppercase;
+	padding-right: 10px;
+	line-hieght: 45px !important;
+}
+
+h5.footer-info-heading {
+	color: stencilColor('navPages-color');
+  margin: 0;
+  font-size: 16px;
+  padding-bottom: 5px;
+	font-family: stencilFontFamily("footerHeaders-font"), Arial, Helvetica, sans-serif;
+  font-weight: stencilFontWeight("footerHeaders-font");
+}
+
+.footer-top.newsletter h5 {
+	font-size: 20px;
+}
+
+.footer-bottom {
+	background-color: stencilColor("footerCopyrightBar-bgColor");
+	height: 33px;
+	line-height: 33px;
+	border-bottom: none;
+	border-top: 3px solid;
+	border-color: stencilColor("footerCopyrightBar-borderColor");
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: stencilFontFamily("footerCopyrightBar-font"), Arial, Helvetica, sans-serif;
+	font-weight: stencilFontWeight("footerCopyrightBar-font");
+}
+
+.footer-bottom .content {
+	max-width: 960px;
+	margin: 0 auto;
+	line-height: 29px;
+	font-size: 12px;
+}
+
+.footer-info-col--small {
+	width: 25%;
+	margin-bottom: 0
+}
+
+footer ul.site-info {
+	margin-bottom: 0
+}
+
+.socialLinks {
+	padding-top: 5px;
+}
+
+.socialLinks--alt .icon {
+    height: 25px;
+    width: 25px;
+}
+
+footer a {
+	color: stencilColor("navPages-color");
+	text-deocoration: none !important;
+}
+
+.footer-info-list a {
+	color: stencilColor("navPages-color");
+	text-decoration: none;
+	// font-family: 'Roboto',sans-serif !important;
+	display: inline-block;
+	padding: 0;
+	// font-weight: 400;
+}
+
+.footer-info-list {
+	font-family: stencilFontFamily("footerInfoList-font"), Arial, Helvetica, sans-serif;
+	font-weight: stencilFontWeight("footerInfoList-font");
+}
+
+footer ul {
+	margin-left: 0
+}
+
+footer address {
+	color: stencilColor("color-secondary");
+}
+
+footer ul li {
+	color: stencilColor("color-black");
+	list-style-type: none;
+	padding-bottom: 5px;
+	// font-family: 'Roboto',sans-serif !important;
+}
+
+.footer-bottom span {
+	// font-family: 'Roboto',sans-serif !important;
+	color: stencilColor("footerCopyrightBar-fontColor");
+}
+
+.footer-bottom ul li a {
+	color: stencilColor("footerCopyrightBar-fontColor");
+	// font-family: 'Roboto',sans-serif !important;
+}
+
+.footer-bottom ul li {
+	color: stencilColor("footerCopyrightBar-fontColor");
+}
+
+.footer-bottom ul li a:hover {
+	color: stencilColor("color-primary");
+}
+
+footer ul li a {
+	text-decoration: none;
+}
+
+footer-info .regular {
+	line-height: 25px;
+}
+
+ul.site-info li {
+    display: inline-block;
+}
+
+footer .navUser-action {
+	font-family: stencilFontFamily("footerInfoList-font"), Arial, Helvetica, sans-serif;
+  font-weight: stencilFontWeight("footerInfoList-font");
+}
+
+footer address {
+	font-style: normal;
+	font-family: stencilFontFamily("footerInfoList-font"), Arial, Helvetica, sans-serif;
+  font-weight: stencilFontWeight("footerInfoList-font");
+}
+
+.footer-info {
+	padding-bottom: 15px;
+	clear: both;
+	padding-top: 30px;
+}
+
+.footer-copyright {
+    text-align: right;
+    margin-bottom: -20px;
+}
+
+.footer-info-list a:hover {
+    color: stencilColor("color-primary");
+}
+
+.form-prefixPostfix .button {
+	text-transform: uppercase;
+	margin-left: 0;
+	border-radius: 0 5px 5px 0;
+	padding: 15px;
+}
+
+.form-prefixPostfix .form-input {
+	border-radius: 5px 0 0 5px;
+}
+
+.footer-payment-icons {
+	margin-top: 0;
+	float: left;
+	width: 50%;
+	text-align: left;
+	margin-left: 5px;
+}
+
+.footer-top.newsletter h5 {
+	font-family: stencilFontFamily("newsletter-font"), Arial, Helvetica, sans-serif;
+	font-weight: stencilFontWeight("newsletter-font");
+	color: stencilColor("newsletter-fontColor");
+	font-size: stencilNumber("newsletter-fontSize");
+}
+
+svg.footer-payment-icon.amex {
+    width: 4.5rem;
+}
+
+svg.footer-payment-icon.discover {
+    width: 6.5rem;
+}
+
+svg.footer-payment-icon.paypal {
+    width: 5rem;
+    padding-top: 4px;
+}
+
+.footer-copyright > .powered-by {
+	padding-top: 15px;
+	width: 50%;
+	float: right;
+	margin-right: -10px;
+}
+
+.footer .navPages ul li {
+	float: none;
+	text-align: left;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.footer .navPages-action {
+	padding: 0;
+	// font-weight: 400;
+	font-size: 1rem;
+}
+
+footer ul.navPages-list {
+    display: none;
+}
+
+a.lone-star-templates {
+    font-weight: 900;
+}
+
+.backtoTop {
+	opacity: 0;
+	bottom: 48px;
+	right: 15px;
+	cursor: pointer;
+	position: fixed;
+	transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.backtoTop.visible {
+	opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.footer-info .navUser-or {
+	padding: 0 12px;
+	color: stencilColor("navPages-color");
+}
+
+.fa-toggle-up:before, .fa-caret-square-o-up:before {
+	font-size: 30px;
+	color: stencilColor("backToTopColor");
+}
+
+.backtoTop.visible:hover > .fa-caret-square-o-up:before {
+	color: stencilColor("backToTopHoverColor");
+}
+
+.footer-top.newsletter input#nl_email::placeholder {
+	color: stencilColor("input-font-color");
+	text-align: left;
+}
+
+.footer-top.newsletter input#nl_email {
+	text-align: left;
+}
+
+.footer-top.newsletter h5 {
+  line-height: 45px !important;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+ul.site-info li {
+    display: inline-block;
+}
+
+footer ul li {
+    list-style-type: none;
+    padding-bottom: 5px;
+}
+
+.footer-bottom .content {
+    width: 100%;
+		max-width: 92.30769rem;
+		min-height: 15.38462rem;
+    margin: 0 auto;
+    line-height: 29px;
+    font-size: 12px;
+}
+
+footer .content {
+    width: 100% !important;
+		max-width: 92.30769rem !important;
+		min-height: 15.38462rem !important;
+    margin: 0 auto !important;
+    line-height: 29px !important;
+    font-size: 12px !important;
+    padding: 0 2.75rem 7.5rem !important;
+}
+
+footer .container {
+  width: 100% !important;
+  max-width: 92.30769rem !important;
+  min-height: 15.38462rem !important;
+  margin: 0 auto !important;
+  line-height: 29px !important;
+  font-size: 12px !important;
+  padding: 0 2.75rem 7.5rem !important;
+}
+
+.footer-info-list a.navUser-action {
+	padding-left: 0 !important;
+}
+
+#SimilarMultiProductsByCustomerViews .ProductList li {
+    background-color: #f2f2f2;
+    padding: 0;
+    width: 24.4%;
+    margin: 0 2.5px;
+    min-height: 375px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width : 925px) {
+	#SimilarMultiProductsByCustomerViews .ProductList li {
+		width: 24.3%;
+	}
+}
+
+@media only screen and (max-width : 800px) {
+	#SimilarMultiProductsByCustomerViews .ProductList li {
+		width: 24.2%;
+	}
+}
+
+@media only screen and (max-width : 700px) {
+	#SimilarMultiProductsByCustomerViews .ProductList li {
+		width: 24%;
+	}
+}
+
+@media only screen and (max-width : 600px) {
+	.inner .Block {
+		padding: 0 15px;
+	}
+
+	#SimilarMultiProductsByCustomerViews .ProductList li {
+		width: 48%;
+	}
+
+	.ProductActionAdd {
+		display: block !important;
+	}
+}
+
+
+@media only screen and (max-width : 480px) {
+
+.Block.ExpressCheckout {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.ExpressCheckoutContent .HorizontalFormContainer dd {
+	width: 100%;
+}
+
+form {
+	width: 95%;
+	margin: 0 auto;
+}
+}

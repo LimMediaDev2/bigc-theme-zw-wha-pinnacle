@@ -1,0 +1,47 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{!-- LimMedia.io --}}
+{{inject 'sfToken' settings.storefront_api.token}}
+{{#partial "hero"}}
+
+{{/partial}}
+
+{{#partial "page"}}
+
+<div class="clear"></div>
+
+<div class="home{{#if theme_settings.home_page_with_sidenav '!==' false}} home-page-with-sidenav{{/if}} {{#if theme_settings.home_page_with_sidenav '===' false}} home-page-no-sidenav {{/if}} {{#if theme_settings.homepage_show_carousel '!==' true}} no-hero-carousel{{/if}} {{#if theme_settings.slider_width '!==' 'full-width-slider'}} slider-in-container{{/if}}">
+
+    {{#if ../theme_settings.home_page_with_sidenav '===' false}}
+      {{> components/page/home-page-no-sidenav}}
+    {{/if}}
+
+    <!-- SHOW SIDENAV BELOW CAROUSEL -->
+    {{#if ../theme_settings.home_page_with_sidenav '===' true}}
+    {{#if theme_settings.slider_width '!==' 'in-container-floated'}}
+        {{> components/page/home-page-with-sidenav}}
+      {{/if}}
+    {{/if}}
+
+    <!-- SHOW SIDENAV NEXT TO CAROUSEL -->
+    {{#if ../theme_settings.home_page_with_sidenav '===' true}}
+    {{#if theme_settings.slider_width '===' 'in-container-floated'}}
+        {{> components/page/home-page-with-sidenav-float-carousel}}
+      {{/if}}
+    {{/if}}
+
+</div>
+
+{{/partial}}
+{{> layout/home-layout}}

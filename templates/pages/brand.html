@@ -1,0 +1,88 @@
+---
+brand:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{inject "brandProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.brand.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.brand.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+{{{region name="brand_below_menu--global"}}}
+{{{region name="brand_below_menu"}}}
+    {{> components/custom/brand-sidenav}}
+
+<div class="brand main {{#if theme_settings.top_pagination_visibility '===' false}}top-pagination-hidden {{/if}} {{#if theme_settings.bottom_pagination_visibility '===' false}}bottom-pagination-hidden {{/if}}">
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<h1 class="container-header">{{brand.name}}</h1>
+{{{region name="brand_below_header--global"}}}
+{{{region name="brand_below_header"}}}
+{{#if brand.image}}
+<!-- <div class="brand-main-image">
+  <img src="{{getImage brand.image 'thumb'}}">
+</div> -->
+{{/if}}
+{{{snippet 'brand'}}}
+
+<!-- GRID/LIST TOGGLE BUTTONS - GRID BY DEFAULT -->
+{{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+  <div class="grid-list-view toggle">
+    <a class="toggle-link grid active" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+    <a class="toggle-link list" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+    <div class="clear"></div>
+  </div>
+{{/if}}
+
+<!-- GRID/LIST TOGGLE BUTTONS - LIST BY DEFAULT -->
+{{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+  <div class="grid-list-view toggle">
+    <a class="toggle-link list active" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+    <a class="toggle-link grid" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+    <div class="clear"></div>
+  </div>
+{{/if}}
+<div class="page">
+    <main class="page-content {{#if theme_settings.product_layout_view '===' 'both_grid_default'}} both-grid-list-views{{/if}} {{#if theme_settings.product_layout_view '===' 'both_list_default'}} both-grid-list-views list-default{{/if}}" id="product-listing-container">
+        {{#if brand.products}}
+            {{> components/brand/product-listing columns=theme_settings.category_brand_search_productGrid_column_count}}
+        {{else}}
+            <p>{{lang 'brands.no_products'}}</p>
+        {{/if}}
+    </main>
+
+    <div class="compare">
+            <a class="navUser-action navUser-item--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'Compare Selected'}}</a>
+    </div>
+
+    {{{region name="brand_below_content--global"}}}
+    {{{region name="brand_below_content"}}}
+
+    <div class="clear"></div>
+
+
+    <!-- INSTAGRAM FEED -->
+    {{#if theme_settings.feed_position '===' 'above-footer'}}
+    {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+    <div class="instagram-feed above-footer">
+      {{> components/custom/instagram-feed}}
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+    {{/if}}
+
+</div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

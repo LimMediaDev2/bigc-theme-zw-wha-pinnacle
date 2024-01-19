@@ -1,0 +1,83 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{!-- LimMedia.io --}}
+{{inject 'sfToken' settings.storefront_api.token}}
+{{#partial "page"}}
+
+{{{region name="product_below_menu--global"}}}
+{{{region name="product_below_menu"}}}
+<div class="recommended-visibility{{#if theme_settings.productpage_related_products_count '===' 0}} disabled{{/if}}">
+    <div class="product main left{{#if theme_settings.product_page_with_sidenav '!==' false}} product-page-with-sidenav{{/if}} {{#if theme_settings.product_page_layout '===' 'recommended-below'}}full-width {{/if}} {{#if theme_settings.product_page_with_sidenav '===' true}} no-sidenav{{/if}}">
+      <div class="recommended-position{{#if theme_settings.product_page_layout '===' 'recommended-below'}} below{{/if}}">
+        {{#if ../theme_settings.product_page_with_sidenav '===' false}}
+          {{> components/page/product-page-no-sidenav}}
+        {{/if}}
+        {{#if ../theme_settings.product_page_with_sidenav '===' true}}
+          {{> components/page/product-page-with-sidenav}}
+        {{/if}}
+        {{#if ../theme_settings.product_page_layout '===' 'recommended-below'}}
+          {{> components/page/product-page-with-recommended-below}}
+        {{/if}}
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+{{> components/products/schema}}
+{{/partial}}
+{{> layout/product}}
+
+<!---   Start Custom Klaviyo Code ---- Do Not remove from Files ---->
+<script type="text/javascript">
+var _learnq = _learnq || [];
+
+var product_categories = [];
+{{#each product.category}}
+product_categories.push('{{this}}')
+{{/each}}
+
+var item = {
+Name: "{{product.title}}",
+ProductID: "{{product.id}}",
+ImageURL: "{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}",
+URL: "{{product.url}}",
+Brand: "{{product.brand.name}}",
+Categories: product_categories,
+Price: "{{product.price.without_tax.value}}",
+CompareAtPrice:"{{product.price.rrp_without_tax.value}}"
+};
+
+_learnq.push(['track', 'Viewed Product', item]);
+
+_learnq.push(['trackViewedItem', {
+Title: item.Name,
+ItemId: item.ProductID,
+Categories: item.Categories,
+ImageUrl: item.ImageURL,
+Url: item.URL,
+Metadata: {
+Brand: item.Brand,
+Price: item.Price,
+CompareAtPrice: item.CompareAtPrice
+}
+}]);
+</script>
+
+<script text="text/javascript">
+var _learnq = _learnq || [];
+document.getElementById("form-action-addToCart").addEventListener('click',function (){
+ _learnq.push(['track', 'Added to Cart', item]);
+});
+</script>
+<!---   END Custom Klaviyo Code ---- Do Not remove from Files ---->

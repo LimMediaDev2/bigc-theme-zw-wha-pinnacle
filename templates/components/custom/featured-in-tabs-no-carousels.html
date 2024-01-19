@@ -1,0 +1,99 @@
+<div class="in-tabs">
+  <ul class="tabs" data-tab>
+            <!-- IF FEATURED PRODUCTS EXIST -->
+            {{#if products.featured}}
+              <li class="tab is-active featured">
+                <a class="tab-title" href="#tab-featured-products">Featured Products</a>
+              </li>
+
+            {{#if products.top_sellers}}
+              <li class="tab top">
+                <a class="tab-title" href="#tab-top-sellers">Top Sellers</a>
+              </li>
+            {{/if}}
+
+            {{#if products.new}}
+              <li class="tab new">
+                <a class="tab-title" href="#tab-new-products">New Products</a>
+              </li>
+            {{/if}}
+              <!-- END IF FEATURED PRODUCTS EXIST -->
+
+            <!-- IF NO FEATURED PRODUCTS BUT TOP PRODUCTS EXIST -->
+            {{else if products.top_sellers}}
+              {{#if products.top_sellers}}
+                <li class="tab is-active top">
+                  <a class="tab-title" href="#tab-top-sellers">Top Sellers</a>
+                </li>
+              {{/if}}
+              {{#if products.new}}
+                <li class="tab new">
+                  <a class="tab-title" href="#tab-new-products">New Products</a>
+                </li>
+              {{/if}}
+              <!-- END IF NO FEATURED PRODUCTS BUT TOP PRODUCTS EXIST -->
+
+              <!-- IF NO FEATURED OR TOP SELLER PRODUCTS BUT NEW PRODUCTS EXIST -->
+              {{else}}
+                {{#if products.new}}
+                  <li class="tab is-active top">
+                    <a class="tab-title" href="#tab-top-sellers">Top Sellers</a>
+                  </li>
+                {{/if}}
+                <!-- END IF NO FEATURED OR TOP SELLER PRODUCTS BUT NEW PRODUCTS EXIST -->
+          {{/if}}
+  </ul>
+        <!-- IF FEATURED PRODUCTS EXIST -->
+        {{#if products.featured}}
+          <div class="tabs-contents">
+            <div class="tab-content is-active" id="tab-featured-products">
+            {{> components/products/featured products=products.featured columns=theme_settings.homepage_productGrid_column_count}}
+          </div>
+
+        {{#if products.top_sellers}}
+          <div class="tab-content" id="tab-top-sellers">
+            {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_productGrid_column_count}}
+          </div>
+        {{/if}}
+
+        {{#if products.new}}
+          <div class="tab-content" id="tab-new-products">
+            {{> components/products/new products=products.new columns=theme_settings.homepage_productGrid_column_count}}
+          </div>
+        {{/if}}
+        <!-- END IF FEATURED PRODUCTS EXIST -->
+
+        <!-- IF NO FEATURED PRODUCTS BUT TOP PRODUCTS EXIST -->
+        {{else if products.top_sellers}}
+          {{#if products.top_sellers}}
+            <div class="tab-content is-active" id="tab-top-sellers">
+              {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_productGrid_column_count}}
+            </div>
+          {{/if}}
+
+          {{#if products.new}}
+            <div class="tab-content" id="tab-new-products">
+              {{> components/products/new products=products.new columns=theme_settings.homepage_productGrid_column_count}}
+            </div>
+          {{/if}}
+          <!-- END IF NO FEATURED PRODUCTS BUT TOP PRODUCTS EXIST -->
+
+        <!-- IF NO FEATURED OR TOP SELLER PRODUCTS BUT NEW PRODUCTS EXIST -->
+        {{else}}
+          {{#if products.new}}
+            <div class="tab-content is-active" id="tab-top-sellers">
+              {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_productGrid_column_count}}
+            </div>
+          {{/if}}
+
+          {{#if products.new}}
+            <div class="tab-content" id="tab-new-products">
+              {{> components/products/new products=products.new columns=theme_settings.homepage_productGrid_column_count}}
+            </div>
+          {{/if}}
+          <!-- END IF NO FEATURED OR TOP SELLER PRODUCTS BUT NEW PRODUCTS EXIST -->
+        {{/if}}
+      </div>
+        <div class="clear"></div>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

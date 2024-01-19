@@ -1,0 +1,24 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#partial "page"}}
+
+<main class="page content{{#if theme_settings.content_page_with_sidenav '!==' false}} content-page-with-sidenav{{/if}}">
+
+  {{{region name="page_builder_content_top--global"}}}
+  {{{region name="page_builder_content_top"}}}
+
+    {{#if ../theme_settings.content_page_with_sidenav '===' false}}
+      {{> components/page/content-page-no-sidenav}}
+    {{/if}}
+    {{#if ../theme_settings.content_page_with_sidenav '===' true}}
+      {{> components/page/content-page-with-sidenav}}
+    {{/if}}
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

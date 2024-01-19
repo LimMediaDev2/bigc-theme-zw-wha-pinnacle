@@ -1,0 +1,48 @@
+<div class="navPage-subMenu navPage-subMenu-horizontal flyout second-level no-images two-levels-deep" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+  <div class="category-title">
+    <h2><a class="category-title" href="{{url}}">{{name}}</a></h2>
+    <div class="flyout-pagination-container top">
+      <a class="navPages-action previous">
+        <i class="icon prev" aria-hidden="true">
+          <svg><use xlink:href="#icon-circle-left" /></svg>
+        </i>
+      </a>
+      <!-- <span class="dots"></span> -->
+      <a class="navPages-action next">
+        <i class="icon next" aria-hidden="true">
+          <svg><use xlink:href="#icon-circle-right" /></svg>
+        </i>
+      </a>
+    </div>
+
+  </div>
+    <ul class="navPage-subMenu-list all-second-level-plus-container flyout-page-wrapper">
+        <li class="navPage-subMenu-item-parent">
+            <a class="navPage-subMenu-action navPages-action navPages-action-depth-max {{#if is_active}} activePage{{/if}}" href="{{url}}">{{lang 'category.view_all.name' category=name}}</a>
+        </li>
+        {{#each children}}
+            <li class="navPage-subMenu-item-child second-level-subMenu-plus">
+                {{#if children}}
+                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+                        <span class="top-level-sub">{{name}}</span>
+                    </a>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="top-level-sub">{{name}}</span></a>
+                {{/if}}
+            </li>
+        {{/each}}
+        <div class="flyout-pagination-container bottom">
+          <a class="navPages-action previous">
+            <i class="icon prev" aria-hidden="true">
+              <svg><use xlink:href="#icon-chevron-left" /></svg>
+            </i>
+          </a>
+          <span class="dots"></span>
+          <a class="navPages-action next">
+            <i class="icon next" aria-hidden="true">
+              <svg><use xlink:href="#icon-chevron-left" /></svg>
+            </i>
+          </a>
+        </div>
+    </ul>
+</div>

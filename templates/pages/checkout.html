@@ -1,0 +1,30 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{#partial "head"}}
+
+<script type="text/javascript">
+    window.language = {{{langJson 'optimized_checkout'}}};
+</script>
+
+{{{head.scripts}}}
+
+{{/partial}}
+
+{{#partial "page"}}
+
+<script src="https://use.fontawesome.com/63220265b2.js" async></script>
+<div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+{{> components/common/header}}
+
+{{{ checkout.checkout_content }}}
+
+ {{{ footer.scripts }}}
+
+{{/partial}}
+
+{{> layout/checkout}}

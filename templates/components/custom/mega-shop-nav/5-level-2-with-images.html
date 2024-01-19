@@ -1,0 +1,68 @@
+<div class="navPage-subMenu navPage-subMenu-horizontal flyout second-level with-images" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+  <div class="category-title">
+    <h2><a class="category-title" href="{{url}}">{{name}}</a></h2>
+    <div class="flyout-pagination-container top">
+      <a class="navPages-action previous">
+        <i class="icon prev" aria-hidden="true">
+          <svg><use xlink:href="#icon-circle-left" /></svg>
+        </i>
+      </a>
+      <!-- <span class="dots"></span> -->
+      <a class="navPages-action next">
+        <i class="icon next" aria-hidden="true">
+          <svg><use xlink:href="#icon-circle-right" /></svg>
+        </i>
+      </a>
+    </div>
+  </div>
+
+    <ul class="navPage-subMenu-list all-second-level-plus-container flyout-page-wrapper">
+        {{#each children}}
+            <li class="navPage-subMenu-item-child second-level-subMenu-plus">
+                {{#if children}}
+
+                <a class="category-image zoom-image-container {{#if image '<=' 0}}hidden{{/if}}" href="{{url}}"><div class="category-header-image" style="background-image: url('{{getImage image}}');"></div>
+                  {{#if image '<=' 0}}
+                    <a class="category-image zoom-image-container placeholder" href="{{url}}"><div class="category-header-image placeholder" style="background-image: url( {{getImage image 'gallery' (cdn '../img/image-coming-soon-placeholder.png') }});"></div>
+                  {{/if}}
+
+                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+                        <span class="top-level-sub">{{name}}</span>
+                    </a>
+                    <div class="subMenu-list third-level-plus">
+                      {{> components/custom/mega-shop-nav/6-three-plus-list}}
+                      <div class="clear"></div>
+                    </div>
+                {{else}}
+
+                <a class="category-image zoom-image-container {{#if image '<=' 0}}hidden{{/if}}" href="{{url}}"><div class="category-header-image" style="background-image: url('{{getImage image}}');"></div>
+                  {{#if image '<=' 0}}
+                    <a class="category-image zoom-image-container placeholder" href="{{url}}"><div class="category-header-image placeholder" style="background-image: url( {{getImage image 'gallery' (cdn '../img/image-coming-soon-placeholder.png') }});"></div>
+                  {{/if}}
+
+                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}"><span class="top-level-sub">{{name}}</span></a>
+                {{/if}}
+                <div class="clear"></div>
+            </li>
+        {{/each}}
+        <div class="flyout-pagination-container bottom">
+          <a class="navPages-action previous">
+            <i class="icon prev" aria-hidden="true">
+              <svg><use xlink:href="#icon-chevron-left" /></svg>
+            </i>
+          </a>
+          <span class="dots"></span>
+          <a class="navPages-action next">
+            <i class="icon next" aria-hidden="true">
+              <svg><use xlink:href="#icon-chevron-left" /></svg>
+            </i>
+          </a>
+        </div>
+        <div class="clear"></div>
+    </ul>
+    <div class="clear"></div>
+
+
+    </div>
+
+<div class="clear"></div>

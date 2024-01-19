@@ -1,0 +1,30 @@
+<nav class="navPages with-alt-cat-menu no-images with-brands">
+  {{>components/custom/mega-shop-nav/2-call-level-1-no-images-with-brands}}
+    <ul class="navPages-list">
+        <div class="nav-align{{#if theme_settings.mainNav-align '!==' 'left'}} center{{/if}}">
+        <div class="custom-pages-nav">
+            <h2 class="container-header mobile">Main Menu</h2>
+            {{#each pages}}
+                <li class="navPages-item">
+                    {{> components/common/navigation-list}}
+                </li>
+            {{/each}}
+            <h2 class="container-header mobile">Shop By Category</h2>
+            {{#each categories}}
+                    <li class="navPages-item mobile">
+                        {{> components/common/navigation-list}}
+                    </li>
+                {{/each}}
+            <h2 class="container-header mobile">Shop By Brand</h2>
+            {{#each shop_by_brand}}
+                   <li class="navPages-item mobile">
+                        <a class="navPages-action" href="{{url}}">{{name}}</a>
+                    </li>
+            {{/each}}
+                    <li class="navPages-item mobile">
+                        <a class="navPages-action" href="/brands/">View all Brands</a>
+                    </li>
+            <div class="clear"></div>
+        </div>
+    </ul>
+</nav>

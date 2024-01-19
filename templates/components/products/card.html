@@ -1,0 +1,718 @@
+{{!-- LimMedia.io --}}
+{{#if show_compare}}
+<article class="card compare-enabled {{#if alternate}}card--alternate{{/if}} price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}} {{#if theme_settings.card-brand-name '===' true}}brand-sku-active{{/if}} {{#if theme_settings.card-brand-name '===' false}}brand-hidden{{/if}} {{#if theme_settings.card-sku '===' true}}brand-sku-active{{/if}} {{#if theme_settings.card-sku '===' false}}sku-hidden{{/if}} {{#if theme_settings.card-title-lines '===' '2-lines'}}card-title-two-lines{{/if}} {{#if theme_settings.card-title-lines '===' '3-lines'}}card-title-three-lines{{/if}} {{#if theme_settings.cardTitle-fontSize '==' '14'}}card-title-fourteen{{/if}} {{#if theme_settings.cardTitle-fontSize '==' '16'}}card-title-sixteen{{/if}} {{#if theme_settings.cardTitle-fontFamily '==' 'IBM+Plex+Sans_700'}}ibm-fonts{{/if}}">
+    <figure class="card-figure {{#if images.length '>' 1}} multiple-images{{/if}} {{#if theme_settings.product_hover_images '===' 'active'}} second-hover-img-active{{/if}}">
+    {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+            {{#if theme_settings.product_sale_badges '===' 'sash'}}
+                <div class="sale-flag-sash">
+                    <span class="sale-text">SALE</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'topleft'}}
+                <div class="sale-flag-side">
+                    <span class="sale-text">SALE</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'burst'}}
+                <div class="starwrap">
+                    <div class="sale-text-burst">SALE</div>
+                    <div class="sale-flag-star"></div>
+                </div>
+            {{/if}}
+        {{/or}}
+
+        <a class="image-link desktop" href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+            <img class='card-image primary lazyload' data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+            {{#if theme_settings.product_hover_images '===' 'active'}}
+              {{#each (limit images 2)}}
+                {{#if @index '>' 0}}
+                  <img class='card-image alt lazyload' src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                {{/if}}
+              {{/each}}
+            {{/if}}
+          </a>
+
+        {{#if theme_settings.show_product_quick_view}}
+        <figcaption class="card-figcaption quick-view active">
+            <div class="card-figcaption-body">
+              {{#unless hide_product_quick_view}}
+                  {{#if theme_settings.show_product_quick_view}}
+                      {{#unless demo}}
+                          <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                      {{/unless}}
+                  {{/if}}
+              {{/unless}}
+            </div>
+        </figcaption>
+        {{/if}}
+    </figure>
+
+    <hr  class="card-img-underscore"></hr>
+
+
+        {{#if theme_settings.price_as_low_as '===' true}}
+        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+        <div class="card-body with-as-low-as-pricing purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+          <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}}">
+              <h4 class="card-text brand" data-test-info-type="brandName">{{brand.name}}</h4>
+              {{#if theme_settings.card-brand-name '===' true}}
+               {{#if brand.name}}
+               {{#if theme_settings.card-sku '===' true}}
+               {{#if sku}}
+                 <span class="brand-sku-divider">|</span>
+               {{/if}}
+               {{/if}}
+               {{/if}}
+             {{/if}}
+            <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+              {{#if theme_settings.card-sku '===' true}}
+              {{#if sku}}
+                <span class="sku-label">{{lang 'sku'}}:</span>
+                <span class="sku-value" data-product-sku>{{sku}}</span>
+              {{/if}}
+              {{/if}}
+            </h4>
+          </div>
+
+            <h4 class="card-title">
+                <a href="{{url}}">{{name}}</a>
+            </h4>
+
+                <p class="card-text" data-test-info-type="productRating">
+                    <span class="rating--small">
+                        {{> components/products/ratings rating=rating}}
+                    </span>
+                </p>
+
+
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                  {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                  {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                  {{else}}
+                </div>
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+                </div>
+            </div>
+            {{> components/products/bulk-discount-rates}}
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="card-text add-to-cart-button">
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                            <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+
+                    {{#if show_compare}}
+                        <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                            <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                            <span class="compare-text">{{lang 'products.compare'}}</span>
+                        </label>
+                    {{/if}}
+            </div>
+            {{/or}}
+        </div>
+        {{else if theme_settings.price_as_low_as '===' true}}
+        {{#or customer (if theme_settings.restrict_to_login '===' true)}}
+        <div class="card-body with-as-low-as-pricing purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+          <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}}">
+              <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+              {{#if theme_settings.card-brand-name '===' true}}
+               {{#if brand.name}}
+               {{#if theme_settings.card-sku '===' true}}
+               {{#if sku}}
+                 <span class="brand-sku-divider">|</span>
+               {{/if}}
+               {{/if}}
+               {{/if}}
+             {{/if}}
+            <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+              {{#if theme_settings.card-sku '===' true}}
+              {{#if sku}}
+                <span class="sku-label">{{lang 'sku'}}:</span>
+                <span class="sku-value" data-product-sku>{{sku}}</span>
+              {{/if}}
+              {{/if}}
+            </h4>
+          </div>
+
+            <h4 class="card-title">
+                <a href="{{url}}">{{name}}</a>
+            </h4>
+            {{#if show_rating}}
+                <p class="card-text" data-test-info-type="productRating">
+                    <span class="rating--small">
+                        {{> components/products/ratings rating=rating}}
+                    </span>
+                </p>
+            {{/if}}
+
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                  {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                  {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                  {{else}}
+                </div>
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+                </div>
+            </div>
+            {{> components/products/bulk-discount-rates}}
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="card-text add-to-cart-button">
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                        <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+
+                    {{#if show_compare}}
+                        <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                          <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                          <span class="compare-text">{{lang 'products.compare'}}</span>
+                        </label>
+                    {{/if}}
+            </div>
+            {{/or}}
+        </div>
+
+        {{/or}}
+        {{/or}}
+
+
+          {{else if theme_settings.price_as_low_as '===' false}}
+          {{#or customer (if theme_settings.restrict_to_login '===' false)}}
+          <div class="card-body purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+            <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}} ">
+                <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+                {{#if theme_settings.card-brand-name '===' true}}
+                 {{#if brand.name}}
+                 {{#if theme_settings.card-sku '===' true}}
+                 {{#if sku}}
+                   <span class="brand-sku-divider">|</span>
+                 {{/if}}
+                 {{/if}}
+                 {{/if}}
+               {{/if}}
+              <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+                {{#if theme_settings.card-sku '===' true}}
+                {{#if sku}}
+                  <span class="sku-label">{{lang 'sku'}}:</span>
+                  <span class="sku-value" data-product-sku>{{sku}}</span>
+                {{/if}}
+                {{/if}}
+              </h4>
+            </div>
+
+              <h4 class="card-title">
+                  <a href="{{url}}">{{name}}</a>
+              </h4>
+              {{#if show_rating}}
+                  <p class="card-text" data-test-info-type="productRating">
+                      <span class="rating--small">
+                          {{> components/products/ratings rating=rating}}
+                      </span>
+                  </p>
+              {{/if}}
+
+              <div class="card-text" data-test-info-type="price">
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                    {{else}}
+                  </div>
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                      {{> components/common/login-for-pricing}}
+                  {{/or}}
+                  </div>
+              </div>
+              {{> components/products/bulk-discount-rates}}
+              {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+              <div class="card-text add-to-cart-button">
+                      {{#if show_cart_action}}
+                          {{#if has_options}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                          {{/if}}
+                          {{#if pre_order}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                          {{/if}}
+                          {{#if add_to_cart_url }}
+                              <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                          {{/if}}
+                          {{#if out_of_stock_message }}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                          {{/if}}
+                      {{/if}}
+
+                      {{#if show_compare}}
+                          <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                            <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                            <span class="compare-text">{{lang 'products.compare'}}</span>
+                          </label>
+                      {{/if}}
+              </div>
+              {{/or}}
+          </div>
+
+          {{else}}
+          {{#or customer (if theme_settings.restrict_to_login '===' true)}}
+          <div class="card-body purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+            <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}} ">
+                <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+                {{#if theme_settings.card-brand-name '===' true}}
+                 {{#if brand.name}}
+                 {{#if theme_settings.card-sku '===' true}}
+                 {{#if sku}}
+                   <span class="brand-sku-divider">|</span>
+                 {{/if}}
+                 {{/if}}
+                 {{/if}}
+               {{/if}}
+              <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+                {{#if theme_settings.card-sku '===' true}}
+                {{#if sku}}
+                  <span class="sku-label">{{lang 'sku'}}:</span>
+                  <span class="sku-value" data-product-sku>{{sku}}</span>
+                {{/if}}
+                {{/if}}
+              </h4>
+            </div>
+
+              <h4 class="card-title">
+                  <a href="{{url}}">{{name}}</a>
+              </h4>
+              {{#if show_rating}}
+                  <p class="card-text" data-test-info-type="productRating">
+                      <span class="rating--small">
+                          {{> components/products/ratings rating=rating}}
+                      </span>
+                  </p>
+              {{/if}}
+
+              <div class="card-text" data-test-info-type="price">
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                    {{else}}
+                  </div>
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                      {{> components/common/login-for-pricing}}
+                  {{/or}}
+                  </div>
+              </div>
+              {{> components/products/bulk-discount-rates}}
+              {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+              <div class="card-text add-to-cart-button">
+                      {{#if show_cart_action}}
+                          {{#if has_options}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                          {{/if}}
+                          {{#if pre_order}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                          {{/if}}
+                          {{#if add_to_cart_url }}
+                              <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                          {{/if}}
+                          {{#if out_of_stock_message }}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                          {{/if}}
+                      {{/if}}
+
+                      {{#if show_compare}}
+                          <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                            <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                            <span class="compare-text">{{lang 'products.compare'}}</span>
+                          </label>
+                      {{/if}}
+              </div>
+              {{/or}}
+          </div>
+          {{/or}}
+          {{/or}}
+        {{/if}}
+</article>
+
+
+
+
+
+
+{{else}}
+<article class="card compare-disabled {{#if alternate}}card--alternate{{/if}} price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}} {{#if theme_settings.card-brand-name '===' true}}brand-sku-active{{/if}} {{#if theme_settings.card-brand-name '===' false}}brand-hidden{{/if}} {{#if theme_settings.card-sku '===' true}}brand-sku-active{{/if}} {{#if theme_settings.card-sku '===' false}}sku-hidden{{/if}}  {{#if theme_settings.card-title-lines '===' '2-lines'}}card-title-two-lines{{/if}} {{#if theme_settings.card-title-lines '===' '3-lines'}}card-title-three-lines{{/if}} {{#if theme_settings.cardTitle-fontSize '==' '14'}}card-title-fourteen{{/if}} {{#if theme_settings.cardTitle-fontSize '==' '16'}}card-title-sixteen{{/if}} {{#if theme_settings.cardTitle-fontFamily '==' 'IBM+Plex+Sans_700'}}ibm-fonts{{/if}}">
+    <figure class="card-figure {{#if images.length '>' 1}} multiple-images{{/if}} {{#if theme_settings.product_hover_images '===' 'active'}} second-hover-img-active{{/if}}">
+    {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+            {{#if theme_settings.product_sale_badges '===' 'sash'}}
+                <div class="sale-flag-sash">
+                    <span class="sale-text">SALE</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'topleft'}}
+                <div class="sale-flag-side">
+                    <span class="sale-text">SALE</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'burst'}}
+                <div class="starwrap">
+                    <div class="sale-text-burst">SALE</div>
+                    <div class="sale-flag-star"></div>
+                </div>
+            {{/if}}
+        {{/or}}
+
+        <a class="image-link desktop" href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+            <img class='card-image primary lazyload' data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+            {{#if theme_settings.product_hover_images '===' 'active'}}
+              {{#each (limit images 2)}}
+                {{#if @index '>' 0}}
+                  <img class='card-image alt lazyload' src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                {{/if}}
+              {{/each}}
+            {{/if}}
+          </a>
+
+      {{#if theme_settings.show_product_quick_view}}
+        <figcaption class="card-figcaption quick-view active">
+            <div class="card-figcaption-body">
+              {{#unless hide_product_quick_view}}
+                  {{#if theme_settings.show_product_quick_view}}
+                      {{#unless demo}}
+                          <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                      {{/unless}}
+                  {{/if}}
+              {{/unless}}
+            </div>
+        </figcaption>
+      {{/if}}
+    </figure>
+
+    <hr  class="card-img-underscore"></hr>
+
+
+        {{#if theme_settings.price_as_low_as '===' true}}
+        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+        <div class="card-body with-as-low-as-pricing purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+          <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}} ">
+              <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+              {{#if theme_settings.card-brand-name '===' true}}
+               {{#if brand.name}}
+               {{#if theme_settings.card-sku '===' true}}
+               {{#if sku}}
+                 <span class="brand-sku-divider">|</span>
+               {{/if}}
+               {{/if}}
+               {{/if}}
+             {{/if}}
+            <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+              {{#if theme_settings.card-sku '===' true}}
+              {{#if sku}}
+                <span class="sku-label">{{lang 'sku'}}:</span>
+                <span class="sku-value" data-product-sku>{{sku}}</span>
+              {{/if}}
+              {{/if}}
+            </h4>
+          </div>
+
+            <h4 class="card-title">
+                <a href="{{url}}">{{name}}</a>
+            </h4>
+            {{#if show_rating}}
+                <p class="card-text" data-test-info-type="productRating">
+                    <span class="rating--small">
+                        {{> components/products/ratings rating=rating}}
+                    </span>
+                </p>
+            {{/if}}
+
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                  {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                  {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                  {{else}}
+                </div>
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+                </div>
+            </div>
+            {{> components/products/bulk-discount-rates}}
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="card-text add-to-cart-button">
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                        <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+
+                    {{#if show_compare}}
+                        <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                          <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                          <span class="compare-text">{{lang 'products.compare'}}</span>
+                        </label>
+                    {{/if}}
+            </div>
+            {{/or}}
+        </div>
+        {{else if theme_settings.price_as_low_as '===' true}}
+        {{#or customer (if theme_settings.restrict_to_login '===' true)}}
+        <div class="card-body with-as-low-as-pricing purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+          <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}} ">
+              <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+              {{#if theme_settings.card-brand-name '===' true}}
+               {{#if brand.name}}
+               {{#if theme_settings.card-sku '===' true}}
+               {{#if sku}}
+                 <span class="brand-sku-divider">|</span>
+               {{/if}}
+               {{/if}}
+               {{/if}}
+             {{/if}}
+            <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+              {{#if theme_settings.card-sku '===' true}}
+              {{#if sku}}
+                <span class="sku-label">{{lang 'sku'}}:</span>
+                <span class="sku-value" data-product-sku>{{sku}}</span>
+              {{/if}}
+              {{/if}}
+            </h4>
+          </div>
+
+            <h4 class="card-title">
+                <a href="{{url}}">{{name}}</a>
+            </h4>
+            {{#if show_rating}}
+                <p class="card-text" data-test-info-type="productRating">
+                    <span class="rating--small">
+                        {{> components/products/ratings rating=rating}}
+                    </span>
+                </p>
+            {{/if}}
+
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                  {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                  {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                  {{else}}
+                </div>
+                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+                </div>
+            </div>
+            {{> components/products/bulk-discount-rates}}
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="card-text add-to-cart-button">
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                        <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+
+                    {{#if show_compare}}
+                        <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                            <<span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                            <span class="compare-text">{{lang 'products.compare'}}</span>
+                        </label>
+                    {{/if}}
+            </div>
+            {{/or}}
+        </div>
+
+        {{/or}}
+        {{/or}}
+
+
+          {{else if theme_settings.price_as_low_as '===' false}}
+          {{#or customer (if theme_settings.restrict_to_login '===' false)}}
+          <div class="card-body purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+            <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}} ">
+                <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+                {{#if theme_settings.card-brand-name '===' true}}
+                 {{#if brand.name}}
+                 {{#if theme_settings.card-sku '===' true}}
+                 {{#if sku}}
+                   <span class="brand-sku-divider">|</span>
+                 {{/if}}
+                 {{/if}}
+                 {{/if}}
+               {{/if}}
+              <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+                {{#if theme_settings.card-sku '===' true}}
+                {{#if sku}}
+                  <span class="sku-label">{{lang 'sku'}}:</span>
+                  <span class="sku-value" data-product-sku>{{sku}}</span>
+                {{/if}}
+                {{/if}}
+              </h4>
+            </div>
+
+              <h4 class="card-title">
+                  <a href="{{url}}">{{name}}</a>
+              </h4>
+              {{#if show_rating}}
+                  <p class="card-text" data-test-info-type="productRating">
+                      <span class="rating--small">
+                          {{> components/products/ratings rating=rating}}
+                      </span>
+                  </p>
+              {{/if}}
+
+              <div class="card-text" data-test-info-type="price">
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                    {{else}}
+                  </div>
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                      {{> components/common/login-for-pricing}}
+                  {{/or}}
+                  </div>
+              </div>
+              {{> components/products/bulk-discount-rates}}
+              {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+              <div class="card-text add-to-cart-button">
+                      {{#if show_cart_action}}
+                          {{#if has_options}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                          {{/if}}
+                          {{#if pre_order}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                          {{/if}}
+                          {{#if add_to_cart_url }}
+                          <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                          {{/if}}
+                          {{#if out_of_stock_message }}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                          {{/if}}
+                      {{/if}}
+
+                      {{#if show_compare}}
+                          <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                            <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                            <span class="compare-text">{{lang 'products.compare'}}</span>
+                          </label>
+                      {{/if}}
+              </div>
+              {{/or}}
+          </div>
+
+          {{else}}
+          {{#or customer (if theme_settings.restrict_to_login '===' true)}}
+          <div class="card-body purchase-ability{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}" data-test-info-type="price">
+
+            <div class="card-sku-brand-section {{#if theme_settings.card-brand-sku-separate-lines '===' true}} separate-lines {{/if}} {{#or (if theme_settings.card-brand-name '==' true) (if theme_settings.card-sku '==' true)}} card-sku-brand-visible{{/or}} ">
+                <h4 class="card-text brand {{#if theme_settings.card-brand-2-lines '===' true}} two-lines {{/if}}" data-test-info-type="brandName">{{brand.name}}</h4>
+                {{#if theme_settings.card-brand-name '===' true}}
+                 {{#if brand.name}}
+                 {{#if theme_settings.card-sku '===' true}}
+                 {{#if sku}}
+                   <span class="brand-sku-divider">|</span>
+                 {{/if}}
+                 {{/if}}
+                 {{/if}}
+               {{/if}}
+              <h4 class="card-text sku {{#if theme_settings.card-sku-2-lines '===' true}} two-lines {{/if}}">
+                {{#if theme_settings.card-sku '===' true}}
+                {{#if sku}}
+                  <span class="sku-label">{{lang 'sku'}}:</span>
+                  <span class="sku-value" data-product-sku>{{sku}}</span>
+                {{/if}}
+                {{/if}}
+              </h4>
+            </div>
+
+              <h4 class="card-title">
+                  <a href="{{url}}">{{name}}</a>
+              </h4>
+              {{#if show_rating}}
+                  <p class="card-text" data-test-info-type="productRating">
+                      <span class="rating--small">
+                          {{> components/products/ratings rating=rating}}
+                      </span>
+                  </p>
+              {{/if}}
+
+              <div class="card-text" data-test-info-type="price">
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{> components/products/price settings=settings sharedProduct=this price=price schema_org=schema customer=customer hide_as_low_as=hide_as_low_as}}
+                    {{else}}
+                  </div>
+                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} restricted{{/or}}">
+                      {{> components/common/login-for-pricing}}
+                  {{/or}}
+                  </div>
+              </div>
+              {{> components/products/bulk-discount-rates}}
+              {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+              <div class="card-text add-to-cart-button">
+                      {{#if show_cart_action}}
+                          {{#if has_options}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                          {{/if}}
+                          {{#if pre_order}}
+                              <a href="{{url}}" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                          {{/if}}
+                          {{#if add_to_cart_url }}
+                          <a href="{{add_to_cart_url}}{{#each custom_fields}}{{#if name '===' 'interval quantity'}}&qty={{value}}{{/if}}{{/each}}" class="button button--small card-figcaption-button">{{lang 'products.add_to_cart'}}</a>
+                          {{/if}}
+                          {{#if out_of_stock_message }}
+                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                          {{/if}}
+                      {{/if}}
+
+                      {{#if show_compare}}
+                          <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
+                            <span class="custom-checkbox"><input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}"></span>
+                            <span class="compare-text">{{lang 'products.compare'}}</span>
+                          </label>
+                      {{/if}}
+              </div>
+              {{/or}}
+          </div>
+          {{/or}}
+          {{/or}}
+        {{/if}}
+</article>
+{{/if}}

@@ -1,0 +1,9 @@
+{{!-- LimMedia.io --}}
+<ul class="productGrid grid-only productGrid--maxCol{{ columns }}">
+    {{#each products}}
+    <li class="product">
+        {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer hide_as_low_as=../hide_as_low_as}}
+    </li>
+    {{/each}}
+    <div class="clear"></div>
+</ul>

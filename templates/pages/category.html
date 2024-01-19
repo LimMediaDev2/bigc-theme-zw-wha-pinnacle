@@ -1,0 +1,115 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{!-- LimMedia.io --}}
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject 'sfToken' settings.storefront_api.token}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+{{#partial "page"}}
+
+{{{region name="category_below_menu--global"}}}
+{{{region name="category_below_menu"}}}
+
+{{> components/custom/category-sidenav}}
+
+<div class="category main {{#if theme_settings.top_pagination_visibility '===' false}}top-pagination-hidden {{/if}} {{#if theme_settings.bottom_pagination_visibility '===' false}}bottom-pagination-hidden {{/if}}">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <h1 class="container-header">{{category.name}}</h1>
+    {{{region name="category_below_header--global"}}}
+    {{{region name="category_below_header"}}}
+    {{#if category.image}}
+        <div class="category-main-image">
+            <div class="category-header-image" style="background-image: url({{getImage category.image}});"></div>
+           <!--  <img class="category-header-image" src="{{getImage category.image 'zoom'}}"> -->
+        </div>
+    {{/if}}
+    {{{category.description}}}
+    {{{snippet 'categories'}}}
+    <div class="page category-grid">
+        <!--LONE STAR CUSTOM SUBCATEGORY GRID-->
+        {{#if category.subcategories}}
+            <div class="subcategory-grid">
+
+                <ul class="navList">
+                    {{#each category.subcategories}}
+                        <li class="subcategory-item">
+                            <div class="subcategory-link-container">
+                                <a class="subcateogory-image-link" href="{{url}}" alt="{{name}}">
+                                  {{#if image}}
+                                        <div class="subcategory-image uploaded" style="background-image: url('{{getImage image}}');"><br /></div></a>
+                                      {{else}}
+                                        <div class="subcategory-image placeholder-image"><br /></div></a>
+                                  {{/if}}
+                            </div>
+                                <a class="subcategory-link" href="{{url}}" alt="{{name}}"><span class="subcategory-name">{{name}}</span></a>
+                            <div class="clear"></div>
+                        </li>
+                    {{/each}}
+                </ul>
+        {{/if}}
+    </div>
+
+    <!-- GRID/LIST TOGGLE BUTTONS - GRID BY DEFAULT -->
+    {{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+      <div class="grid-list-view toggle">
+        <a class="toggle-link grid active" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+        <a class="toggle-link list" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+        <div class="clear"></div>
+      </div>
+    {{/if}}
+
+    <!-- GRID/LIST TOGGLE BUTTONS - LIST BY DEFAULT -->
+    {{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+      <div class="grid-list-view toggle">
+        <a class="toggle-link list active" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+        <a class="toggle-link grid" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+        <div class="clear"></div>
+      </div>
+    {{/if}}
+        <main class="page-content {{#if theme_settings.product_layout_view '===' 'both_grid_default'}} both-grid-list-views{{/if}} {{#if theme_settings.product_layout_view '===' 'both_list_default'}} both-grid-list-views list-default{{/if}}" id="product-listing-container">
+            {{#if category.products}}
+                {{> components/category/product-listing columns=theme_settings.category_brand_search_productGrid_column_count hide_as_low_as=true}}
+            {{else}}
+                <p>{{lang 'categories.no_products'}}</p>
+            {{/if}}
+        </main>
+
+        <div class="compare">
+            <a class="navUser-action navUser-item--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'Compare Selected'}}</a>
+        </div>
+
+        {{{region name="category_below_content--global"}}}
+        {{{region name="category_below_content"}}}
+
+        <div class="clear"></div>
+
+        <!-- INSTAGRAM FEED -->
+        {{#if theme_settings.feed_position '===' 'above-footer'}}
+        {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+        <div class="instagram-feed above-footer">
+          {{> components/custom/instagram-feed}}
+          <div class="clear"></div>
+        </div>
+        {{/if}}
+        {{/if}}
+
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+{{/partial}}
+{{> layout/base}}

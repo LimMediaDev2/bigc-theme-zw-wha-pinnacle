@@ -1,0 +1,1721 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{!-- LimMedia.io --}}
+{{#partial "page"}}
+{{inject 'comparisons' comparisons}}
+{{inject 'compareRemoveMessage' (lang 'compare.no_remove')}}
+
+
+
+<main class="compare-page{{#if theme_settings.compare_page_with_sidenav '!==' false}} compare-page-with-sidenav{{/if}}">
+  {{#if ../theme_settings.compare_page_with_sidenav '===' false}}
+    <div class="compare-content no-sidevav">
+
+      {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+      <h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
+      <div class="page compare-page category">
+
+        <!-- GRID/LIST TOGGLE BUTTONS - GRID BY DEFAULT -->
+        {{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+          <div class="grid-list-view toggle">
+            <a class="toggle-link grid active" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+            <a class="toggle-link list" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+            <div class="clear"></div>
+          </div>
+        {{/if}}
+
+        <!-- GRID/LIST TOGGLE BUTTONS - LIST BY DEFAULT -->
+        {{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+          <div class="grid-list-view toggle">
+            <a class="toggle-link list active" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+            <a class="toggle-link grid" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+            <div class="clear"></div>
+          </div>
+        {{/if}}
+
+          <main class="page-content">
+            <!-- GRID VIEW ONLY -->
+            {{#if theme_settings.product_layout_view '===' 'grid'}}
+            <form class="grid-only">
+                      <ul class="productGrid grid-only productGrid--maxCol visible">
+                        {{#each comparisons}}
+                          <li class="product grid-view">
+                            <article class="card">
+                              <figure class="card-figure">
+                                <a href="{{url}}">
+                                  <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    {{#each (limit images 2)}}
+                                      {{#if @index '>' 0}}
+                                        <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                      {{/if}}
+                                    {{/each}}
+                                </a>
+                                  <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                      <svg class="icon">
+                                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                      </svg>
+                                  </a>
+                              </figure>
+                              <div class="card-body">
+                                <div class="top-card-body">
+                                  <h4 class="card-title">
+                                      <a href="{{url}}">{{ name }}</a>
+                                  </h4>
+
+                                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                    {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                      {{#if price_range}}
+                                        {{> components/products/price-range}}
+                                      {{else}}
+                                        {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                      {{/if}}
+                                      {{else}}
+                                        {{> components/common/login-for-pricing}}
+                                    {{/or}}
+                                  </div>
+
+                                  {{#if show_cart_action}}
+                                  <div class="add-to-cart-button">
+                                      {{#if has_options}}
+                                          <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                      {{/if}}
+                                      {{#if pre_order}}
+                                          <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                              {{lang 'products.pre_order'}}
+                                          </a>
+                                      {{/if}}
+                                      {{#if add_to_cart_url}}
+                                          <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                              {{lang 'products.add_to_cart'}}
+                                          </a>
+                                      {{/if}}
+                                      {{#if out_of_stock_message}}
+                                          <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                      {{/if}}
+                                   </div>
+                                  {{/if}}
+                                </div>
+
+                                <div class="bottom-card-body">
+                                  <div class="card-text">
+                                    <div class="brand">
+                                      <span class="compareTable-headingText brand">Brand: </span>
+                                      {{#if brand.name}}
+                                        <a href="{{brand.url}}">{{ brand.name }}</a>
+                                      {{else}}
+                                        <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                      {{/if}}
+                                    </div>
+                                  <span class="compareTable-headingText">Description</span>
+                                    <div class="normal-text">{{{sanitize summary}}}</div>
+
+                                    <!-- {{#if show_rating}}
+                                        <p class="card-text" data-test-info-type="productRating">
+                                            <span class="rating--small">
+                                                {{> components/products/ratings rating=rating}}
+                                            </span>
+                                        </p>
+                                    {{/if}} -->
+
+                                    <div class="compareTable-row">
+
+                                        <!-- <div class="compareTable-heading">
+                                            <span class="compareTable-headingText">Rating</span>
+                                        </div> -->
+
+                                        <div class="compareTable-item rating">
+                                            {{#if rating}}
+                                                {{> components/products/ratings rating=rating}}
+                                            {{else}}
+                                                <span class="normal-text">No Reviews</span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="availability">
+                                        <span class="">Availability</span><br />
+                                        <div class="availability-text normal-text">
+                                          {{#if availability}}
+                                            {{ availability }}
+                                          {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                          {{/if}}
+                                        </div>
+                                    </div>
+
+                                    <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                    <div class="custom-fields">
+                                        {{#if custom_fields}}
+                                            <ul>
+                                                {{#each custom_fields}}
+                                                    <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                        {{/if}}
+                                     </div> <!-- custom-fields -->
+
+
+                                    </div> <!-- card-text -->
+                                  </div>
+
+                             </div>   <!-- card-body -->
+                          </article>
+                          </li>
+                      {{/each}}
+                    </ul>
+              {{/if}}
+            </form> <!-- grid only -->
+
+
+            <!-- LIST VIEW ONLY -->
+            {{#if theme_settings.product_layout_view '===' 'list'}}
+            <form class="list-only">
+                      <ul class="productList list-only visible">
+                        {{#each comparisons}}
+                          <li class="product list-view">
+                            <article class="card">
+                              <div class="image-and-price list-view">
+                              <figure class="listItem-figure">
+                                <a href="{{url}}">
+                                  <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    {{#each (limit images 2)}}
+                                      {{#if @index '>' 0}}
+                                        <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                      {{/if}}
+                                    {{/each}}
+                                </a>
+                                  <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                      <svg class="icon">
+                                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                      </svg>
+                                  </a>
+                              </figure>
+                              <div class="top-card-body list-view">
+                                <h4 class="card-title">
+                                    <a href="{{url}}">{{ name }}</a>
+                                </h4>
+
+                                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                  {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                    {{#if price_range}}
+                                      {{> components/products/price-range}}
+                                    {{else}}
+                                      {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                    {{/if}}
+                                    {{else}}
+                                      {{> components/common/login-for-pricing}}
+                                  {{/or}}
+                                </div>
+
+                                {{#if show_cart_action}}
+                                <div class="add-to-cart-button">
+                                    {{#if has_options}}
+                                        <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                    {{/if}}
+                                    {{#if pre_order}}
+                                        <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                            {{lang 'products.pre_order'}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if add_to_cart_url}}
+                                        <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                            {{lang 'products.add_to_cart'}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if out_of_stock_message}}
+                                        <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                    {{/if}}
+                                 </div>
+                                {{/if}}
+                              </div>
+
+                            </div>
+
+
+                              <div class="listItem-content">
+                                <div class="bottom-card-body">
+                                  <div class="card-text">
+                                    <div class="brand">
+                                      <span class="compareTable-headingText brand">Brand: </span>
+                                      {{#if brand.name}}
+                                        <a href="{{brand.url}}">{{ brand.name }}</a>
+                                      {{else}}
+                                        <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                      {{/if}}
+                                    </div>
+                                  <span class="compareTable-headingText">Description</span>
+                                    <div class="normal-text">{{{sanitize summary}}}</div>
+
+                                    <!-- {{#if show_rating}}
+                                        <p class="card-text" data-test-info-type="productRating">
+                                            <span class="rating--small">
+                                                {{> components/products/ratings rating=rating}}
+                                            </span>
+                                        </p>
+                                    {{/if}} -->
+
+                                    <div class="compareTable-row">
+
+                                        <!-- <div class="compareTable-heading">
+                                            <span class="compareTable-headingText">Rating</span>
+                                        </div> -->
+
+                                        <div class="compareTable-item rating">
+                                            {{#if rating}}
+                                                {{> components/products/ratings rating=rating}}
+                                            {{else}}
+                                                <span class="normal-text">No Reviews</span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="availability">
+                                        <span class="">Availability</span><br />
+                                        <div class="availability-text normal-text">
+                                          {{#if availability}}
+                                            {{ availability }}
+                                          {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                          {{/if}}
+                                        </div>
+                                    </div>
+
+                                    <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                    <div class="custom-fields">
+                                        {{#if custom_fields}}
+                                            <ul>
+                                                {{#each custom_fields}}
+                                                    <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                        {{/if}}
+                                     </div> <!-- custom-fields -->
+
+
+                                    </div> <!-- card-text -->
+                                  </div>
+
+                             </div>   <!-- card-body -->
+                          </article>
+                          </li>
+                      {{/each}}
+              </ul>
+             </form> <!-- LIST ONLY -->
+             {{/if}}
+
+            <!-- BOTH GRID BY DEFAULT -->
+            {{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+            <form class="both-grid-default">
+              <ul class="productGrid--maxCol grid-default productGrid visible">
+                {{#each comparisons}}
+                  <li class="product grid-view">
+                    <article class="card">
+                      <figure class="card-figure">
+                        <a href="{{url}}">
+                          <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                            {{#each (limit images 2)}}
+                              {{#if @index '>' 0}}
+                                <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                              {{/if}}
+                            {{/each}}
+                        </a>
+                          <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                              <svg class="icon">
+                                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                              </svg>
+                          </a>
+                      </figure>
+                      <div class="card-body">
+                        <div class="top-card-body">
+                          <h4 class="card-title">
+                              <a href="{{url}}">{{ name }}</a>
+                          </h4>
+
+                          <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                            {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                              {{#if price_range}}
+                                {{> components/products/price-range}}
+                              {{else}}
+                                {{> components/products/price settings=settings sharedProduct=this price=price}}
+                              {{/if}}
+                              {{else}}
+                                {{> components/common/login-for-pricing}}
+                            {{/or}}
+                          </div>
+
+                          {{#if show_cart_action}}
+                          <div class="add-to-cart-button">
+                              {{#if has_options}}
+                                  <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                              {{/if}}
+                              {{#if pre_order}}
+                                  <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                      {{lang 'products.pre_order'}}
+                                  </a>
+                              {{/if}}
+                              {{#if add_to_cart_url}}
+                                  <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                      {{lang 'products.add_to_cart'}}
+                                  </a>
+                              {{/if}}
+                              {{#if out_of_stock_message}}
+                                  <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                              {{/if}}
+                           </div>
+                          {{/if}}
+                        </div>
+
+                        <div class="bottom-card-body">
+                          <div class="card-text">
+                            <div class="brand">
+                              <span class="compareTable-headingText brand">Brand: </span>
+                              {{#if brand.name}}
+                                <a href="{{brand.url}}">{{ brand.name }}</a>
+                              {{else}}
+                                <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                              {{/if}}
+                            </div>
+                          <span class="compareTable-headingText">Description</span>
+                            <div class="normal-text">{{{sanitize summary}}}</div>
+
+                            <!-- {{#if show_rating}}
+                                <p class="card-text" data-test-info-type="productRating">
+                                    <span class="rating--small">
+                                        {{> components/products/ratings rating=rating}}
+                                    </span>
+                                </p>
+                            {{/if}} -->
+
+                            <div class="compareTable-row">
+
+                                <!-- <div class="compareTable-heading">
+                                    <span class="compareTable-headingText">Rating</span>
+                                </div> -->
+
+                                <div class="compareTable-item rating">
+                                    {{#if rating}}
+                                        {{> components/products/ratings rating=rating}}
+                                    {{else}}
+                                        <span class="normal-text">No Reviews</span>
+                                </div>
+                                {{/if}}
+                            </div>
+
+                            <div class="availability">
+                                <span class="">Availability</span><br />
+                                <div class="availability-text normal-text">
+                                  {{#if availability}}
+                                    {{ availability }}
+                                  {{else}}
+                                    {{lang 'common.not_applicable'}}
+                                  {{/if}}
+                                </div>
+                            </div>
+
+                            <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                            <div class="custom-fields">
+                                {{#if custom_fields}}
+                                    <ul>
+                                        {{#each custom_fields}}
+                                            <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                        {{/each}}
+                                    </ul>
+                                {{else}}
+                                    {{lang 'common.not_applicable'}}
+                                {{/if}}
+                             </div> <!-- custom-fields -->
+
+
+                            </div> <!-- card-text -->
+                          </div>
+
+                     </div>   <!-- card-body -->
+                  </article>
+                  </li>
+              {{/each}}
+              </ul>
+
+                      <ul class="productList list-only hidden">
+                        {{#each comparisons}}
+                          <li class="product list-view">
+                            <article class="card">
+                              <div class="image-and-price list-view">
+                              <figure class="listItem-figure">
+                                <a href="{{url}}">
+                                  <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    {{#each (limit images 2)}}
+                                      {{#if @index '>' 0}}
+                                        <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                      {{/if}}
+                                    {{/each}}
+                                </a>
+                                  <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                      <svg class="icon">
+                                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                      </svg>
+                                  </a>
+                              </figure>
+                              <div class="top-card-body list-view">
+                                <h4 class="card-title">
+                                    <a href="{{url}}">{{ name }}</a>
+                                </h4>
+
+                                <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                  {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                    {{#if price_range}}
+                                      {{> components/products/price-range}}
+                                    {{else}}
+                                      {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                    {{/if}}
+                                    {{else}}
+                                      {{> components/common/login-for-pricing}}
+                                  {{/or}}
+                                </div>
+
+                                {{#if show_cart_action}}
+                                <div class="add-to-cart-button">
+                                    {{#if has_options}}
+                                        <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                    {{/if}}
+                                    {{#if pre_order}}
+                                        <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                            {{lang 'products.pre_order'}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if add_to_cart_url}}
+                                        <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                            {{lang 'products.add_to_cart'}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if out_of_stock_message}}
+                                        <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                    {{/if}}
+                                 </div>
+                                {{/if}}
+                              </div>
+
+                            </div>
+
+
+                              <div class="listItem-content">
+                                <div class="bottom-card-body">
+                                  <div class="card-text">
+                                    <div class="brand">
+                                      <span class="compareTable-headingText brand">Brand: </span>
+                                      {{#if brand.name}}
+                                        <a href="{{brand.url}}">{{ brand.name }}</a>
+                                      {{else}}
+                                        <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                      {{/if}}
+                                    </div>
+                                  <span class="compareTable-headingText">Description</span>
+                                    <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                    <!-- {{#if show_rating}}
+                                        <p class="card-text" data-test-info-type="productRating">
+                                            <span class="rating--small">
+                                                {{> components/products/ratings rating=rating}}
+                                            </span>
+                                        </p>
+                                    {{/if}} -->
+
+                                    <div class="compareTable-row">
+
+                                        <!-- <div class="compareTable-heading">
+                                            <span class="compareTable-headingText">Rating</span>
+                                        </div> -->
+
+                                        <div class="compareTable-item rating">
+                                            {{#if rating}}
+                                                {{> components/products/ratings rating=rating}}
+                                            {{else}}
+                                                <span class="normal-text">No Reviews</span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="availability">
+                                        <span class="">Availability</span><br />
+                                        <div class="availability-text normal-text">
+                                          {{#if availability}}
+                                            {{ availability }}
+                                          {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                          {{/if}}
+                                        </div>
+                                    </div>
+
+                                    <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                    <div class="custom-fields">
+                                        {{#if custom_fields}}
+                                            <ul>
+                                                {{#each custom_fields}}
+                                                    <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                        {{/if}}
+                                     </div> <!-- custom-fields -->
+
+
+                                    </div> <!-- card-text -->
+                                  </div>
+
+                             </div>   <!-- card-body -->
+                          </article>
+                          </li>
+                      {{/each}}
+                      </ul>
+                    {{/if}}
+            </form>
+
+            <!-- BOTH LIST BY DEFAULT -->
+            {{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+            <form class="both-list-default">
+              <ul class="productList list-only visible">
+                {{#each comparisons}}
+                  <li class="product list-view">
+                    <article class="card">
+                      <div class="image-and-price list-view">
+                      <figure class="listItem-figure">
+                        <a href="{{url}}">
+                          <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                            {{#each (limit images 2)}}
+                              {{#if @index '>' 0}}
+                                <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                              {{/if}}
+                            {{/each}}
+                        </a>
+                          <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                              <svg class="icon">
+                                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                              </svg>
+                          </a>
+                      </figure>
+                      <div class="top-card-body list-view">
+                        <h4 class="card-title">
+                            <a href="{{url}}">{{ name }}</a>
+                        </h4>
+
+                        <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                          {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                            {{#if price_range}}
+                              {{> components/products/price-range}}
+                            {{else}}
+                              {{> components/products/price settings=settings sharedProduct=this price=price}}
+                            {{/if}}
+                            {{else}}
+                              {{> components/common/login-for-pricing}}
+                          {{/or}}
+                        </div>
+
+                        {{#if show_cart_action}}
+                        <div class="add-to-cart-button">
+                            {{#if has_options}}
+                                <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                            {{/if}}
+                            {{#if pre_order}}
+                                <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                    {{lang 'products.pre_order'}}
+                                </a>
+                            {{/if}}
+                            {{#if add_to_cart_url}}
+                                <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                    {{lang 'products.add_to_cart'}}
+                                </a>
+                            {{/if}}
+                            {{#if out_of_stock_message}}
+                                <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                            {{/if}}
+                         </div>
+                        {{/if}}
+                      </div>
+
+                    </div>
+
+
+                      <div class="listItem-content">
+                        <div class="bottom-card-body">
+                          <div class="card-text">
+                            <div class="brand">
+                              <span class="compareTable-headingText brand">Brand: </span>
+                              {{#if brand.name}}
+                                <a href="{{brand.url}}">{{ brand.name }}</a>
+                              {{else}}
+                                <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                              {{/if}}
+                            </div>
+                          <span class="compareTable-headingText">Description</span>
+                            <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                            <!-- {{#if show_rating}}
+                                <p class="card-text" data-test-info-type="productRating">
+                                    <span class="rating--small">
+                                        {{> components/products/ratings rating=rating}}
+                                    </span>
+                                </p>
+                            {{/if}} -->
+
+                            <div class="compareTable-row">
+
+                                <!-- <div class="compareTable-heading">
+                                    <span class="compareTable-headingText">Rating</span>
+                                </div> -->
+
+                                <div class="compareTable-item rating">
+                                    {{#if rating}}
+                                        {{> components/products/ratings rating=rating}}
+                                    {{else}}
+                                        <span class="normal-text">No Reviews</span>
+                                </div>
+                                {{/if}}
+                            </div>
+
+                            <div class="availability">
+                                <span class="">Availability</span><br />
+                                <div class="availability-text normal-text">
+                                  {{#if availability}}
+                                    {{ availability }}
+                                  {{else}}
+                                    {{lang 'common.not_applicable'}}
+                                  {{/if}}
+                                </div>
+                            </div>
+
+                            <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                            <div class="custom-fields">
+                                {{#if custom_fields}}
+                                    <ul>
+                                        {{#each custom_fields}}
+                                            <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                        {{/each}}
+                                    </ul>
+                                {{else}}
+                                    {{lang 'common.not_applicable'}}
+                                {{/if}}
+                             </div> <!-- custom-fields -->
+
+
+                            </div> <!-- card-text -->
+                          </div>
+
+                     </div>   <!-- card-body -->
+                  </article>
+                  </li>
+              {{/each}}
+            </ul>
+
+                      <ul class="productGrid">
+                        {{#each comparisons}}
+                          <li class="product grid-view">
+                            <article class="card">
+                              <figure class="card-figure">
+                                <a href="{{url}}">
+                                  <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    {{#each (limit images 2)}}
+                                      {{#if @index '>' 0}}
+                                        <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                      {{/if}}
+                                    {{/each}}
+                                </a>
+                                  <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                      <svg class="icon">
+                                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                      </svg>
+                                  </a>
+                              </figure>
+                              <div class="card-body">
+                                <div class="top-card-body">
+                                  <h4 class="card-title">
+                                      <a href="{{url}}">{{ name }}</a>
+                                  </h4>
+
+                                  <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                    {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                      {{#if price_range}}
+                                        {{> components/products/price-range}}
+                                      {{else}}
+                                        {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                      {{/if}}
+                                      {{else}}
+                                        {{> components/common/login-for-pricing}}
+                                    {{/or}}
+                                  </div>
+
+                                  {{#if show_cart_action}}
+                                  <div class="add-to-cart-button">
+                                      {{#if has_options}}
+                                          <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                      {{/if}}
+                                      {{#if pre_order}}
+                                          <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                              {{lang 'products.pre_order'}}
+                                          </a>
+                                      {{/if}}
+                                      {{#if add_to_cart_url}}
+                                          <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                              {{lang 'products.add_to_cart'}}
+                                          </a>
+                                      {{/if}}
+                                      {{#if out_of_stock_message}}
+                                          <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                      {{/if}}
+                                   </div>
+                                  {{/if}}
+                                </div>
+
+                                <div class="bottom-card-body">
+                                  <div class="card-text">
+                                    <div class="brand">
+                                      <span class="compareTable-headingText brand">Brand: </span>
+                                      {{#if brand.name}}
+                                        <a href="{{brand.url}}">{{ brand.name }}</a>
+                                      {{else}}
+                                        <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                      {{/if}}
+                                    </div>
+                                  <span class="compareTable-headingText">Description</span>
+                                    <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                    <!-- {{#if show_rating}}
+                                        <p class="card-text" data-test-info-type="productRating">
+                                            <span class="rating--small">
+                                                {{> components/products/ratings rating=rating}}
+                                            </span>
+                                        </p>
+                                    {{/if}} -->
+
+                                    <div class="compareTable-row">
+
+                                        <!-- <div class="compareTable-heading">
+                                            <span class="compareTable-headingText">Rating</span>
+                                        </div> -->
+
+                                        <div class="compareTable-item rating">
+                                            {{#if rating}}
+                                                {{> components/products/ratings rating=rating}}
+                                            {{else}}
+                                                <span class="normal-text">No Reviews</span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="availability">
+                                        <span class="">Availability</span><br />
+                                        <div class="availability-text normal-text">
+                                          {{#if availability}}
+                                            {{ availability }}
+                                          {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                          {{/if}}
+                                        </div>
+                                    </div>
+
+                                    <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                    <div class="custom-fields">
+                                        {{#if custom_fields}}
+                                            <ul>
+                                                {{#each custom_fields}}
+                                                    <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            {{lang 'common.not_applicable'}}
+                                        {{/if}}
+                                     </div> <!-- custom-fields -->
+
+
+                                    </div> <!-- card-text -->
+                                  </div>
+
+                             </div>   <!-- card-body -->
+                          </article>
+                          </li>
+                      {{/each}}
+                      </ul>
+                    {{/if}}
+            </form>
+
+
+          </main>
+      </div>
+
+      <!-- INSTAGRAM FEED -->
+      {{#if theme_settings.feed_position '===' 'above-footer'}}
+      {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+      <div class="instagram-feed above-footer">
+        {{> components/custom/instagram-feed}}
+        <div class="clear"></div>
+      </div>
+      {{/if}}
+      {{/if}}
+
+      </div> <!-- compare-content no-sidenav -->
+      {{/if}}
+
+
+
+
+      {{#if ../theme_settings.compare_page_with_sidenav '===' true}}
+      {{> components/custom/sidenav}}
+        <div class="compare-content with-sidevav">
+          {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+          <h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
+          <div class="page compare-page category">
+
+            <!-- GRID/LIST TOGGLE BUTTONS - GRID BY DEFAULT -->
+            {{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+              <div class="grid-list-view toggle">
+                <a class="toggle-link grid active" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+                <a class="toggle-link list" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+                <div class="clear"></div>
+              </div>
+            {{/if}}
+
+            <!-- GRID/LIST TOGGLE BUTTONS - LIST BY DEFAULT -->
+            {{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+              <div class="grid-list-view toggle">
+                <a class="toggle-link list active" href="#" title="Toggle List View"><svg class="toggle list"><use xlink:href="#icon-list"></use></svg></a>
+                <a class="toggle-link grid" href="#" title="Toggle Grid View"><svg class="toggle grid"><use xlink:href="#icon-grid"></use></svg></a>
+                <div class="clear"></div>
+              </div>
+            {{/if}}
+
+              <main class="page-content">
+                <!-- GRID VIEW ONLY -->
+                {{#if theme_settings.product_layout_view '===' 'grid'}}
+                <form class="grid-only">
+                          <ul class="productGrid grid-only productGrid--maxCol visible">
+                            {{#each comparisons}}
+                              <li class="product grid-view">
+                                <article class="card">
+                                  <figure class="card-figure">
+                                    <a href="{{url}}">
+                                      <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                        {{#each (limit images 2)}}
+                                          {{#if @index '>' 0}}
+                                            <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                          {{/if}}
+                                        {{/each}}
+                                    </a>
+                                      <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                          <svg class="icon">
+                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                          </svg>
+                                      </a>
+                                  </figure>
+                                  <div class="card-body">
+                                    <div class="top-card-body">
+                                      <h4 class="card-title">
+                                          <a href="{{url}}">{{ name }}</a>
+                                      </h4>
+
+                                      <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                          {{#if price_range}}
+                                            {{> components/products/price-range}}
+                                          {{else}}
+                                            {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                          {{/if}}
+                                          {{else}}
+                                            {{> components/common/login-for-pricing}}
+                                        {{/or}}
+                                      </div>
+
+                                      {{#if show_cart_action}}
+                                      <div class="add-to-cart-button">
+                                          {{#if has_options}}
+                                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                          {{/if}}
+                                          {{#if pre_order}}
+                                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                  {{lang 'products.pre_order'}}
+                                              </a>
+                                          {{/if}}
+                                          {{#if add_to_cart_url}}
+                                              <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                  {{lang 'products.add_to_cart'}}
+                                              </a>
+                                          {{/if}}
+                                          {{#if out_of_stock_message}}
+                                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                          {{/if}}
+                                       </div>
+                                      {{/if}}
+                                    </div>
+
+                                    <div class="bottom-card-body">
+                                      <div class="card-text">
+                                        <div class="brand">
+                                          <span class="compareTable-headingText brand">Brand: </span>
+                                          {{#if brand.name}}
+                                            <a href="{{brand.url}}">{{ brand.name }}</a>
+                                          {{else}}
+                                            <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                          {{/if}}
+                                        </div>
+                                      <span class="compareTable-headingText">Description</span>
+                                        <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                        <!-- {{#if show_rating}}
+                                            <p class="card-text" data-test-info-type="productRating">
+                                                <span class="rating--small">
+                                                    {{> components/products/ratings rating=rating}}
+                                                </span>
+                                            </p>
+                                        {{/if}} -->
+
+                                        <div class="compareTable-row">
+
+                                            <!-- <div class="compareTable-heading">
+                                                <span class="compareTable-headingText">Rating</span>
+                                            </div> -->
+
+                                            <div class="compareTable-item rating">
+                                                {{#if rating}}
+                                                    {{> components/products/ratings rating=rating}}
+                                                {{else}}
+                                                    <span class="normal-text">No Reviews</span>
+                                            </div>
+                                            {{/if}}
+                                        </div>
+
+                                        <div class="availability">
+                                            <span class="">Availability</span><br />
+                                            <div class="availability-text normal-text">
+                                              {{#if availability}}
+                                                {{ availability }}
+                                              {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                              {{/if}}
+                                            </div>
+                                        </div>
+
+                                        <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                        <div class="custom-fields">
+                                            {{#if custom_fields}}
+                                                <ul>
+                                                    {{#each custom_fields}}
+                                                        <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                    {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                            {{/if}}
+                                         </div> <!-- custom-fields -->
+
+
+                                        </div> <!-- card-text -->
+                                      </div>
+
+                                 </div>   <!-- card-body -->
+                              </article>
+                              </li>
+                          {{/each}}
+                        </ul>
+                  {{/if}}
+                </form> <!-- grid only -->
+
+
+                <!-- LIST VIEW ONLY -->
+                {{#if theme_settings.product_layout_view '===' 'list'}}
+                <form class="list-only">
+                          <ul class="productList list-only visible">
+                            {{#each comparisons}}
+                              <li class="product list-view">
+                                <article class="card">
+                                  <div class="image-and-price list-view">
+                                  <figure class="listItem-figure">
+                                    <a href="{{url}}">
+                                      <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                        {{#each (limit images 2)}}
+                                          {{#if @index '>' 0}}
+                                            <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                          {{/if}}
+                                        {{/each}}
+                                    </a>
+                                      <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                          <svg class="icon">
+                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                          </svg>
+                                      </a>
+                                  </figure>
+                                  <div class="top-card-body list-view">
+                                    <h4 class="card-title">
+                                        <a href="{{url}}">{{ name }}</a>
+                                    </h4>
+
+                                    <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                      {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                        {{#if price_range}}
+                                          {{> components/products/price-range}}
+                                        {{else}}
+                                          {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                        {{/if}}
+                                        {{else}}
+                                          {{> components/common/login-for-pricing}}
+                                      {{/or}}
+                                    </div>
+
+                                    {{#if show_cart_action}}
+                                    <div class="add-to-cart-button">
+                                        {{#if has_options}}
+                                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                        {{/if}}
+                                        {{#if pre_order}}
+                                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                {{lang 'products.pre_order'}}
+                                            </a>
+                                        {{/if}}
+                                        {{#if add_to_cart_url}}
+                                            <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                {{lang 'products.add_to_cart'}}
+                                            </a>
+                                        {{/if}}
+                                        {{#if out_of_stock_message}}
+                                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                        {{/if}}
+                                     </div>
+                                    {{/if}}
+                                  </div>
+
+                                </div>
+
+
+                                  <div class="listItem-content">
+                                    <div class="bottom-card-body">
+                                      <div class="card-text">
+                                        <div class="brand">
+                                          <span class="compareTable-headingText brand">Brand: </span>
+                                          {{#if brand.name}}
+                                            <a href="{{brand.url}}">{{ brand.name }}</a>
+                                          {{else}}
+                                            <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                          {{/if}}
+                                        </div>
+                                      <span class="compareTable-headingText">Description</span>
+                                        <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                        <!-- {{#if show_rating}}
+                                            <p class="card-text" data-test-info-type="productRating">
+                                                <span class="rating--small">
+                                                    {{> components/products/ratings rating=rating}}
+                                                </span>
+                                            </p>
+                                        {{/if}} -->
+
+                                        <div class="compareTable-row">
+
+                                            <!-- <div class="compareTable-heading">
+                                                <span class="compareTable-headingText">Rating</span>
+                                            </div> -->
+
+                                            <div class="compareTable-item rating">
+                                                {{#if rating}}
+                                                    {{> components/products/ratings rating=rating}}
+                                                {{else}}
+                                                    <span class="normal-text">No Reviews</span>
+                                            </div>
+                                            {{/if}}
+                                        </div>
+
+                                        <div class="availability">
+                                            <span class="">Availability</span><br />
+                                            <div class="availability-text normal-text">
+                                              {{#if availability}}
+                                                {{ availability }}
+                                              {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                              {{/if}}
+                                            </div>
+                                        </div>
+
+                                        <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                        <div class="custom-fields">
+                                            {{#if custom_fields}}
+                                                <ul>
+                                                    {{#each custom_fields}}
+                                                        <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                    {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                            {{/if}}
+                                         </div> <!-- custom-fields -->
+
+
+                                        </div> <!-- card-text -->
+                                      </div>
+
+                                 </div>   <!-- card-body -->
+                              </article>
+                              </li>
+                          {{/each}}
+                  </ul>
+                 </form> <!-- LIST ONLY -->
+                 {{/if}}
+
+                <!-- BOTH GRID BY DEFAULT -->
+                {{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+                <form class="both-grid-default">
+                  <ul class="productGrid--maxCol grid-default productGrid visible">
+                    {{#each comparisons}}
+                      <li class="product grid-view">
+                        <article class="card">
+                          <figure class="card-figure">
+                            <a href="{{url}}">
+                              <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                {{#each (limit images 2)}}
+                                  {{#if @index '>' 0}}
+                                    <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                  {{/if}}
+                                {{/each}}
+                            </a>
+                              <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                  <svg class="icon">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                  </svg>
+                              </a>
+                          </figure>
+                          <div class="card-body">
+                            <div class="top-card-body">
+                              <h4 class="card-title">
+                                  <a href="{{url}}">{{ name }}</a>
+                              </h4>
+
+                              <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                  {{#if price_range}}
+                                    {{> components/products/price-range}}
+                                  {{else}}
+                                    {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                  {{/if}}
+                                  {{else}}
+                                    {{> components/common/login-for-pricing}}
+                                {{/or}}
+                              </div>
+
+                              {{#if show_cart_action}}
+                              <div class="add-to-cart-button">
+                                  {{#if has_options}}
+                                      <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                  {{/if}}
+                                  {{#if pre_order}}
+                                      <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                          {{lang 'products.pre_order'}}
+                                      </a>
+                                  {{/if}}
+                                  {{#if add_to_cart_url}}
+                                      <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                          {{lang 'products.add_to_cart'}}
+                                      </a>
+                                  {{/if}}
+                                  {{#if out_of_stock_message}}
+                                      <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                  {{/if}}
+                               </div>
+                              {{/if}}
+                            </div>
+
+                            <div class="bottom-card-body">
+                              <div class="card-text">
+                                <div class="brand">
+                                  <span class="compareTable-headingText brand">Brand: </span>
+                                  {{#if brand.name}}
+                                    <a href="{{brand.url}}">{{ brand.name }}</a>
+                                  {{else}}
+                                    <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                  {{/if}}
+                                </div>
+                              <span class="compareTable-headingText">Description</span>
+                                <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                <!-- {{#if show_rating}}
+                                    <p class="card-text" data-test-info-type="productRating">
+                                        <span class="rating--small">
+                                            {{> components/products/ratings rating=rating}}
+                                        </span>
+                                    </p>
+                                {{/if}} -->
+
+                                <div class="compareTable-row">
+
+                                    <!-- <div class="compareTable-heading">
+                                        <span class="compareTable-headingText">Rating</span>
+                                    </div> -->
+
+                                    <div class="compareTable-item rating">
+                                        {{#if rating}}
+                                            {{> components/products/ratings rating=rating}}
+                                        {{else}}
+                                            <span class="normal-text">No Reviews</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+
+                                <div class="availability">
+                                    <span class="">Availability</span><br />
+                                    <div class="availability-text normal-text">
+                                      {{#if availability}}
+                                        {{ availability }}
+                                      {{else}}
+                                        {{lang 'common.not_applicable'}}
+                                      {{/if}}
+                                    </div>
+                                </div>
+
+                                <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                <div class="custom-fields">
+                                    {{#if custom_fields}}
+                                        <ul>
+                                            {{#each custom_fields}}
+                                                <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                            {{/each}}
+                                        </ul>
+                                    {{else}}
+                                        {{lang 'common.not_applicable'}}
+                                    {{/if}}
+                                 </div> <!-- custom-fields -->
+
+
+                                </div> <!-- card-text -->
+                              </div>
+
+                         </div>   <!-- card-body -->
+                      </article>
+                      </li>
+                  {{/each}}
+                  </ul>
+
+                          <ul class="productList list-only hidden">
+                            {{#each comparisons}}
+                              <li class="product list-view">
+                                <article class="card">
+                                  <div class="image-and-price list-view">
+                                  <figure class="listItem-figure">
+                                    <a href="{{url}}">
+                                      <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                        {{#each (limit images 2)}}
+                                          {{#if @index '>' 0}}
+                                            <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                          {{/if}}
+                                        {{/each}}
+                                    </a>
+                                      <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                          <svg class="icon">
+                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                          </svg>
+                                      </a>
+                                  </figure>
+                                  <div class="top-card-body list-view">
+                                    <h4 class="card-title">
+                                        <a href="{{url}}">{{ name }}</a>
+                                    </h4>
+
+                                    <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                      {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                        {{#if price_range}}
+                                          {{> components/products/price-range}}
+                                        {{else}}
+                                          {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                        {{/if}}
+                                        {{else}}
+                                          {{> components/common/login-for-pricing}}
+                                      {{/or}}
+                                    </div>
+
+                                    {{#if show_cart_action}}
+                                    <div class="add-to-cart-button">
+                                        {{#if has_options}}
+                                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                        {{/if}}
+                                        {{#if pre_order}}
+                                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                {{lang 'products.pre_order'}}
+                                            </a>
+                                        {{/if}}
+                                        {{#if add_to_cart_url}}
+                                            <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                {{lang 'products.add_to_cart'}}
+                                            </a>
+                                        {{/if}}
+                                        {{#if out_of_stock_message}}
+                                            <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                        {{/if}}
+                                     </div>
+                                    {{/if}}
+                                  </div>
+
+                                </div>
+
+
+                                  <div class="listItem-content">
+                                    <div class="bottom-card-body">
+                                      <div class="card-text">
+                                        <div class="brand">
+                                          <span class="compareTable-headingText brand">Brand: </span>
+                                          {{#if brand.name}}
+                                            <a href="{{brand.url}}">{{ brand.name }}</a>
+                                          {{else}}
+                                            <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                          {{/if}}
+                                        </div>
+                                      <span class="compareTable-headingText">Description</span>
+                                        <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                        <!-- {{#if show_rating}}
+                                            <p class="card-text" data-test-info-type="productRating">
+                                                <span class="rating--small">
+                                                    {{> components/products/ratings rating=rating}}
+                                                </span>
+                                            </p>
+                                        {{/if}} -->
+
+                                        <div class="compareTable-row">
+
+                                            <!-- <div class="compareTable-heading">
+                                                <span class="compareTable-headingText">Rating</span>
+                                            </div> -->
+
+                                            <div class="compareTable-item rating">
+                                                {{#if rating}}
+                                                    {{> components/products/ratings rating=rating}}
+                                                {{else}}
+                                                    <span class="normal-text">No Reviews</span>
+                                            </div>
+                                            {{/if}}
+                                        </div>
+
+                                        <div class="availability">
+                                            <span class="">Availability</span><br />
+                                            <div class="availability-text normal-text">
+                                              {{#if availability}}
+                                                {{ availability }}
+                                              {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                              {{/if}}
+                                            </div>
+                                        </div>
+
+                                        <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                        <div class="custom-fields">
+                                            {{#if custom_fields}}
+                                                <ul>
+                                                    {{#each custom_fields}}
+                                                        <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                    {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                            {{/if}}
+                                         </div> <!-- custom-fields -->
+
+
+                                        </div> <!-- card-text -->
+                                      </div>
+
+                                 </div>   <!-- card-body -->
+                              </article>
+                              </li>
+                          {{/each}}
+                          </ul>
+                        {{/if}}
+                </form>
+
+                <!-- BOTH LIST BY DEFAULT -->
+                {{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+                <form class="both-list-default">
+                  <ul class="productList list-only visible">
+                    {{#each comparisons}}
+                      <li class="product list-view">
+                        <article class="card">
+                          <div class="image-and-price list-view">
+                          <figure class="listItem-figure">
+                            <a href="{{url}}">
+                              <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                {{#each (limit images 2)}}
+                                  {{#if @index '>' 0}}
+                                    <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                  {{/if}}
+                                {{/each}}
+                            </a>
+                              <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                  <svg class="icon">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                  </svg>
+                              </a>
+                          </figure>
+                          <div class="top-card-body list-view">
+                            <h4 class="card-title">
+                                <a href="{{url}}">{{ name }}</a>
+                            </h4>
+
+                            <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                              {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                {{#if price_range}}
+                                  {{> components/products/price-range}}
+                                {{else}}
+                                  {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                {{/if}}
+                                {{else}}
+                                  {{> components/common/login-for-pricing}}
+                              {{/or}}
+                            </div>
+
+                            {{#if show_cart_action}}
+                            <div class="add-to-cart-button">
+                                {{#if has_options}}
+                                    <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                {{/if}}
+                                {{#if pre_order}}
+                                    <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                        {{lang 'products.pre_order'}}
+                                    </a>
+                                {{/if}}
+                                {{#if add_to_cart_url}}
+                                    <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                        {{lang 'products.add_to_cart'}}
+                                    </a>
+                                {{/if}}
+                                {{#if out_of_stock_message}}
+                                    <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                {{/if}}
+                             </div>
+                            {{/if}}
+                          </div>
+
+                        </div>
+
+
+                          <div class="listItem-content">
+                            <div class="bottom-card-body">
+                              <div class="card-text">
+                                <div class="brand">
+                                  <span class="compareTable-headingText brand">Brand: </span>
+                                  {{#if brand.name}}
+                                    <a href="{{brand.url}}">{{ brand.name }}</a>
+                                  {{else}}
+                                    <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                  {{/if}}
+                                </div>
+                              <span class="compareTable-headingText">Description</span>
+                                <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                <!-- {{#if show_rating}}
+                                    <p class="card-text" data-test-info-type="productRating">
+                                        <span class="rating--small">
+                                            {{> components/products/ratings rating=rating}}
+                                        </span>
+                                    </p>
+                                {{/if}} -->
+
+                                <div class="compareTable-row">
+
+                                    <!-- <div class="compareTable-heading">
+                                        <span class="compareTable-headingText">Rating</span>
+                                    </div> -->
+
+                                    <div class="compareTable-item rating">
+                                        {{#if rating}}
+                                            {{> components/products/ratings rating=rating}}
+                                        {{else}}
+                                            <span class="normal-text">No Reviews</span>
+                                    </div>
+                                    {{/if}}
+                                </div>
+
+                                <div class="availability">
+                                    <span class="">Availability</span><br />
+                                    <div class="availability-text normal-text">
+                                      {{#if availability}}
+                                        {{ availability }}
+                                      {{else}}
+                                        {{lang 'common.not_applicable'}}
+                                      {{/if}}
+                                    </div>
+                                </div>
+
+                                <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                <div class="custom-fields">
+                                    {{#if custom_fields}}
+                                        <ul>
+                                            {{#each custom_fields}}
+                                                <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                            {{/each}}
+                                        </ul>
+                                    {{else}}
+                                        {{lang 'common.not_applicable'}}
+                                    {{/if}}
+                                 </div> <!-- custom-fields -->
+
+
+                                </div> <!-- card-text -->
+                              </div>
+
+                         </div>   <!-- card-body -->
+                      </article>
+                      </li>
+                  {{/each}}
+                </ul>
+
+                          <ul class="productGrid">
+                            {{#each comparisons}}
+                              <li class="product grid-view">
+                                <article class="card">
+                                  <figure class="card-figure">
+                                    <a href="{{url}}">
+                                      <img class='card-image main' src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                        {{#each (limit images 2)}}
+                                          {{#if @index '>' 0}}
+                                            <img class='card-image alt' src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                                          {{/if}}
+                                        {{/each}}
+                                    </a>
+                                      <a id ="remove" class="compareTable-removeProduct" data-comparison-remove href="{{#if remove_url}}{{remove_url}}{{else}}#{{/if}}">
+                                          <svg class="icon">
+                                              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                          </svg>
+                                      </a>
+                                  </figure>
+                                  <div class="card-body">
+                                    <div class="top-card-body">
+                                      <h4 class="card-title">
+                                          <a href="{{url}}">{{ name }}</a>
+                                      </h4>
+
+                                      <div class="price-visibility{{#or customer (if theme_settings.restrict_to_login '===' true)}} visible{{/or}}">
+                                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                          {{#if price_range}}
+                                            {{> components/products/price-range}}
+                                          {{else}}
+                                            {{> components/products/price settings=settings sharedProduct=this price=price}}
+                                          {{/if}}
+                                          {{else}}
+                                            {{> components/common/login-for-pricing}}
+                                        {{/or}}
+                                      </div>
+
+                                      {{#if show_cart_action}}
+                                      <div class="add-to-cart-button">
+                                          {{#if has_options}}
+                                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                          {{/if}}
+                                          {{#if pre_order}}
+                                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                  {{lang 'products.pre_order'}}
+                                              </a>
+                                          {{/if}}
+                                          {{#if add_to_cart_url}}
+                                              <a href="{{add_to_cart_url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">
+                                                  {{lang 'products.add_to_cart'}}
+                                              </a>
+                                          {{/if}}
+                                          {{#if out_of_stock_message}}
+                                              <a href="{{url}}" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                                          {{/if}}
+                                       </div>
+                                      {{/if}}
+                                    </div>
+
+                                    <div class="bottom-card-body">
+                                      <div class="card-text">
+                                        <div class="brand">
+                                          <span class="compareTable-headingText brand">Brand: </span>
+                                          {{#if brand.name}}
+                                            <a href="{{brand.url}}">{{ brand.name }}</a>
+                                          {{else}}
+                                            <span class="normal-text">{{lang 'common.not_applicable'}}</span>
+                                          {{/if}}
+                                        </div>
+                                      <span class="compareTable-headingText">Description</span>
+                                        <div class="normal-text">{{{ sanitize summary }}}</div>
+
+                                        <!-- {{#if show_rating}}
+                                            <p class="card-text" data-test-info-type="productRating">
+                                                <span class="rating--small">
+                                                    {{> components/products/ratings rating=rating}}
+                                                </span>
+                                            </p>
+                                        {{/if}} -->
+
+                                        <div class="compareTable-row">
+
+                                            <!-- <div class="compareTable-heading">
+                                                <span class="compareTable-headingText">Rating</span>
+                                            </div> -->
+
+                                            <div class="compareTable-item rating">
+                                                {{#if rating}}
+                                                    {{> components/products/ratings rating=rating}}
+                                                {{else}}
+                                                    <span class="normal-text">No Reviews</span>
+                                            </div>
+                                            {{/if}}
+                                        </div>
+
+                                        <div class="availability">
+                                            <span class="">Availability</span><br />
+                                            <div class="availability-text normal-text">
+                                              {{#if availability}}
+                                                {{ availability }}
+                                              {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                              {{/if}}
+                                            </div>
+                                        </div>
+
+                                        <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
+                                        <div class="custom-fields">
+                                            {{#if custom_fields}}
+                                                <ul>
+                                                    {{#each custom_fields}}
+                                                        <li><span class="name">{{name}}:</span><br /><span class="value">{{{value}}}</span></li>
+                                                    {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                {{lang 'common.not_applicable'}}
+                                            {{/if}}
+                                         </div> <!-- custom-fields -->
+
+
+                                        </div> <!-- card-text -->
+                                      </div>
+
+                                 </div>   <!-- card-body -->
+                              </article>
+                              </li>
+                          {{/each}}
+                          </ul>
+                        {{/if}}
+                </form>
+
+
+              </main>
+          </div>
+          <!-- INSTAGRAM FEED -->
+          {{#if theme_settings.feed_position '===' 'above-footer'}}
+          {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+          <div class="instagram-feed above-footer">
+            {{> components/custom/instagram-feed}}
+            <div class="clear"></div>
+          </div>
+          {{/if}}
+          {{/if}}
+          </div> <!-- compare-content with-sidenav -->
+          {{/if}}
+
+
+
+
+</main>
+
+{{/partial}}
+{{> layout/base}}

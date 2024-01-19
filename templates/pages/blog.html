@@ -1,0 +1,59 @@
+---
+blog:
+    posts:
+        limit: 6
+        pages: 3
+        summary: 125
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#partial "page"}}
+
+<main class="page blog {{#if theme_settings.top_pagination_visibility '===' false}}top-pagination-hidden {{/if}} {{#if theme_settings.bottom_pagination_visibility '===' false}}bottom-pagination-hidden {{/if}}{{#if theme_settings.blog_page_with_sidenav '!==' false}} blog-page-with-sidenav{{/if}}">
+
+{{#if theme_settings.blog_page_with_sidenav '===' false}}
+  <div class="blog-list-container">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <h1 class="page-heading">{{ blog.name }}</h1>
+    {{#each blog.posts}}
+      {{> components/blog/post post=this settings=../settings}}
+    {{/each}}
+    {{> components/common/paginator pagination.blog}}
+    <!-- INSTAGRAM FEED -->
+    {{#if theme_settings.feed_position '===' 'above-footer'}}
+    {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+    <div class="instagram-feed above-footer">
+      {{> components/custom/instagram-feed}}
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+    {{/if}}
+  </div>
+{{/if}}
+
+{{#if theme_settings.blog_page_with_sidenav '===' true}}
+  {{> components/custom/sidenav}}
+    <div class="blog-list-container with-sidenav">
+      {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+      <h1 class="page-heading">{{ blog.name }}</h1>
+      {{#each blog.posts}}
+        {{> components/blog/post post=this settings=../settings}}
+      {{/each}}
+      <div class="clear"></div>
+      {{> components/common/paginator pagination.blog}}
+      <!-- INSTAGRAM FEED -->
+      {{#if theme_settings.feed_position '===' 'above-footer'}}
+      {{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+      <div class="instagram-feed above-footer">
+        {{> components/custom/instagram-feed}}
+        <div class="clear"></div>
+      </div>
+      {{/if}}
+      {{/if}}
+    </div>
+{{/if}}
+
+</main>
+
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,409 @@
+  <!-- 3 COLUMN FEATURED CUSTOM BANNERS -->
+    {{#if theme_settings.featured_banner_columns '===' 1}}
+    <div class="featured-categories-banner one-column">
+      <ul class="featured-categories">
+        {{#if theme_settings.external_link1 '===' true}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link1 '===' false}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+      </ul>
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+  <!-- END 1 COLUMN FEATURED CUSTOM BANNERS -->
+
+  <!-- 2 COLUMN FEATURED CUSTOM BANNERS -->
+    {{#if theme_settings.featured_banner_columns '===' 2}}
+    <div class="featured-categories-banner two-columns">
+      <ul class="featured-categories">
+        {{#if theme_settings.external_link1 '===' true}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link1 '===' false}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' true}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' false}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+      </ul>
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+  <!-- END 2 COLUMN FEATURED CUSTOM BANNERS -->
+
+  <!-- 3 COLUMN FEATURED CUSTOM BANNERS -->
+    {{#if theme_settings.featured_banner_columns '===' 3}}
+    <div class="featured-categories-banner three-columns">
+      <ul class="featured-categories">
+        {{#if theme_settings.external_link1 '===' true}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link1 '===' false}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' true}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' false}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link3 '===' true}}
+        <!-- CATEGORY THREE -->
+        <li class="category three">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_3}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_3}}" alt="{{theme_settings.featured_banner_name_3}}" title="{{theme_settings.featured_banner_name_3}}" />
+              </a>
+            </div>
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_3}}"><span class="category-name">{{theme_settings.featured_banner_name_3}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link3 '===' false}}
+        <!-- CATEGORY THREE -->
+        <li class="category three">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_3}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_3}}" alt="{{theme_settings.featured_banner_name_3}}" title="{{theme_settings.featured_banner_name_3}}" />
+              </a>
+            </div>
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_3}}"><span class="category-name">{{theme_settings.featured_banner_name_3}}</span></a></div>
+        </li>
+        {{/if}}
+      </ul>
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+  <!-- END 3 COLUMN FEATURED CUSTOM BANNERS -->
+
+  <!-- 4 COLUMN FEATURED CUSTOM BANNERS -->
+    {{#if theme_settings.featured_banner_columns '===' 4}}
+    <div class="featured-categories-banner four-columns">
+      <ul class="featured-categories">
+        {{#if theme_settings.external_link1 '===' true}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link1 '===' false}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' true}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' false}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link3 '===' true}}
+        <!-- CATEGORY THREE -->
+        <li class="category three">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_3}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_3}}" alt="{{theme_settings.featured_banner_name_3}}" title="{{theme_settings.featured_banner_name_3}}" />
+              </a>
+            </div>
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_3}}"><span class="category-name">{{theme_settings.featured_banner_name_3}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link3 '===' false}}
+        <!-- CATEGORY THREE -->
+        <li class="category three">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_3}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_3}}" alt="{{theme_settings.featured_banner_name_3}}" title="{{theme_settings.featured_banner_name_3}}" />
+              </a>
+            </div>
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_3}}"><span class="category-name">{{theme_settings.featured_banner_name_3}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link4 '===' true}}
+        <!-- CATEGORY FOUR -->
+        <li class="category four">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_4}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_4}}" alt="{{theme_settings.featured_banner_name_4}}" title="{{theme_settings.featured_banner_name_4}}" />
+              </a>
+            </div>
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_4}}"><span class="category-name">{{theme_settings.featured_banner_name_4}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link4 '===' false}}
+        <!-- CATEGORY FOUR -->
+        <li class="category four">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_4}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_4}}" alt="{{theme_settings.featured_banner_name_4}}" title="{{theme_settings.featured_banner_name_4}}" />
+              </a>
+            </div>
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_4}}"><span class="category-name">{{theme_settings.featured_banner_name_4}}</span></a></div>
+        </li>
+        {{/if}}
+      </ul>
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+  <!-- END 4 COLUMN FEATURED CUSTOM BANNERS -->
+
+  <!-- 5 COLUMN FEATURED CUSTOM BANNERS -->
+    {{#if theme_settings.featured_banner_columns '===' 5}}
+    <div class="featured-categories-banner five-columns">
+      <ul class="featured-categories">
+        {{#if theme_settings.external_link1 '===' true}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link1 '===' false}}
+        <!-- CATEGORY ONE -->
+        <li class="category one">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_1}}" alt="{{theme_settings.featured_banner_name_1}}" title="{{theme_settings.featured_banner_name_1}}" />
+              </a>
+            </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_1}}"><span class="category-name">{{theme_settings.featured_banner_name_1}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' true}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link2 '===' false}}
+        <!-- CATEGORY TWO -->
+        <li class="category two">
+          <div class="category-link-container">
+          <div class="zoom-image-container">
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}">
+              <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_2}}" alt="{{theme_settings.featured_banner_name_2}}" title="{{theme_settings.featured_banner_name_2}}" />
+            </a>
+          </div>
+            <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_2}}"><span class="category-name">{{theme_settings.featured_banner_name_2}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link3 '===' true}}
+        <!-- CATEGORY THREE -->
+        <li class="category three">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_3}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_3}}" alt="{{theme_settings.featured_banner_name_3}}" title="{{theme_settings.featured_banner_name_3}}" />
+              </a>
+            </div>
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_3}}"><span class="category-name">{{theme_settings.featured_banner_name_3}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link3 '===' false}}
+        <!-- CATEGORY THREE -->
+        <li class="category three">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_3}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_3}}" alt="{{theme_settings.featured_banner_name_3}}" title="{{theme_settings.featured_banner_name_3}}" />
+              </a>
+            </div>
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_3}}"><span class="category-name">{{theme_settings.featured_banner_name_3}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link4 '===' true}}
+        <!-- CATEGORY FOUR -->
+        <li class="category four">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_4}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_4}}" alt="{{theme_settings.featured_banner_name_4}}" title="{{theme_settings.featured_banner_name_4}}" />
+              </a>
+            </div>
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_4}}"><span class="category-name">{{theme_settings.featured_banner_name_4}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link4 '===' false}}
+        <!-- CATEGORY FOUR -->
+        <li class="category four">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_4}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_4}}" alt="{{theme_settings.featured_banner_name_4}}" title="{{theme_settings.featured_banner_name_4}}" />
+              </a>
+            </div>
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_4}}"><span class="category-name">{{theme_settings.featured_banner_name_4}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link5 '===' true}}
+        <!-- CATEGORY FIVE -->
+        <li class="category five">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_5}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_5}}" alt="{{theme_settings.featured_banner_name_5}}" title="{{theme_settings.featured_banner_name_5}}" />
+              </a>
+            </div>
+              <a target="_blank" class="category-image-link" href="{{theme_settings.featured_banner_link_5}}"><span class="category-name">{{theme_settings.featured_banner_name_5}}</span></a></div>
+        </li>
+        {{/if}}
+        {{#if theme_settings.external_link5 '===' false}}
+        <!-- CATEGORY FIVE -->
+        <li class="category five">
+          <div class="category-link-container">
+            <div class="zoom-image-container">
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_5}}">
+                <img class="category-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="../product_images/uploaded_images/{{theme_settings.featured_banner_image_5}}" alt="{{theme_settings.featured_banner_name_5}}" title="{{theme_settings.featured_banner_name_5}}" />
+              </a>
+            </div>
+              <a target="_self" class="category-image-link" href="/{{theme_settings.featured_banner_link_5}}"><span class="category-name">{{theme_settings.featured_banner_name_5}}</span></a></div>
+        </li>
+        {{/if}}
+      </ul>
+      <div class="clear"></div>
+    </div>
+    {{/if}}
+  <!-- END 5 COLUMN FEATURED CUSTOM BANNERS -->

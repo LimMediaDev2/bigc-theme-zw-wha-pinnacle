@@ -1,0 +1,29 @@
+{{> components/products/filter sort=pagination.brand.sort}}
+
+{{#if theme_settings.product_layout_view '===' 'grid'}}
+  <form class="grid-only" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/grid products=brand.products show_compare=brand.show_compare theme_settings=theme_settings}}
+  </form>
+{{/if}}
+
+{{#if theme_settings.product_layout_view '===' 'list'}}
+  <form class="list-only" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/list products=brand.products show_compare=brand.show_compare theme_settings=theme_settings}}
+  </form>
+{{/if}}
+
+{{#if theme_settings.product_layout_view '===' 'both_grid_default'}}
+  <form class="both-grid-default" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/grid-default products=brand.products show_compare=brand.show_compare theme_settings=theme_settings}}
+    {{> components/products/list products=brand.products show_compare=brand.show_compare theme_settings=theme_settings}}
+  </form>
+{{/if}}
+
+{{#if theme_settings.product_layout_view '===' 'both_list_default'}}
+  <form class="both-list-default" action="{{urls.compare}}" method='POST' data-product-compare>
+    {{> components/products/list-default products=brand.products show_compare=brand.show_compare theme_settings=theme_settings}}
+    {{> components/products/grid products=brand.products show_compare=brand.show_compare theme_settings=theme_settings}}
+  </form>
+{{/if}}
+
+{{> components/common/paginator pagination.brand}}

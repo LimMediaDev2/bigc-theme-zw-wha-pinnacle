@@ -1,0 +1,10 @@
+{{#if children}}
+  <!-- TOP LEVEL MENU ITEMS WITH CHILDREN ONLY -->
+    <a class="navPages-action navPages-action-depth-max has-subMenu is-root topLevel" href="{{url}}">
+        {{name}}
+    </a>
+      {{> components/custom/mega-shop-nav/5-level-2-no-images-grid-two-levels-deep}}
+{{else}}
+    <!-- TOP LEVEL MENU ITEMS WITHOUT CHILDREN ONLY -->
+    <a class="navPages-action" href="{{url}}">{{name}}</a>
+{{/if}}

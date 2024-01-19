@@ -1,0 +1,11 @@
+{{!-- LimMedia.io --}}
+<div class="column-count{{#if theme_settings.category_brand_search_productGrid_column_count '===' 5}} five-column{{/if}} {{#if theme_settings.category_brand_search_productGrid_column_count '===' 4}} four-column{{/if}} {{#if theme_settings.category_brand_search_productGrid_column_count '===' 3}} three-column{{/if}}"</div>
+<ul class="productGrid--maxCol{{ columns }} grid-default">
+<ul class="productGrid visible">
+    {{#each products}}
+    <li class="product">
+        {{>components/products/card show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer hide_as_low_as=../hide_as_low_as}}
+    </li>
+    {{/each}}
+</ul>
+</ul>

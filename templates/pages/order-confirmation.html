@@ -1,0 +1,81 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{#partial "head"}}
+
+{{{stylesheet '/assets/css/theme.css'}}}
+{{{ checkout.checkout_head }}}
+{{{stylesheet '/assets/css/pinnacle.css'}}}
+{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
+{{ getFontsCollection }}
+
+<script type="text/javascript">
+    window.language = {{{langJson 'optimized_checkout'}}};
+</script>
+
+{{{head.scripts}}}
+
+{{/partial}}
+
+{{#partial "page"}}
+
+<script src="https://use.fontawesome.com/63220265b2.js" async></script>
+<div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+{{> components/common/header}}
+
+{{{ checkout.order_confirmation_content }}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<!-- ACCOUNT DROP-DOWN -->
+<script type="text/javascript">
+$(document).click(function(event) {
+    if ( !$(event.target).hasClass('signout-list')) {
+        $("div#account-dropdown-signout-list").hide();
+        event.stopPropagation();
+    }
+}); 
+$('.account-links .navUser-action.account.signout-list').click(function(e){
+    $('div#account-dropdown-signout-list').toggle();
+    $('div#cart-preview-dropdown.dropdown-menu.is-open.f-open-dropdown').hide();
+    e.preventDefault();
+    e.stopPropagation();
+});
+$('.user-links.sticky .navUser-action.account.signout-list').click(function(e){
+    $(this).next('div#account-dropdown-signout-list').toggle();
+    $('div#cart-preview-dropdown.dropdown-menu.is-open.f-open-dropdown').hide();
+    e.preventDefault();
+    e.stopPropagation();
+});
+$(document).click(function(event) {
+    if ( !$(event.target).hasClass('signin-register')) {
+        $("div#account-dropdown-signin-register").hide();
+        event.stopPropagation();
+    }
+});
+$('.navUser-action.account.signin-register').click(function(e){
+    $('div#account-dropdown-signin-register').toggle();
+    $('div#cart-preview-dropdown.dropdown-menu.is-open.f-open-dropdown').hide();
+    e.preventDefault();
+    e.stopPropagation();
+});
+</script>
+
+{{{ footer.scripts }}}
+
+{{/partial}}
+
+{{> layout/checkout}}

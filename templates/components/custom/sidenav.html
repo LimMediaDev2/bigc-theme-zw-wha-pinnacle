@@ -1,0 +1,58 @@
+<div class="sideCategoryList desktop vertical in-body" id="side-categories" data-menu>
+    <div class="categories">
+        <div class="category-list">
+            {{#each categories}}
+                <li class="navPages-item">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
+            {{/each}}
+        </div> <!-- category-list -->
+    </div> <!-- categories -->
+    <div class="brands-option{{#if theme_settings.brands_visibility '!==' 'no-brands'}} with-brands{{/if}}">
+      <div class="brands">
+        <li class="navPages-item is-root">
+          <a class="brand top-level navPages-action navPages-action-depth-max has-submenu is-root active" href="/brands/">Shop by Brand</a>
+          <span class="down-arrow"><i class="" aria-hidden="true"><svg><use xlink:href="#icon-angle-up" /></svg></i></span>
+        </li>
+        <div class="brands-list">
+          {{#each shop_by_brand}}
+              <li class="navPage-subMenu-item-child is-root">
+                  <a class="navPages-action" href="{{url}}">{{name}}</a>
+              </li>
+          {{/each}}
+              <li class="all-brands">
+                  <a class="navPages-action" href="/brands/">View all Brands</a>
+              </li>
+        </div> <!-- brand-list -->
+      </div> <!--brands-->
+    </div> <!--brands-option-->
+    <div class="container-header shop-by-price">
+        {{#if category.faceted_search_enabled}}
+            {{> components/faceted-search/index category}}
+        {{else}}
+            {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+        {{/if}}
+    </div>
+
+  {{#if theme_settings.show_sidenav_featured_banner '===' true}}
+  {{#if theme_settings.external_link_sidenav '===' true}}
+    <!-- BEGIN SIDENAV BANNER -->
+      <div class="sidenav-banner zoom-image-container">
+        <a target="_blank" href="{{theme_settings.featured_sidenav_link}}">
+          <img class="sidenav-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.featured_sidenav_image}}" alt="{{theme_settings.featured_sidenav_banner_name}}" title="{{theme_settings.featured_sidenav_banner_name}}" />
+        </a>
+      </div>
+    <!-- END SIDENAV BANNER -->
+  {{/if}}
+  {{#if theme_settings.external_link_sidenav '===' false}}
+    <!-- BEGIN SIDENAV BANNER -->
+      <div class="sidenav-banner zoom-image-container">
+        <a target="_self" href="/{{theme_settings.featured_sidenav_link}}">
+          <img class="sidenav-image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.featured_sidenav_image}}" alt="{{theme_settings.featured_sidenav_banner_name}}" title="{{theme_settings.featured_sidenav_banner_name}}" />
+        </a>
+      </div>
+    <!-- END SIDENAV BANNER -->
+  {{/if}}
+  {{/if}}
+
+</div> <!-- sideCategoryList -->

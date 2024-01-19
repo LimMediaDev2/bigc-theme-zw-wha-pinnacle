@@ -1,0 +1,33 @@
+{{#if settings.blog_enabled}}
+{{#if blog}}
+<div class="home recent-blog-posts">
+  <h2 class="container-header page-heading news">{{ blog.name }}</h2>
+  <div class="recent-posts-slider">
+  {{#each blog.recent_posts}}
+    {{#if thumbnail}}
+      <figure class="blog-thumbnail">
+        <a href="{{url}}">
+          <div class="zoom-image-container">
+            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage thumbnail 'gallery'}}" alt="{{thumbnail.alt}}" title="{{thumbnail.alt}}">
+          </div>
+          <div class="blog-title"><a href="{{url}}">{{title}}</a></div>
+          <p class="blog-date">{{date_published}}</p>
+        </a>
+      </figure>
+    {{else}}
+    <figure class="blog-thumbnail">
+      <a href="{{url}}">
+        <div class="zoom-image-container">
+          <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage thumbnail 'gallery'}}" alt="{{cdn 'img/blog-feed-image-coming-soon-placeholder-pinnacle-2.png'}}" title="{{thumbnail.alt}}">
+        </div>
+        <div class="blog-title"><a href="{{url}}">{{title}}</a></div>
+        <p class="blog-date">{{date_published}}</p>
+      </a>
+    </figure>
+    {{/if}}
+  {{/each}}
+</div>
+  <div class="clear"></div>
+</div>
+{{/if}}
+{{/if}}

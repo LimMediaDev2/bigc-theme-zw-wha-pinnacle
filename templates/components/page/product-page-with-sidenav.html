@@ -1,0 +1,61 @@
+<div id="product-page-with-sidenav">
+  {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+  {{> components/custom/sidenav}}
+
+<div class="schema-product">
+  {{#each product.shipping_messages}}
+      {{> components/common/alert-info message}}
+  {{/each}}
+    {{> components/products/product-view schema=true}}
+<!-- <div class="clear"></div> -->
+
+<div class="related-products-container">
+  <ul class="tabs container-header" data-tab>
+    {{#if product.similar_by_views}}
+        <li class="tab is-active similar">
+            <a class="tab-title" href="#tab-similar">{{lang 'products.similar_by_views'}}</a>
+        </li>
+    {{/if}}
+      {{#if product.related_products}}
+          <li class="tab related">
+              <a class="tab-title" href="#tab-related">{{lang 'products.related_products'}}</a>
+          </li>
+      {{/if}}
+  </ul>
+
+  <div class="tabs-contents related">
+  {{#if product.similar_by_views}}
+      <div class="tab-content is-active" id="tab-similar">
+      <div id="similar_products">
+          {{> components/custom/related-products products=product.similar_by_views columns=theme_settings.related_productGrid_column_count}}
+      </div>
+      </div>
+  {{/if}}
+
+  {{#if product.related_products}}
+      <div class="tab-content" id="tab-related">
+      <div id="related_products">
+          {{> components/custom/related-products products=product.related_products columns=theme_settings.related_productGrid_column_count}}
+      </div>
+      </div>
+  {{/if}}
+  <div class="clear"></div>
+</div> <!-- related-products-container -->
+</div>
+<!-- INSTAGRAM FEED -->
+{{#if theme_settings.feed_position '===' 'above-footer'}}
+{{#if theme_settings.feed_presence '===' 'instafeed_site_wide'}}
+<div class="instagram-feed above-footer">
+  {{> components/custom/instagram-feed}}
+  <div class="clear"></div>
+</div>
+{{/if}}
+{{/if}}
+</div>
+
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>

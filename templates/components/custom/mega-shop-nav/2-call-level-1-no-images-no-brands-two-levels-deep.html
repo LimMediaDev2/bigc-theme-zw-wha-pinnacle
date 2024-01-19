@@ -1,0 +1,42 @@
+<div class="sideCategoryList desktop alternate no-images no-brands two-levels-deep" id="side-categories" data-menu>
+    <div class="categories">
+      <div class="alt-toggle">
+        <h2 class="container-header btn"><span class="down-arrrow burger-menu"><i class="burger open" aria-hidden="true"><svg><use xlink:href="#icon-Menu" /></svg></i><i class="menu close" aria-hidden="true"><svg><use xlink:href="#icon-close" /></svg></i></span></h2>
+        <h2 class="container-header text"><span class="mega-shop-text">{{theme_settings.mega_nav_name}}</span><span class="mega-shop-text sticky">{{theme_settings.sticky_mega_nav_name}}</span></h2>
+      </div>
+        <div class="alt-menu-container">
+          {{#if theme_settings.show_pages_in_sticky_mega_nav '===' true}}
+          <div class="megaPages-container {{#if theme_settings.show_pages_in_sticky_mega_nav '===' true}}sticky-pages-visible {{/if}}">
+            {{>components/common/mega-nav-pages}}
+          </div>
+          {{/if}}
+          <div id="page-wrapper" class="drop-down">
+          <div class="category-list">
+            <h2 class="container-header shop-by by-category">Shop by Category</h2>
+            <!-- <div class="scroller"><span>SCROLL</span></div> -->
+            {{#each categories}}
+                <li class="navPages-item sideTopLevel">
+                    {{> components/custom/mega-shop-nav/3-nav-list-no-images-two-levels-deep}}
+                </li>
+            {{/each}}
+            <div class="pagination-container">
+              <a class="navPages-action previous">
+                <i class="icon prev" aria-hidden="true">
+                  <svg><use xlink:href="#icon-chevron-left" /></svg>
+                </i>
+              </a>
+              <span class="dots"></span>
+              <a class="navPages-action next">
+                <i class="icon next" aria-hidden="true">
+                  <svg><use xlink:href="#icon-chevron-left" /></svg>
+                </i>
+              </a>
+            </div>
+            <hr class="sidenav"/>
+          </div> <!-- category-list -->
+          </div>
+
+</div> <!-- sideCategoryList -->
+
+</div>
+</div> <!-- sideCategoryList -->
