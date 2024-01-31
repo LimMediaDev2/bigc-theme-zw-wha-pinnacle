@@ -452,6 +452,14 @@ export default class ProductDetailsBase {
             return '';
         }
 
+        let priceDiff = 0;
+
+        if (this.originalPrice > price.without_tax.value) {
+            priceDiff = parseFloat(this.originalPrice - price.without_tax.value);
+        } else {
+            priceDiff = parseFloat(price.without_tax.value - this.originalPrice);
+        }
+
         let TableData = `<h2 class="productView-title-bulkPricing">Quantity Discounts</h2>
             <table class="productView-table-bulkPricing">
                 <tr>
@@ -460,7 +468,7 @@ export default class ProductDetailsBase {
                     <th>Savings</th>
                 </tr>
                 <tr>
-                    <td>1` + (bulk_discount_rates[0].min - 1 > 1 ? ' - ' + bulk_discount_rates[0].min : '') + `</td>
+                    <td>1` + (bulk_discount_rates[0].min - 1 > 1 ? ' - ' + (bulk_discount_rates[0].min - 1) : '') + `</td>
                     <td>` + this.moneyFormatterLocal(price.without_tax.value) + `</td>
                     <td></td>
                 </tr>`;
@@ -471,7 +479,7 @@ export default class ProductDetailsBase {
             if (bulk_discount_rate.type == 'percent') {
                 TableData = TableData + `<tr>
                     <td>` + bulkRange + `</td>
-                    <td>` + this.moneyFormatterLocal(price.without_tax.value - ((bulk_discount_rate.discount.value * price.without_tax.value) / 100)) + `</td>
+                    <td>` + this.moneyFormatterLocal(priceDiff + (price.without_tax.value - ((bulk_discount_rate.discount.value * price.without_tax.value) / 100))) + `</td>
                     <td>` + bulk_discount_rate.discount.formatted.toString() + `</td>
                 </tr>`;
             }
@@ -479,7 +487,7 @@ export default class ProductDetailsBase {
             if (bulk_discount_rate.type == 'fixed') {
                 TableData = TableData + `<tr>
                     <td>` + bulkRange + `</td>
-                    <td>` + bulk_discount_rate.discount.formatted.toString() + `</td>
+                    <td>` + this.moneyFormatterLocal(priceDiff + parseFloat(bulk_discount_rate.discount.formatted.toString().replace(/[^0-9\.]/g, ""))) + `</td>
                     <td>` + Math.round(((price.without_tax.value - bulk_discount_rate.discount.value) * 100) / price.without_tax.value).toString() + `%</td>
                 </tr>`;
             }
@@ -487,7 +495,7 @@ export default class ProductDetailsBase {
             if (bulk_discount_rate.type == 'price') {
                 TableData = TableData + `<tr>
                     <td>` + bulkRange + `</td>
-                    <td>` + this.moneyFormatterLocal(price.without_tax.value - bulk_discount_rate.discount.value) + `</td>
+                    <td>` + this.moneyFormatterLocal(priceDiff + (price.without_tax.value - bulk_discount_rate.discount.value)) + `</td>
                     <td>` + Math.round((bulk_discount_rate.discount.value * 100) / price.without_tax.value).toString() + `%</td>
                 </tr>`;
             }
@@ -506,25 +514,33 @@ export default class ProductDetailsBase {
      * @returns 
      */
     getAsLowAs(price, bulk_discount_rates) {
+        let priceDiff = 0;
+
+        if (this.originalPrice > price.without_tax.value) {
+            priceDiff = parseFloat(this.originalPrice - price.without_tax.value);
+        } else {
+            priceDiff = parseFloat(price.without_tax.value - this.originalPrice);
+        }
+
         if (bulk_discount_rates.length == 0) {
-            return 'As Low As ' + this.moneyFormatterLocal(price.without_tax.value);
+            return 'As Low As ' + this.moneyFormatterLocal(priceDiff + price.without_tax.value);
         }
 
         let last = bulk_discount_rates[bulk_discount_rates.length - 1];
 
         if (last.type == 'percent') {
-            return 'As Low As ' + this.moneyFormatterLocal(price.without_tax.value - ((last.discount.value * price.without_tax.value) / 100));
+            return 'As Low As ' + this.moneyFormatterLocal(priceDiff + (price.without_tax.value - ((last.discount.value * price.without_tax.value) / 100)));
         }
 
         if (last.type == 'fixed') {
-            return 'As Low As ' + last.discount.formatted.toString();
+            return 'As Low As ' + this.moneyFormatterLocal(priceDiff + parseFloat(last.discount.formatted.toString().replace(/[^0-9\.]/g, "")));
         }
 
         if (last.type == 'price') {
-            return 'As Low As ' + this.moneyFormatterLocal(price.without_tax.value - last.discount.value);
+            return 'As Low As ' + this.moneyFormatterLocal(priceDiff + (price.without_tax.value - last.discount.value));
         }
 
-        return 'As Low As ' + this.moneyFormatterLocal(price.without_tax.value);
+        return 'As Low As ' + this.moneyFormatterLocal(priceDiff + price.without_tax.value);
     }
 
     /**

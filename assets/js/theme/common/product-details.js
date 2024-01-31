@@ -94,6 +94,7 @@ export default class ProductDetails extends ProductDetailsBase {
          * LimMedia.io
          */
         this.interval = new IntervalQuantity(this.$scope);
+        this.originalPrice = parseFloat(this.$productPriceEl.html().replace(/\$|,/g, ''), 10)
         this.getBulkPricing();
     }
 
@@ -508,9 +509,9 @@ export default class ProductDetails extends ProductDetailsBase {
         this.showProductImage(data.image);
     }
 
-    getBulkPricing() {
+    async getBulkPricing() {
         const productId = $('[name="product_id"]', this.$scope).val();
-        getDataFromGraphql('getProductData', this.context.sfToken, { id: productId, fields: `
+        await getDataFromGraphql('getProductData', this.context.sfToken, { id: productId, fields: `
             prices {
                 bulkPricing {
                     ... on BulkPricingFixedPriceDiscount {
@@ -537,27 +538,39 @@ export default class ProductDetails extends ProductDetailsBase {
     }
 
     adjustPrice(productPrice, qty) {
-        if (!this.bulkPrices || this.bulkPrices.length === 0) return productPrice;
+        let priceDiff = 0;
+
+        if (this.originalPrice > productPrice) {
+            priceDiff = parseFloat(this.originalPrice - productPrice);
+        } else {
+            priceDiff = parseFloat(productPrice - this.originalPrice);  
+        }
+
+        if (!this.bulkPrices || this.bulkPrices.length === 0) return (priceDiff + productPrice);
+
         const bulkPrice = this.bulkPrices.reduce((prev, item) => {
             return item.minimumQuantity && qty >= item.minimumQuantity && item.minimumQuantity > prev.minimumQuantity ? item : prev;
         }, { minimumQuantity: 1 });
 
         // Case of BulkPricingRelativePriceDiscount
         if (bulkPrice.priceAdjustment) {
-            return (productPrice - bulkPrice.priceAdjustment).toFixed(2);
+            return (priceDiff + (productPrice - bulkPrice.priceAdjustment)).toFixed(2);
         }
+
         // Case of BulkPricingPercentageDiscount
         if (bulkPrice.percentOff) {
-            return (productPrice - ((productPrice / 100) * bulkPrice.percentOff)).toFixed(2);
+            return (priceDiff + (productPrice - ((productPrice / 100) * bulkPrice.percentOff))).toFixed(2);
         }
+
         // Case of BulkPricingFixedPriceDiscount
         if (bulkPrice.price) {
-            return price.toFixed(2);
+            return (priceDiff + bulkPrice.price).toFixed(2);
         }
-        return productPrice;
+
+        return (priceDiff + productPrice).toFixed(2);
     }
 
-    updatePriceTotal(qty = null) {
+    async updatePriceTotal(qty = null) {
         const productQty = qty || parseInt(this.$productQtyEl.val(), 10);
         let productPrice = parseFloat(this.$productPriceEl.html().replace(/\$|,/g, ''), 10);
 
