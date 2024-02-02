@@ -546,28 +546,30 @@ export default class ProductDetails extends ProductDetailsBase {
             priceDiff = parseFloat(productPrice - this.originalPrice);  
         }
 
-        if (!this.bulkPrices || this.bulkPrices.length === 0) return (priceDiff + productPrice);
+        if (!this.bulkPrices || this.bulkPrices.length === 0) return productPrice;
 
         const bulkPrice = this.bulkPrices.reduce((prev, item) => {
             return item.minimumQuantity && qty >= item.minimumQuantity && item.minimumQuantity > prev.minimumQuantity ? item : prev;
         }, { minimumQuantity: 1 });
 
+        if (bulkPrice.minimumQuantity == 1 && typeof bulkPrice.maximumQuantity === 'undefined') {
+            priceDiff = 0;
+        }
+
         // Case of BulkPricingRelativePriceDiscount
         if (bulkPrice.priceAdjustment) {
             return (priceDiff + (productPrice - bulkPrice.priceAdjustment)).toFixed(2);
         }
-
         // Case of BulkPricingPercentageDiscount
-        if (bulkPrice.percentOff) {
+        else if (bulkPrice.percentOff) {
             return (priceDiff + (productPrice - ((productPrice / 100) * bulkPrice.percentOff))).toFixed(2);
         }
-
         // Case of BulkPricingFixedPriceDiscount
-        if (bulkPrice.price) {
+        else if (bulkPrice.price) {
             return (priceDiff + bulkPrice.price).toFixed(2);
+        } else {
+            return (priceDiff + productPrice).toFixed(2);
         }
-
-        return (priceDiff + productPrice).toFixed(2);
     }
 
     async updatePriceTotal(qty = null) {
