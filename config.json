@@ -1,5 +1,5 @@
 {
-  "name": "ZW-WHA-Pinnacle-Custom (2024-02-02)",
+  "name": "ZW-WHA-Pinnacle-Custom (2024-04-30)",
   "version": "1.2.6",
   "meta": {
     "price": 22500,
@@ -877,11 +877,11 @@
         "featured_banner_name_5": "",
         "featured_banner_link_5": "",
         "external_link5": false,
-        "show_sidenav_featured_banner": true,
+        "show_sidenav_featured_banner": false,
         "featured_sidenav_image": "dwd-trustpilot.png",
         "featured_sidenav_banner_name": "4.4 out of 5 starts at Trustpilot!",
         "featured_sidenav_link": "https://www.trustpilot.com/review/welcomehomeamerica.com",
-        "external_link_sidenav": true,
+        "external_link_sidenav": false,
         "flyout_grid_view": true,
         "flyout_grid_view_with_images": false,
         "number_of_subcats_per_page_with_images": "eight-per-page",

@@ -1,0 +1,8 @@
+[
+    {{#each product.related_products}}
+        {{#unless out_of_stock_message}}
+            "{{id}}"
+            {{#unless @last}},{{/unless}}
+        {{/unless}}
+    {{/each}}
+]

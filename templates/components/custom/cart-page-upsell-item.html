@@ -1,0 +1,70 @@
+{{#if is_ajax}}
+    <li class="cpu__item {{#if product.options}}hasOptions{{/if}}"
+        {{#filter product.custom_fields "interval quantity" property="name"}}data-cpu-interval="{{value}}"{{/filter}}>
+        <form class="cpu__item-form" method="post" action="/cart.php" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="add">
+            <input type="hidden" name="product_id" value="{{product.id}}" />
+            <input type="hidden" name="qty[]" value="1" />
+            <div class="cpu__item-img-wrapper">
+                <img class="cpu__item-img" src="{{getImage product.main_image 'gallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+            </div>
+            <div class="cpu__item-details">
+                <p class="cpu__item-brand">{{product.brand.name}}</p>
+                <p class="cpu__item-name">{{product.title}}</p>
+                <div class="cpu__item-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price schema_org=schema}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+                {{#if product.options}}
+                    <button class="button button--primary cpu__item-button cpu__item-button--options" type="button">Choose Options</button>
+                    <div class="cpu__item-options">
+                        <div class="cpu__item-options-content" data-cpu-option-change>                            
+                            {{#each product.options}}
+                                {{{dynamicComponent 'components/products/options'}}}
+                            {{/each}}
+                        </div>
+                        <div class="cpu__item-options-actions">
+                            <button class="button button--primary cpu__item-button cpu__item-button--modaladdtocart" type="button">Add to Cart</button>
+                        </div>
+                    </div>
+                {{/if}}
+                <button class="button button--primary cpu__item-button cpu__item-button--addtocart" type="button">Add to Cart</button>
+            </div>
+        </form>
+    </li>
+{{else}}
+    <li class="cpu__item {{#if has_options}}hasOptions{{/if}}" {{#filter product.custom_fields "interval quantity" property="name"}}data-cpu-interval="{{value}}"{{/filter}}>
+        <form class="cpu__item-form" method="post" action="/cart.php" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="add">
+            <input type="hidden" name="product_id" value="{{id}}" />
+            <input type="hidden" name="qty[]" value="1" />
+            <div class="cpu__item-img-wrapper">
+                <img class="cpu__item-img" src="{{getImage image 'productthumb_size'}}" alt="{{image.alt}}" title="{{image.alt}}">
+            </div>
+            <div class="cpu__item-details">
+                <p class="cpu__item-brand">{{brand.name}}</p>
+                <p class="cpu__item-name">{{name}}</p>
+                <div class="cpu__item-price">
+                    {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                        <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}}">{{price.formatted}}</span>
+                        {{#if price_discounted}}<span class="cart-item-value">{{price_discounted.formatted}}</span>{{/if}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+                {{#if has_options}}
+                    <button class="button button--primary cpu__item-button cpu__item-button--options" type="button">Choose Options</button>
+                    <div class="cpu__item-options"></div>
+                {{/if}}
+                <button class="button button--primary cpu__item-button cpu__item-button--addtocart" {{#filter product.custom_fields "interval quantity" property="name"}}data-interval="{{value}}"{{/filter}} type="button">Add to Cart</button>
+            </div>
+        </form>
+    </li>
+{{/if}}
+
+
+
+

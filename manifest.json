@@ -1,1569 +1,1573 @@
 {
-  "regions": {
-    "pages/blog": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/blog-post": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/brands": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "brands_below_header_no_sidenav"
-      },
-      {
-        "name": "brands_below_content_no_sidenav"
-      },
-      {
-        "name": "brands_below_header_with_sidenav"
-      },
-      {
-        "name": "brands_below_content_with_sidenav"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/cart": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/brand": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "brand_below_menu--global"
-      },
-      {
-        "name": "brand_below_menu"
-      },
-      {
-        "name": "brand_below_header--global"
-      },
-      {
-        "name": "brand_below_header"
-      },
-      {
-        "name": "brand_below_content--global"
-      },
-      {
-        "name": "brand_below_content"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/category": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "category_below_menu--global"
-      },
-      {
-        "name": "category_below_menu"
-      },
-      {
-        "name": "category_below_header--global"
-      },
-      {
-        "name": "category_below_header"
-      },
-      {
-        "name": "category_below_content--global"
-      },
-      {
-        "name": "category_below_content"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/compare": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/contact-us": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/checkout": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/order-complete": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/home": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "home_below_menu"
-      },
-      {
-        "name": "home_below_carousel"
-      },
-      {
-        "name": "home_below_featured_banners"
-      },
-      {
-        "name": "home_below_blog_feed"
-      },
-      {
-        "name": "home_below_brands_feed"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/page": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "page_builder_content_top--global"
-      },
-      {
-        "name": "page_builder_content_top"
-      },
-      {
-        "name": "page_builder_content_editor_area_top--global"
-      },
-      {
-        "name": "page_builder_content_editor_area_top"
-      },
-      {
-        "name": "page_builder_content_editor_area_bottom--global"
-      },
-      {
-        "name": "page_builder_content_editor_area_bottom"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/order-confirmation": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/product": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "product_below_menu--global"
-      },
-      {
-        "name": "product_below_menu"
-      },
-      {
-        "name": "product_below_price--global"
-      },
-      {
-        "name": "product_below_price"
-      },
-      {
-        "name": "product_below_review--global"
-      },
-      {
-        "name": "product_below_review"
-      },
-      {
-        "name": "product_above_tabs--global"
-      },
-      {
-        "name": "product_above_tabs"
-      },
-      {
-        "name": "product_below_tabs--global"
-      },
-      {
-        "name": "product_below_tabs"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/search": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "search_below_menu"
-      },
-      {
-        "name": "search_below_content"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/sitemap": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/subscribed": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/unsubscribe": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/amp/product-options": [],
-    "pages/amp/category": [],
-    "pages/amp/product": [],
-    "pages/auth/account-created": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/auth/create-account": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/auth/forgot-password": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/auth/login": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/auth/new-password": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/errors/403": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/errors/404": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/errors/generic": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/gift-certificate/balance": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/gift-certificate/purchase": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/gift-certificate/redeem": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/unavailable/hibernation": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/unavailable/maintenance": [],
-    "pages/account/add-address": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/add-payment-method": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/add-return": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/add-wishlist": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/addresses": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/download-item": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/edit-payment-method": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/edit": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/inbox": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/payment-methods": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/return-saved": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/recent-items": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/returns": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/wishlist-details": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/wishlists": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/orders/all": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/orders/completed": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/orders/details": [
-      {
-        "name": "header_bottom--global"
-      },
-      {
-        "name": "footer_above_full_width--global"
-      },
-      {
-        "name": "footer_below_contact--global"
-      },
-      {
-        "name": "footer_below_account--global"
-      },
-      {
-        "name": "footer_below_quick_links--global"
-      },
-      {
-        "name": "footer_below_social_links--global"
-      },
-      {
-        "name": "footer_below_payment_icons--global"
-      }
-    ],
-    "pages/account/orders/invoice": []
-  },
-  "templates": [
-    "layout/amp-iframe",
-    "layout/amp",
-    "layout/base",
-    "layout/checkout",
-    "layout/empty",
-    "layout/product",
-    "layout/home-layout",
-    "pages/blog",
-    "pages/blog-post",
-    "pages/brands",
-    "pages/cart",
-    "pages/brand",
-    "pages/category",
-    "pages/compare",
-    "pages/contact-us",
-    "pages/checkout",
-    "pages/order-complete",
-    "pages/home",
-    "pages/page",
-    "pages/order-confirmation",
-    "pages/product",
-    "pages/search",
-    "pages/sitemap",
-    "pages/subscribed",
-    "pages/unsubscribe",
-    "pages/amp/product-options",
-    "pages/amp/category",
-    "pages/amp/product",
-    "pages/auth/account-created",
-    "pages/auth/create-account",
-    "pages/auth/forgot-password",
-    "pages/auth/login",
-    "pages/auth/new-password",
-    "pages/errors/403",
-    "pages/errors/404",
-    "pages/errors/generic",
-    "pages/gift-certificate/balance",
-    "pages/gift-certificate/purchase",
-    "pages/gift-certificate/redeem",
-    "pages/unavailable/hibernation",
-    "pages/unavailable/maintenance",
-    "pages/account/add-address",
-    "pages/account/add-payment-method",
-    "pages/account/add-return",
-    "pages/account/add-wishlist",
-    "pages/account/addresses",
-    "pages/account/download-item",
-    "pages/account/edit-payment-method",
-    "pages/account/edit",
-    "pages/account/inbox",
-    "pages/account/payment-methods",
-    "pages/account/return-saved",
-    "pages/account/recent-items",
-    "pages/account/returns",
-    "pages/account/wishlist-details",
-    "pages/account/wishlists",
-    "pages/account/orders/all",
-    "pages/account/orders/completed",
-    "pages/account/orders/details",
-    "pages/account/orders/invoice",
-    "components/carousel",
-    "components/carousel-content",
-    "components/account/add-wishlist",
-    "components/account/address-list",
-    "components/account/messages-form",
-    "components/account/edit-account",
-    "components/account/messages-list",
-    "components/account/navigation",
-    "components/account/order-contents",
-    "components/account/orders-list",
-    "components/account/payment-methods-list",
-    "components/account/returns-list",
-    "components/account/wishlist-item-list",
-    "components/account/wishlist-list",
-    "components/blog/post",
-    "components/brand/product-listing",
-    "components/brand/show-more",
-    "components/brand/sidebar",
-    "components/category/product-listing",
-    "components/category/shop-by-price",
-    "components/category/sidebar",
-    "components/category/sort-box",
-    "components/category/show-more",
-    "components/gift-certificate/navigation",
-    "components/page/contact-page-with-sidenav",
-    "components/page/contact-page-no-sidenav",
-    "components/page/contact-us-form",
-    "components/page/content-page-no-sidenav",
-    "components/page/content-page-with-sidenav",
-    "components/page/home-page-no-sidenav",
-    "components/page/home-page-with-sidenav-float-carousel",
-    "components/page/product-page-no-sidenav",
-    "components/page/product-page-with-recommended-below",
-    "components/page/home-page-with-sidenav",
-    "components/page/product-page-with-sidenav",
-    "components/page/rss_feed",
-    "components/search/advanced-search",
-    "components/search/content-sort-box",
-    "components/search/heading",
-    "components/search/product-count",
-    "components/search/show-more",
-    "components/search/sidebar",
-    "components/search/product-listing",
-    "components/search/quick-results",
-    "components/sitemap/links",
-    "components/social/connect",
-    "components/social/twitter",
-    "components/social/instagram",
-    "components/cart/content",
-    "components/cart/coupon-input",
-    "components/cart/gift-certificate-input",
-    "components/cart/item-giftwrap",
-    "components/cart/item-options",
-    "components/cart/page-title",
-    "components/cart/preview",
-    "components/cart/shipping-estimator",
-    "components/cart/shipping-quotes",
-    "components/cart/status-messages",
-    "components/cart/totals",
-    "components/cart/modals/configure-product",
-    "components/cart/modals/gift-wrapping-form",
-    "components/common/alert-error",
-    "components/common/alert-generic",
-    "components/common/alert-info",
-    "components/common/alert-modal",
-    "components/common/alert-success",
-    "components/common/body",
-    "components/common/breadcrumbs",
-    "components/common/cart-preview",
-    "components/common/cookie",
-    "components/common/currency-selector",
-    "components/common/footer-checkout",
-    "components/common/footer",
-    "components/common/footer-product",
-    "components/common/geotrust-ssl-seal",
-    "components/common/header",
-    "components/common/mega-nav-page-list",
-    "components/common/mega-nav-pages",
-    "components/common/login-for-pricing",
-    "components/common/mega-navigation-page-list",
-    "components/common/modal",
-    "components/common/navigation-dropdown",
-    "components/common/navigation-list-alternate",
-    "components/common/navigation-menu-mobile",
-    "components/common/navigation-list",
-    "components/common/navigation-menu",
-    "components/common/navigation",
-    "components/common/paginator",
-    "components/common/polyfill-script",
-    "components/common/payment-icons",
-    "components/common/quick-search-centered-logo",
-    "components/common/quick-search",
-    "components/common/requireness-msg",
-    "components/common/quick-search-mobile",
-    "components/common/responsive-img",
-    "components/common/share",
-    "components/common/social-links",
-    "components/common/sticky-nav-page-list-call",
-    "components/common/search-box",
-    "components/common/sticky-nav-pages",
-    "components/common/small-paginator",
-    "components/common/sticky-navigation-list",
-    "components/common/store-logo",
-    "components/common/subscription-form",
-    "components/common/wishlist-dropdown",
-    "components/common/subscription-popup-form",
-    "components/common/alert/alert-error",
-    "components/common/alert/alert-info",
-    "components/common/alert/alert-generic",
-    "components/common/alert/alert-modal",
-    "components/common/alert/alert-success",
-    "components/common/icons/icon-defs",
-    "components/common/modal/modal-close-btn",
-    "components/common/modal/modal",
-    "components/common/forms/checkbox",
-    "components/common/forms/date",
-    "components/common/forms/number",
-    "components/common/forms/multiline",
-    "components/common/forms/password",
-    "components/common/forms/radio",
-    "components/common/forms/select",
-    "components/common/forms/selectortext",
-    "components/common/forms/text",
-    "components/custom/account-dropdown-centered",
-    "components/custom/account-dropdown-info",
-    "components/custom/account-dropdown",
-    "components/custom/account-link",
-    "components/custom/account-link-centered",
-    "components/custom/blog-feed",
-    "components/custom/brand-sidenav",
-    "components/custom/brands-feed",
-    "components/custom/carousel-right-of-shopNav",
-    "components/custom/carousel-with-alt-cat-menu",
-    "components/custom/brands-grid",
-    "components/custom/category-sidenav",
-    "components/custom/checkout-header",
-    "components/custom/featured-in-tabs-in-carousels",
-    "components/custom/featured-no-tabs-in-carousels",
-    "components/custom/home-featured-banners",
-    "components/custom/instagram-feed",
-    "components/custom/featured-no-tabs-no-carousels",
-    "components/custom/featured-in-tabs-no-carousels",
-    "components/custom/related-products",
-    "components/custom/search-results-sidenav",
-    "components/custom/product-page-side-nav",
-    "components/custom/sidenav",
-    "components/custom/top-menu",
-    "components/custom/animations/aos",
-    "components/custom/mega-shop-nav/1-main-nav-no-images-grid-with-brands",
-    "components/custom/mega-shop-nav/1-main-nav-no-images-no-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/1-main-nav-no-images-no-brands",
-    "components/custom/mega-shop-nav/1-main-nav-no-images-with-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/1-main-nav-no-images-with-brands",
-    "components/custom/mega-shop-nav/1-main-nav-with-images-no-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/1-main-nav-with-images-no-brands",
-    "components/custom/mega-shop-nav/1-main-nav-with-images-with-brands",
-    "components/custom/mega-shop-nav/1-main-nav-with-images-with-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/2-call-level-1-no-images-grid-with-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/2-call-level-1-no-images-no-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/2-call-level-1-no-images-no-brands",
-    "components/custom/mega-shop-nav/2-call-level-1-no-images-with-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/2-call-level-1-no-images-with-brands",
-    "components/custom/mega-shop-nav/2-call-level-1-with-images-no-brands",
-    "components/custom/mega-shop-nav/2-call-level-1-with-images-with-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/2-call-level-1-with-images-no-brands-two-levels-deep",
-    "components/custom/mega-shop-nav/2-call-level-1-with-images-with-brands",
-    "components/custom/mega-shop-nav/3-nav-list-no-images-grid-two-levels-deep",
-    "components/custom/mega-shop-nav/3-nav-list-no-images-two-levels-deep",
-    "components/custom/mega-shop-nav/3-nav-list-no-images",
-    "components/custom/mega-shop-nav/3-nav-list-with-images-two-levels-deep",
-    "components/custom/mega-shop-nav/3-nav-list-with-images",
-    "components/custom/mega-shop-nav/4-flyout-no-images-grid-two-levels-deep",
-    "components/custom/mega-shop-nav/4-flyout-no-images",
-    "components/custom/mega-shop-nav/4-flyout-no-images-two-levels-deep",
-    "components/custom/mega-shop-nav/4-flyout-with-images-two-levels-deep",
-    "components/custom/mega-shop-nav/4-flyout-with-images",
-    "components/custom/mega-shop-nav/5-level-2-no-images-grid-two-levels-deep",
-    "components/custom/mega-shop-nav/5-level-2-no-images",
-    "components/custom/mega-shop-nav/5-level-2-no-images-two-levels-deep",
-    "components/custom/mega-shop-nav/5-level-2-with-images-two-levels-deep",
-    "components/custom/mega-shop-nav/5-level-2-with-images",
-    "components/custom/mega-shop-nav/6-three-plus-list",
-    "components/faceted-search/faceted-search-navigation",
-    "components/faceted-search/index",
-    "components/faceted-search/selected-facets",
-    "components/faceted-search/show-more-facets",
-    "components/faceted-search/facets/hierarchy-children",
-    "components/faceted-search/facets/multi",
-    "components/faceted-search/facets/hierarchy",
-    "components/faceted-search/facets/range",
-    "components/faceted-search/facets/rating",
-    "components/products/add-to-cart",
-    "components/products/bulk-discount-rates-table",
-    "components/products/bulk-discount-rates",
-    "components/products/card",
-    "components/products/carousel",
-    "components/products/description-tabs",
-    "components/products/description",
-    "components/products/event-date",
-    "components/products/featured",
-    "components/products/grid-default",
-    "components/products/grid",
-    "components/products/filter",
-    "components/products/list-default",
-    "components/products/list-item",
-    "components/products/new",
-    "components/products/price-range",
-    "components/products/list",
-    "components/products/price",
-    "components/products/product-aria-label",
-    "components/products/product-quick-view",
-    "components/products/quick-view",
-    "components/products/product-view",
-    "components/products/related",
-    "components/products/reviews",
-    "components/products/schema",
-    "components/products/tabs",
-    "components/products/top",
-    "components/products/ratings",
-    "components/products/videos",
-    "components/products/customizations/file",
-    "components/products/customizations/checkbox",
-    "components/products/customizations/select",
-    "components/products/customizations/text",
-    "components/products/customizations/textarea",
-    "components/products/modals/writeReview",
-    "components/products/options/date",
-    "components/products/options/input-checkbox",
-    "components/products/options/input-file",
-    "components/products/options/input-numbers",
-    "components/products/options/input-text",
-    "components/products/options/product-list",
-    "components/products/options/set-radio",
-    "components/products/options/swatch",
-    "components/products/options/set-select",
-    "components/products/options/textarea",
-    "components/products/options/set-rectangle",
-    "components/amp/css/base",
-    "components/amp/css/category",
-    "components/amp/css/footer",
-    "components/amp/css/form",
-    "components/amp/css/header",
-    "components/amp/css/product-options",
-    "components/amp/css/product",
-    "components/amp/common/alert-error",
-    "components/amp/common/alert-success",
-    "components/amp/common/footer",
-    "components/amp/common/header",
-    "components/amp/common/icon-defs",
-    "components/amp/common/navigation-menu",
-    "components/amp/common/paginator",
-    "components/amp/common/share",
-    "components/amp/common/store-logo",
-    "components/amp/category/product-listing",
-    "components/amp/category/styles",
-    "components/amp/category/subcategories",
-    "components/amp/products/card",
-    "components/amp/products/grid",
-    "components/amp/products/list-item",
-    "components/amp/products/list",
-    "components/amp/products/product-options",
-    "components/amp/products/product-view-details",
-    "components/amp/products/product-view",
-    "components/amp/products/ratings",
-    "components/amp/products/reviews",
-    "components/amp/products/styles",
-    "components/amp/products/videos",
-    "components/amp/products/options/date",
-    "components/amp/products/options/input-checkbox",
-    "components/amp/products/options/input-file",
-    "components/amp/products/options/input-numbers",
-    "components/amp/products/options/input-text",
-    "components/amp/products/options/product-list",
-    "components/amp/products/options/set-radio",
-    "components/amp/products/options/set-rectangle",
-    "components/amp/products/options/set-select",
-    "components/amp/products/options/swatch"
-  ]
+    "regions": {
+        "pages/blog": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/blog-post": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/brands": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "brands_below_header_no_sidenav"
+            },
+            {
+                "name": "brands_below_content_no_sidenav"
+            },
+            {
+                "name": "brands_below_header_with_sidenav"
+            },
+            {
+                "name": "brands_below_content_with_sidenav"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/cart": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/brand": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "brand_below_menu--global"
+            },
+            {
+                "name": "brand_below_menu"
+            },
+            {
+                "name": "brand_below_header--global"
+            },
+            {
+                "name": "brand_below_header"
+            },
+            {
+                "name": "brand_below_content--global"
+            },
+            {
+                "name": "brand_below_content"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/category": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "category_below_menu--global"
+            },
+            {
+                "name": "category_below_menu"
+            },
+            {
+                "name": "category_below_header--global"
+            },
+            {
+                "name": "category_below_header"
+            },
+            {
+                "name": "category_below_content--global"
+            },
+            {
+                "name": "category_below_content"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/compare": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/contact-us": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/checkout": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/order-complete": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/home": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "home_below_menu"
+            },
+            {
+                "name": "home_below_carousel"
+            },
+            {
+                "name": "home_below_featured_banners"
+            },
+            {
+                "name": "home_below_blog_feed"
+            },
+            {
+                "name": "home_below_brands_feed"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/page": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "page_builder_content_top--global"
+            },
+            {
+                "name": "page_builder_content_top"
+            },
+            {
+                "name": "page_builder_content_editor_area_top--global"
+            },
+            {
+                "name": "page_builder_content_editor_area_top"
+            },
+            {
+                "name": "page_builder_content_editor_area_bottom--global"
+            },
+            {
+                "name": "page_builder_content_editor_area_bottom"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/order-confirmation": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/product": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "product_below_menu--global"
+            },
+            {
+                "name": "product_below_menu"
+            },
+            {
+                "name": "product_below_price--global"
+            },
+            {
+                "name": "product_below_price"
+            },
+            {
+                "name": "product_below_review--global"
+            },
+            {
+                "name": "product_below_review"
+            },
+            {
+                "name": "product_above_tabs--global"
+            },
+            {
+                "name": "product_above_tabs"
+            },
+            {
+                "name": "product_below_tabs--global"
+            },
+            {
+                "name": "product_below_tabs"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/search": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "search_below_menu"
+            },
+            {
+                "name": "search_below_content"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/sitemap": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/subscribed": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/unsubscribe": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/amp/product-options": [],
+        "pages/amp/category": [],
+        "pages/amp/product": [],
+        "pages/auth/account-created": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/auth/create-account": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/auth/forgot-password": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/auth/login": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/auth/new-password": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/errors/403": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/errors/404": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/errors/generic": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/gift-certificate/balance": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/gift-certificate/purchase": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/gift-certificate/redeem": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/unavailable/hibernation": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/unavailable/maintenance": [],
+        "pages/account/add-address": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/add-payment-method": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/add-return": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/add-wishlist": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/addresses": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/download-item": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/edit-payment-method": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/edit": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/inbox": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/payment-methods": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/return-saved": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/recent-items": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/returns": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/wishlist-details": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/wishlists": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/orders/all": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/orders/completed": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/orders/details": [
+            {
+                "name": "header_bottom--global"
+            },
+            {
+                "name": "footer_above_full_width--global"
+            },
+            {
+                "name": "footer_below_contact--global"
+            },
+            {
+                "name": "footer_below_account--global"
+            },
+            {
+                "name": "footer_below_quick_links--global"
+            },
+            {
+                "name": "footer_below_social_links--global"
+            },
+            {
+                "name": "footer_below_payment_icons--global"
+            }
+        ],
+        "pages/account/orders/invoice": []
+    },
+    "templates": [
+        "layout/amp-iframe",
+        "components/account/add-wishlist",
+        "components/account/address-list",
+        "components/account/edit-account",
+        "components/account/messages-form",
+        "components/account/messages-list",
+        "components/account/navigation",
+        "components/account/order-contents",
+        "components/account/orders-list",
+        "components/account/payment-methods-list",
+        "components/account/returns-list",
+        "components/account/wishlist-item-list",
+        "components/account/wishlist-list",
+        "components/amp/category/product-listing",
+        "components/amp/category/styles",
+        "components/amp/category/subcategories",
+        "components/amp/common/alert-error",
+        "components/amp/common/alert-success",
+        "components/amp/common/footer",
+        "components/amp/common/header",
+        "components/amp/common/icon-defs",
+        "components/amp/common/navigation-menu",
+        "components/amp/common/paginator",
+        "components/amp/common/share",
+        "components/amp/common/store-logo",
+        "components/amp/css/base",
+        "components/amp/css/category",
+        "components/amp/css/footer",
+        "components/amp/css/form",
+        "components/amp/css/header",
+        "components/amp/css/product-options",
+        "components/amp/css/product",
+        "components/amp/products/card",
+        "components/amp/products/grid",
+        "components/amp/products/list-item",
+        "components/amp/products/list",
+        "components/amp/products/options/date",
+        "components/amp/products/options/input-checkbox",
+        "components/amp/products/options/input-file",
+        "components/amp/products/options/input-numbers",
+        "components/amp/products/options/input-text",
+        "components/amp/products/options/product-list",
+        "components/amp/products/options/set-radio",
+        "components/amp/products/options/set-rectangle",
+        "components/amp/products/options/set-select",
+        "components/amp/products/options/swatch",
+        "components/amp/products/product-options",
+        "components/amp/products/product-view-details",
+        "components/amp/products/product-view",
+        "components/amp/products/ratings",
+        "components/amp/products/reviews",
+        "components/amp/products/styles",
+        "components/amp/products/videos",
+        "components/blog/post",
+        "components/brand/product-listing",
+        "components/brand/show-more",
+        "components/brand/sidebar",
+        "components/carousel-content",
+        "components/carousel",
+        "components/cart/content",
+        "components/cart/coupon-input",
+        "components/cart/gift-certificate-input",
+        "components/cart/item-giftwrap",
+        "components/cart/item-options",
+        "components/cart/modals/configure-product",
+        "components/cart/modals/gift-wrapping-form",
+        "components/cart/page-title",
+        "components/cart/preview",
+        "components/cart/shipping-estimator",
+        "components/cart/shipping-quotes",
+        "components/cart/status-messages",
+        "components/cart/totals",
+        "components/category/product-listing",
+        "components/category/shop-by-price",
+        "components/category/show-more",
+        "components/category/sidebar",
+        "components/category/sort-box",
+        "components/common/alert-error",
+        "components/common/alert-generic",
+        "components/common/alert-info",
+        "components/common/alert-modal",
+        "components/common/alert-success",
+        "components/common/alert/alert-error",
+        "components/common/alert/alert-generic",
+        "components/common/alert/alert-info",
+        "components/common/alert/alert-modal",
+        "components/common/alert/alert-success",
+        "components/common/body",
+        "components/common/breadcrumbs",
+        "components/common/cart-preview",
+        "components/common/cookie",
+        "components/common/currency-selector",
+        "components/common/footer-checkout",
+        "components/common/footer-product",
+        "components/common/footer",
+        "components/common/forms/checkbox",
+        "components/common/forms/date",
+        "components/common/forms/multiline",
+        "components/common/forms/number",
+        "components/common/forms/password",
+        "components/common/forms/radio",
+        "components/common/forms/select",
+        "components/common/forms/selectortext",
+        "components/common/forms/text",
+        "components/common/geotrust-ssl-seal",
+        "components/common/header",
+        "components/common/icons/icon-defs",
+        "components/common/login-for-pricing",
+        "components/common/mega-nav-page-list",
+        "components/common/mega-nav-pages",
+        "components/common/mega-navigation-page-list",
+        "components/common/modal",
+        "components/common/modal/modal-close-btn",
+        "components/common/modal/modal",
+        "components/common/navigation-dropdown",
+        "components/common/navigation-list-alternate",
+        "components/common/navigation-list",
+        "components/common/navigation-menu-mobile",
+        "components/common/navigation-menu",
+        "components/common/navigation",
+        "components/common/paginator",
+        "components/common/payment-icons",
+        "components/common/polyfill-script",
+        "components/common/quick-search-centered-logo",
+        "components/common/quick-search-mobile",
+        "components/common/quick-search",
+        "components/common/requireness-msg",
+        "components/common/responsive-img",
+        "components/common/search-box",
+        "components/common/share",
+        "components/common/small-paginator",
+        "components/common/social-links",
+        "components/common/sticky-nav-page-list-call",
+        "components/common/sticky-nav-pages",
+        "components/common/sticky-navigation-list",
+        "components/common/store-logo",
+        "components/common/subscription-form",
+        "components/common/subscription-popup-form",
+        "components/common/wishlist-dropdown",
+        "components/custom/account-dropdown-centered",
+        "components/custom/account-dropdown-info",
+        "components/custom/account-dropdown",
+        "components/custom/account-link-centered",
+        "components/custom/account-link",
+        "components/custom/animations/aos",
+        "components/custom/blog-feed",
+        "components/custom/brand-sidenav",
+        "components/custom/brands-feed",
+        "components/custom/brands-grid",
+        "components/custom/carousel-right-of-shopNav",
+        "components/custom/carousel-with-alt-cat-menu",
+        "components/custom/cart-page-upsell-item",
+        "components/custom/cart-page-upsell-targets--related",
+        "components/custom/cart-page-upsell-targets--similar",
+        "components/custom/cart-page-upsell",
+        "components/custom/category-sidenav",
+        "components/custom/checkout-header",
+        "components/custom/featured-in-tabs-in-carousels",
+        "components/custom/featured-in-tabs-no-carousels",
+        "components/custom/featured-no-tabs-in-carousels",
+        "components/custom/featured-no-tabs-no-carousels",
+        "components/custom/home-featured-banners",
+        "components/custom/instagram-feed",
+        "components/custom/mega-shop-nav/1-main-nav-no-images-grid-with-brands",
+        "components/custom/mega-shop-nav/1-main-nav-no-images-no-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/1-main-nav-no-images-no-brands",
+        "components/custom/mega-shop-nav/1-main-nav-no-images-with-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/1-main-nav-no-images-with-brands",
+        "components/custom/mega-shop-nav/1-main-nav-with-images-no-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/1-main-nav-with-images-no-brands",
+        "components/custom/mega-shop-nav/1-main-nav-with-images-with-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/1-main-nav-with-images-with-brands",
+        "components/custom/mega-shop-nav/2-call-level-1-no-images-grid-with-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/2-call-level-1-no-images-no-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/2-call-level-1-no-images-no-brands",
+        "components/custom/mega-shop-nav/2-call-level-1-no-images-with-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/2-call-level-1-no-images-with-brands",
+        "components/custom/mega-shop-nav/2-call-level-1-with-images-no-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/2-call-level-1-with-images-no-brands",
+        "components/custom/mega-shop-nav/2-call-level-1-with-images-with-brands-two-levels-deep",
+        "components/custom/mega-shop-nav/2-call-level-1-with-images-with-brands",
+        "components/custom/mega-shop-nav/3-nav-list-no-images-grid-two-levels-deep",
+        "components/custom/mega-shop-nav/3-nav-list-no-images-two-levels-deep",
+        "components/custom/mega-shop-nav/3-nav-list-no-images",
+        "components/custom/mega-shop-nav/3-nav-list-with-images-two-levels-deep",
+        "components/custom/mega-shop-nav/3-nav-list-with-images",
+        "components/custom/mega-shop-nav/4-flyout-no-images-grid-two-levels-deep",
+        "components/custom/mega-shop-nav/4-flyout-no-images-two-levels-deep",
+        "components/custom/mega-shop-nav/4-flyout-no-images",
+        "components/custom/mega-shop-nav/4-flyout-with-images-two-levels-deep",
+        "components/custom/mega-shop-nav/4-flyout-with-images",
+        "components/custom/mega-shop-nav/5-level-2-no-images-grid-two-levels-deep",
+        "components/custom/mega-shop-nav/5-level-2-no-images-two-levels-deep",
+        "components/custom/mega-shop-nav/5-level-2-no-images",
+        "components/custom/mega-shop-nav/5-level-2-with-images-two-levels-deep",
+        "components/custom/mega-shop-nav/5-level-2-with-images",
+        "components/custom/mega-shop-nav/6-three-plus-list",
+        "components/custom/product-page-side-nav",
+        "components/custom/related-products",
+        "components/custom/search-results-sidenav",
+        "components/custom/sidenav",
+        "components/custom/top-menu",
+        "components/faceted-search/faceted-search-navigation",
+        "components/faceted-search/facets/hierarchy-children",
+        "components/faceted-search/facets/hierarchy",
+        "components/faceted-search/facets/multi",
+        "components/faceted-search/facets/range",
+        "components/faceted-search/facets/rating",
+        "components/faceted-search/index",
+        "components/faceted-search/selected-facets",
+        "components/faceted-search/show-more-facets",
+        "components/gift-certificate/navigation",
+        "components/page/contact-page-no-sidenav",
+        "components/page/contact-page-with-sidenav",
+        "components/page/contact-us-form",
+        "components/page/content-page-no-sidenav",
+        "components/page/content-page-with-sidenav",
+        "components/page/home-page-no-sidenav",
+        "components/page/home-page-with-sidenav-float-carousel",
+        "components/page/home-page-with-sidenav",
+        "components/page/product-page-no-sidenav",
+        "components/page/product-page-with-recommended-below",
+        "components/page/product-page-with-sidenav",
+        "components/page/rss_feed",
+        "components/products/add-to-cart",
+        "components/products/bulk-discount-rates-table",
+        "components/products/bulk-discount-rates",
+        "components/products/card",
+        "components/products/carousel",
+        "components/products/customizations/checkbox",
+        "components/products/customizations/file",
+        "components/products/customizations/select",
+        "components/products/customizations/text",
+        "components/products/customizations/textarea",
+        "components/products/description-tabs",
+        "components/products/description",
+        "components/products/event-date",
+        "components/products/featured",
+        "components/products/filter",
+        "components/products/grid-default",
+        "components/products/grid",
+        "components/products/list-default",
+        "components/products/list-item",
+        "components/products/list",
+        "components/products/modals/writeReview",
+        "components/products/new",
+        "components/products/options/date",
+        "components/products/options/input-checkbox",
+        "components/products/options/input-file",
+        "components/products/options/input-numbers",
+        "components/products/options/input-text",
+        "components/products/options/product-list",
+        "components/products/options/set-radio",
+        "components/products/options/set-rectangle",
+        "components/products/options/set-select",
+        "components/products/options/swatch",
+        "components/products/options/textarea",
+        "components/products/price-range",
+        "components/products/price",
+        "components/products/product-aria-label",
+        "components/products/product-quick-view",
+        "components/products/product-view",
+        "components/products/quick-view",
+        "components/products/ratings",
+        "components/products/related",
+        "components/products/reviews",
+        "components/products/schema",
+        "components/products/tabs",
+        "components/products/top",
+        "components/products/videos",
+        "components/search/advanced-search",
+        "components/search/content-sort-box",
+        "components/search/heading",
+        "components/search/product-count",
+        "components/search/product-listing",
+        "components/search/quick-results",
+        "components/search/show-more",
+        "components/search/sidebar",
+        "components/sitemap/links",
+        "components/social/connect",
+        "components/social/instagram",
+        "components/social/twitter",
+        "layout/amp",
+        "layout/base",
+        "layout/checkout",
+        "layout/empty",
+        "layout/home-layout",
+        "layout/product",
+        "pages/account/add-address",
+        "pages/account/add-payment-method",
+        "pages/account/add-return",
+        "pages/account/add-wishlist",
+        "pages/account/addresses",
+        "pages/account/download-item",
+        "pages/account/edit-payment-method",
+        "pages/account/edit",
+        "pages/account/inbox",
+        "pages/account/orders/all",
+        "pages/account/orders/completed",
+        "pages/account/orders/details",
+        "pages/account/orders/invoice",
+        "pages/account/payment-methods",
+        "pages/account/recent-items",
+        "pages/account/return-saved",
+        "pages/account/returns",
+        "pages/account/wishlist-details",
+        "pages/account/wishlists",
+        "pages/amp/category",
+        "pages/amp/product-options",
+        "pages/amp/product",
+        "pages/auth/account-created",
+        "pages/auth/create-account",
+        "pages/auth/forgot-password",
+        "pages/auth/login",
+        "pages/auth/new-password",
+        "pages/blog-post",
+        "pages/blog",
+        "pages/brand",
+        "pages/brands",
+        "pages/cart",
+        "pages/category",
+        "pages/checkout",
+        "pages/compare",
+        "pages/contact-us",
+        "pages/errors/403",
+        "pages/errors/404",
+        "pages/errors/generic",
+        "pages/gift-certificate/balance",
+        "pages/gift-certificate/purchase",
+        "pages/gift-certificate/redeem",
+        "pages/home",
+        "pages/order-complete",
+        "pages/order-confirmation",
+        "pages/page",
+        "pages/product",
+        "pages/search",
+        "pages/sitemap",
+        "pages/subscribed",
+        "pages/unavailable/hibernation",
+        "pages/unavailable/maintenance",
+        "pages/unsubscribe"
+    ]
 }

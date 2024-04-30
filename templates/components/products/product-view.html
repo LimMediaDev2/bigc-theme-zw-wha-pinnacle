@@ -194,10 +194,10 @@
                  </div>
              {{/if}}
 
-             {{#each product.custom_fields}}
-                 <dt class="productView-info-name">{{name}}:</dt>
-                 <dd class="productView-info-value">{{{value}}}</dd>
-             {{/each}}
+            {{#each product.custom_fields}}
+                <dt class="productView-info-name {{dashcase name}}">{{name}}:</dt>
+                <dd class="productView-info-value {{dashcase name}}">{{{value}}}</dd>
+            {{/each}}
          </dl>
      </div>
 

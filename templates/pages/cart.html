@@ -5,6 +5,9 @@
       {{#if ../theme_settings.cart_page_with_sidenav '===' false}}
         <div class="cart-content no-sidevav">
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+        {{> components/custom/cart-page-upsell }}
+
         {{> components/cart/page-title}}
         <div data-cart-status>
             {{> components/cart/status-messages}}
@@ -66,6 +69,9 @@
         {{> components/custom/sidenav}}
         <div class="cart-content with-sidevav">
           {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+          {{> components/custom/cart-page-upsell }}
+
           {{> components/cart/page-title}}
           <div data-cart-status>
               {{> components/cart/status-messages}}

@@ -9,7 +9,11 @@
     </thead>
     <tbody class="cart-list">
         {{#each cart.items}}
-            <tr class="cart-item" data-item-row>
+            <tr class="cart-item"
+                        data-upsell="{{#each custom_fields}}{{#if name '===' 'cpu-product'}}{{value}}{{#unless @last}},{{/unless}}{{/if}}{{/each}}"
+                        data-product-url="{{url}}"
+                        data-product-id="{{product_id}}"
+                        data-item-row>
                 <td class="cart-item-block cart-item-figure">
                     {{#if type '==' 'GiftCertificate'}}
                         <img class="cart-item-fixed-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="GiftCertificate" title="GiftCertificate">

@@ -9393,6 +9393,7 @@ svg.toggle {
 
 .both-grid-list-views .actionBar .form-field {
 	margin-bottom: 0;
+	text-align: right;
 }
 
 .both-grid-list-views .actionBar select#sort {
@@ -15301,6 +15302,7 @@ div#side-categories.alternate .alt-menu-container li:hover a {
 	border-color: stencilColor("container-border-global-color-dark");
 	border-radius: 0 !important;
 	padding: 4.5px;
+	width:3.75em;
 }
 
 .productView .form-increment .button.decrease {
@@ -15918,7 +15920,9 @@ a.checkoutMultiple {
 div#bulkPricingModal {
     z-index: 999999999;
 }
-
+.swal2-container{
+    z-index: 9999;
+}
 .swal2-container.swal2-center.swal2-fade.swal2-shown {
     z-index: 9999;
 }

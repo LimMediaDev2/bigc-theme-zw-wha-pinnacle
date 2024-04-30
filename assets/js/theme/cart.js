@@ -6,6 +6,8 @@ import utils from '@bigcommerce/stencil-utils';
 import ShippingEstimator from './cart/shipping-estimator';
 import { defaultModal } from './global/modal';
 import swal from './global/sweet-alert';
+// IntuitSolutions.net - Cart Page Upsell
+import CartPageUpsell from './custom/cart-page-upsell';
 
 export default class Cart extends PageManager {
     onReady() {
@@ -14,6 +16,11 @@ export default class Cart extends PageManager {
         this.$cartTotals = $('[data-cart-totals]');
         this.$overlay = $('[data-cart] .loadingOverlay')
             .hide(); // TODO: temporary until roper pulls in his cart components
+
+        /**
+         * IntuitSolutions.net - Cart Page Upsell
+         */
+        this.cartPageUpsell = new CartPageUpsell();
 
         this.bindEvents();
     }
@@ -508,5 +515,10 @@ export default class Cart extends PageManager {
 
         // initiate shipping estimator module
         this.shippingEstimator = new ShippingEstimator($('[data-shipping-estimator]'));
+        /**
+         * IntuitSolutions.net - Cart Page Upsell
+         */
+        // reload cart content when a Cart Page Upsell item is added to the cart
+        $(document).on('cpu-refresh-cart-content', () => this.refreshContent(false));
     }
 }
