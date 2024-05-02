@@ -268,11 +268,6 @@ export default class ProductDetailsBase {
         let newContent = this.updateBulkDiscountTable(data.price, data.bulk_discount_rates);
         let getAsLowAs = this.getAsLowAs(data.price, data.bulk_discount_rates);
 
-        // If Bulk Pricing rendered HTML is available
-        /*if (data.bulk_discount_rates && content) {
-            viewModel.$bulkPricing.html(content);
-        } */
-
         if (data.bulk_discount_rates && newContent) {
             viewModel.$bulkPricing.html(newContent);
             viewModel.$priceAsLowAs.html(getAsLowAs);
@@ -329,7 +324,7 @@ export default class ProductDetailsBase {
         if (price.rrp_without_tax) {
             viewModel.rrpWithoutTax.$div.show();
             viewModel.rrpWithoutTax.$span.html(price.rrp_without_tax.formatted);
-            viewModel.$priceAsLowAs.html(price.rrp_without_tax.formatted);
+            viewModel.$priceAsLowAs.html(price.rrp_without_tax.formatted); /** LimMedia.io */
         }
 
         if (price.saved) {
@@ -452,56 +447,45 @@ export default class ProductDetailsBase {
             return '';
         }
 
-        let priceDiff = 0;
-
-        if (this.originalPrice > price.without_tax.value) {
-            priceDiff = parseFloat(this.originalPrice - price.without_tax.value);
-        } else {
-            priceDiff = parseFloat(price.without_tax.value - this.originalPrice);
-        }
-
         let TableData = `<h2 class="productView-title-bulkPricing">Quantity Discounts</h2>
-            <table class="productView-table-bulkPricing">
+        <table class="productView-table-bulkPricing">
+            <tbody>
                 <tr>
-                    <th>Quantity</th>
-                    <th>Price Each</th>
-                    <th>Savings</th>
-                </tr>
-                <tr>
-                    <td>1` + (bulk_discount_rates[0].min - 1 > 1 ? ' - ' + (bulk_discount_rates[0].min - 1) : '') + `</td>
-                    <td>` + this.moneyFormatterLocal(price.without_tax.value) + `</td>
-                    <td></td>
-                </tr>`;
+                    <th>Quantity</th>`;
 
         bulk_discount_rates.forEach((bulk_discount_rate, i) => {
-            let bulkRange = bulk_discount_rate.min.toString() + (bulk_discount_rate.max > 1 ? ' - ' + bulk_discount_rate.max : '+');
+            TableData = TableData + `<td>` + bulk_discount_rate.min.toString() + (bulk_discount_rate.max > 1 ? ' - ' + bulk_discount_rate.max : '+') + `</td>`;
+        });
+
+        TableData = TableData + `</tr><tr><th>Price each</th>`;
+
+        bulk_discount_rates.forEach((bulk_discount_rate, i) => {
+            TableData = TableData + `<td>`;
+
+            let value = 0;
+
+            if (!(typeof price.with_tax === 'undefined')) {
+                value = price.with_tax.value;
+            } else {
+                value = price.without_tax.value;
+            }
 
             if (bulk_discount_rate.type == 'percent') {
-                TableData = TableData + `<tr>
-                    <td>` + bulkRange + `</td>
-                    <td>` + this.moneyFormatterLocal(priceDiff + (price.without_tax.value - ((bulk_discount_rate.discount.value * price.without_tax.value) / 100))) + `</td>
-                    <td>` + bulk_discount_rate.discount.formatted.toString() + `</td>
-                </tr>`;
+                TableData = TableData + this.moneyFormatterLocal(value - ((bulk_discount_rate.discount.value * value) / 100));
             }
 
             if (bulk_discount_rate.type == 'fixed') {
-                TableData = TableData + `<tr>
-                    <td>` + bulkRange + `</td>
-                    <td>` + this.moneyFormatterLocal(priceDiff + parseFloat(bulk_discount_rate.discount.formatted.toString().replace(/[^0-9\.]/g, ""))) + `</td>
-                    <td>` + Math.round(((price.without_tax.value - bulk_discount_rate.discount.value) * 100) / price.without_tax.value).toString() + `%</td>
-                </tr>`;
+                TableData = TableData + bulk_discount_rate.discount.formatted.toString();
             }
 
             if (bulk_discount_rate.type == 'price') {
-                TableData = TableData + `<tr>
-                    <td>` + bulkRange + `</td>
-                    <td>` + this.moneyFormatterLocal(priceDiff + (price.without_tax.value - bulk_discount_rate.discount.value)) + `</td>
-                    <td>` + Math.round((bulk_discount_rate.discount.value * 100) / price.without_tax.value).toString() + `%</td>
-                </tr>`;
+                TableData = TableData + this.moneyFormatterLocal(value - bulk_discount_rate.discount.value);
             }
+
+            TableData = TableData + `</td>`;
         });
 
-        TableData = TableData + `</table>`;
+        TableData = TableData + `</tr></tbody></table>`;
 
         return TableData;
     }
