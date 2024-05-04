@@ -37,6 +37,32 @@
             </td>
             {{/each}}
         </tr>
+        <tr>
+            <th>{{lang 'products.bulk_pricing.saving_text'}}</th>
+            {{#each bulk_discount_rates}}
+            <td>
+                {{#if type '===' 'percent'}}
+                    {{discount.formatted}}
+                {{/if}}
+                
+                {{#if type '===' 'fixed'}}
+                    {{#if ../price.with_tax.value}}
+                        {{ceil (subtract 100 (multiply 100 (divide discount.value ../price.with_tax.value)))}}%
+                    {{else}}
+                        {{ceil (subtract 100 (multiply 100 (divide discount.value ../price.without_tax.value)))}}%
+                    {{/if}}
+                {{/if}}
+                
+                {{#if type '===' 'price'}}
+                    {{#if ../price.with_tax.value}}
+                        {{ceil (subtract 100 (multiply 100 (divide (subtract ../price.with_tax.value discount.value) ../price.with_tax.value)))}}%
+                    {{else}}
+                        {{ceil (subtract 100 (multiply 100 (divide (subtract ../price.without_tax.value discount.value) ../price.without_tax.value)))}}%
+                    {{/if}}
+                {{/if}}
+            </td>
+            {{/each}}
+        </tr>
     </tbody>
 </table>
 {{/if}}

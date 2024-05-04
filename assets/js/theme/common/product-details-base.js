@@ -485,6 +485,34 @@ export default class ProductDetailsBase {
             TableData = TableData + `</td>`;
         });
 
+        TabkeData = TableData + `</tr><tr><th>Savings</th>`;
+
+        bulk_discount_rates.forEach((bulk_discount_rate, i) => {
+            TableData = TableData + `<td>`;
+
+            let value = 0;
+
+            if (!(typeof price.with_tax === 'undefined')) {
+                value = price.with_tax.value;
+            } else {
+                value = price.without_tax.value;
+            }
+
+            if (bulk_discount_rate.type == 'percent') {
+                TableData = TableData + bulk_discount_rate.discount.value.toString() + '%';
+            }
+
+            if (bulk_discount_rate.type == 'fixed') {
+                TableData = TableData + (100 - (100 * (bulk_discount_rate.discount.value / value))).toFixed(0).toString() + '%';
+            }
+
+            if (bulk_discount_rate.type == 'price') {
+                TableData = TableData + (100 - (100 * (bulk_discount_rate.discount.value / value))).toFixed(0).toString() + '%';
+            }
+
+            TableData = TableData + `</td>`;
+        });
+
         TableData = TableData + `</tr></tbody></table>`;
 
         return TableData;

@@ -127,3 +127,11 @@ table.productView-table-bulkPricing tbody tr th {
 table.productView-table-bulkPricing tbody tr td {
     background-color: #ffffff;
 }
+
+table.productView-table-bulkPricing tr:last-child {
+    color: #22b14c;
+}
+
+table.productView-table-bulkPricing tr:last-child td {
+    font-weight: 600!important;
+}

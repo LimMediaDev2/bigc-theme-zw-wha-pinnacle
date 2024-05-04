@@ -717,7 +717,7 @@
       "price": "and get {discount} off",
       "fixed": "and pay only {discount} each",
       "range_short": "{min} {max, plural, =0{+} other {- #}}",
-      "price_text": "Price Each",
+      "price_text": "Price each",
       "saving_text": "Savings",
       "quantity_text": "Quantity",
       "message": "Buy more - Save more",
