@@ -36,6 +36,7 @@ export default class ProductDetails extends ProductDetailsBase {
         this.$productPriceEl = $('.price.price--withoutTax', this.$scope);
 
         const $form = $('form[data-cart-item-add]', $scope);
+        this._form = $form;
         const $productOptionsElement = $('[data-product-option-change]', $form);
         const hasOptions = $productOptionsElement.html().trim().length;
         const hasDefaultOptions = $productOptionsElement.find('[data-default]').length;
@@ -74,6 +75,8 @@ export default class ProductDetails extends ProductDetailsBase {
             this.addProductToCart(event, $form[0]);
         });
 
+        this.bulkPrices = []; /** LimMedia.io */
+
         // Update product attributes. Also update the initial view in case items are oos
         // or have default variant properties that change the view
         if ((isEmpty(productAttributesData) || hasDefaultOptions) && hasOptions) {
@@ -95,7 +98,7 @@ export default class ProductDetails extends ProductDetailsBase {
          * LimMedia.io
          */
         this.interval = new IntervalQuantity(this.$scope);
-        this.originalPrice = parseFloat(this.$productPriceEl.html().replace(/\$|,/g, ''), 10)
+        this.originalPrice = parseFloat(this.$productPriceEl.html().replace(/\$|,/g, ''), 10);
         this.getBulkPricing();
     }
 
@@ -538,7 +541,7 @@ export default class ProductDetails extends ProductDetailsBase {
         });
     }
 
-    adjustPrice(productPrice, qty) {
+    adjustPrice(productPrice, qty, bulk_discount_rates) {
         let priceDiff = 0;
 
         if (this.originalPrice > productPrice) {
@@ -547,27 +550,27 @@ export default class ProductDetails extends ProductDetailsBase {
             priceDiff = parseFloat(productPrice - this.originalPrice);  
         }
 
-        if (!this.bulkPrices || this.bulkPrices.length === 0) return (priceDiff + productPrice);
+        if (!bulk_discount_rates || bulk_discount_rates.length === 0) return (priceDiff + productPrice);
 
-        const bulkPrice = this.bulkPrices.reduce((prev, item) => {
-            return item.minimumQuantity && qty >= item.minimumQuantity && item.minimumQuantity > prev.minimumQuantity ? item : prev;
-        }, { minimumQuantity: 1 });
+        const bulkPrice = bulk_discount_rates.reduce((prev, item) => {
+            return item.min && qty >= item.min && item.min > prev.min ? item : prev;
+        }, { min: 1 });
 
-        if (bulkPrice.minimumQuantity == 1 && typeof bulkPrice.maximumQuantity === 'undefined') {
+        if (bulkPrice.min == 1 && typeof bulkPrice.max === 'undefined') {
             priceDiff = 0;
         }
 
         // Case of BulkPricingRelativePriceDiscount
-        if (bulkPrice.priceAdjustment) {
-            return (priceDiff + (productPrice - bulkPrice.priceAdjustment)).toFixed(2);
+        if (bulkPrice.type == 'price') {
+            return (priceDiff + (productPrice - bulkPrice.discount.value)).toFixed(2);
         }
         // Case of BulkPricingPercentageDiscount
-        else if (bulkPrice.percentOff) {
-            return (priceDiff + (productPrice - ((productPrice / 100) * bulkPrice.percentOff))).toFixed(2);
+        else if (bulkPrice.type == 'percent') {
+            return (priceDiff + (productPrice - ((productPrice / 100) * bulkPrice.discount.value))).toFixed(2);
         }
         // Case of BulkPricingFixedPriceDiscount
-        else if (bulkPrice.price) {
-            return (priceDiff + bulkPrice.price).toFixed(2);
+        else if (bulkPrice.type == 'fixed') {
+            return (priceDiff + bulkPrice.discount.value).toFixed(2);
         } else {
             return (priceDiff + productPrice).toFixed(2);
         }
@@ -578,9 +581,19 @@ export default class ProductDetails extends ProductDetailsBase {
         let productPrice = parseFloat(this.$productPriceEl.html().replace(/\$|,/g, ''), 10);
 
         if (productQty && productPrice) {
-            productPrice = this.adjustPrice(productPrice, productQty);
-            this.$priceTotal.html(`$${(productQty * productPrice).toFixed(2)}`);
-            this.$priceTotalSection.show();
+            const $productId = $('[name="product_id"]', this._form).val();
+
+            utils.api.productAttributes.optionChange($productId, this._form.serialize(), async (err, response) => {
+                const res = await response;
+                const productAttributesData = res.data || {};
+                productPrice = this.adjustPrice(
+                    productPrice,
+                    productQty,
+                    productAttributesData.bulk_discount_rates || []
+                );
+                this.$priceTotal.html(`$${(productQty * productPrice).toFixed(2)}`);
+                this.$priceTotalSection.show();
+            });
         } else {
             this.$priceTotalSection.hide();
         }

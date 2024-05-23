@@ -469,7 +469,7 @@ export default class ProductDetailsBase {
                     <th>Quantity</th>`;
 
         bulk_discount_rates.forEach((bulk_discount_rate, i) => {
-            TableData = TableData + `<td>` + bulk_discount_rate.min.toString() + (bulk_discount_rate.max > 1 ? ' - ' + bulk_discount_rate.max : '+') + `</td>`;
+            TableData = TableData + `<td>` + bulk_discount_rate.min.toString() + (bulk_discount_rate.max > 1 ? ' - ' + bulk_discount_rate.max : ' +') + `</td>`;
         });
 
         TableData = TableData + `</tr><tr><th>Price each</th>`;
