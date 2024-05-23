@@ -447,6 +447,21 @@ export default class ProductDetailsBase {
             return '';
         }
 
+        let priceDiff = 0;
+        let price_value = 0;
+        
+        if (!(typeof price.with_tax === 'undefined')) {
+            price_value = price.with_tax.value;
+        } else {
+            price_value = price.without_tax.value;
+        }
+
+        if (this.originalPrice > price_value) {
+            priceDiff = parseFloat(this.originalPrice - price_value);
+        } else {
+            priceDiff = parseFloat(price_value - this.originalPrice);
+        }
+
         let TableData = `<h2 class="productView-title-bulkPricing">Quantity Discounts</h2>
         <table class="productView-table-bulkPricing">
             <tbody>
@@ -462,52 +477,36 @@ export default class ProductDetailsBase {
         bulk_discount_rates.forEach((bulk_discount_rate, i) => {
             TableData = TableData + `<td>`;
 
-            let value = 0;
-
-            if (!(typeof price.with_tax === 'undefined')) {
-                value = price.with_tax.value;
-            } else {
-                value = price.without_tax.value;
-            }
-
             if (bulk_discount_rate.type == 'percent') {
-                TableData = TableData + this.moneyFormatterLocal(value - ((bulk_discount_rate.discount.value * value) / 100));
+                TableData = TableData + this.moneyFormatterLocal(priceDiff - ((bulk_discount_rate.discount.value * priceDiff) / 100));
             }
 
             if (bulk_discount_rate.type == 'fixed') {
-                TableData = TableData + bulk_discount_rate.discount.formatted.toString();
+                TableData = TableData + this.moneyFormatterLocal(priceDiff + parseFloat(bulk_discount_rate.discount.formatted.toString().replace(/[^0-9\.]/g, "")));
             }
 
             if (bulk_discount_rate.type == 'price') {
-                TableData = TableData + this.moneyFormatterLocal(value - bulk_discount_rate.discount.value);
+                TableData = TableData + this.moneyFormatterLocal(priceDiff - bulk_discount_rate.discount.value);
             }
 
             TableData = TableData + `</td>`;
         });
 
-        TabkeData = TableData + `</tr><tr><th>Savings</th>`;
+        TableData = TableData + `</tr><tr><th>Savings</th>`;
 
         bulk_discount_rates.forEach((bulk_discount_rate, i) => {
             TableData = TableData + `<td>`;
-
-            let value = 0;
-
-            if (!(typeof price.with_tax === 'undefined')) {
-                value = price.with_tax.value;
-            } else {
-                value = price.without_tax.value;
-            }
 
             if (bulk_discount_rate.type == 'percent') {
                 TableData = TableData + bulk_discount_rate.discount.value.toString() + '%';
             }
 
             if (bulk_discount_rate.type == 'fixed') {
-                TableData = TableData + (100 - (100 * (bulk_discount_rate.discount.value / value))).toFixed(0).toString() + '%';
+                TableData = TableData + Math.round(100 - (100 * ((bulk_discount_rate.discount.value + priceDiff) / price_value))).toString() + '%';
             }
 
             if (bulk_discount_rate.type == 'price') {
-                TableData = TableData + (100 - (100 * (bulk_discount_rate.discount.value / value))).toFixed(0).toString() + '%';
+                TableData = TableData + Math.round(100 - (100 * ((bulk_discount_rate.discount.value + priceDiff) / price_value))).toString() + '%';
             }
 
             TableData = TableData + `</td>`;

@@ -28,12 +28,11 @@
     background-color: #fff4d1;
     border: 1px solid #000;
     font-size: 1rem;
-    font-weight: 900;
+    font-weight: 400 !important;
     padding: .35714rem .71429rem;
     text-align: center
 }
 
 .productView-table-bulkPricing td:last-child,
 .productView-table-bulkPricing th:last-child {
-    color: #cb0039
 }

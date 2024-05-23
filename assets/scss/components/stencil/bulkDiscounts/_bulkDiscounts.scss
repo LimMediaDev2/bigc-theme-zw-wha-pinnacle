@@ -8,7 +8,7 @@
 
 .productView-info-bulkPricing {
     clear: both;
-    padding: 0;
+    padding: 10px 0;
 }
 
 .productView-info-bulkPricing * {
@@ -17,6 +17,7 @@
 
 table.productView-table-bulkPricing {
     font-family: Poppins,Arial,Helvetica,sans-serif;
+    width: 100%;
 }
 
 table.productView-table-bulkPricing tbody tr th {
@@ -25,6 +26,7 @@ table.productView-table-bulkPricing tbody tr th {
 
 table.productView-table-bulkPricing tbody tr td {
     background-color: #ffffff;
+    font-weight: 900!important;
 }
 
 table.productView-table-bulkPricing tr:last-child {

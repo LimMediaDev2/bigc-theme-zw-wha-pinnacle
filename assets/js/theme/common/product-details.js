@@ -547,7 +547,7 @@ export default class ProductDetails extends ProductDetailsBase {
             priceDiff = parseFloat(productPrice - this.originalPrice);  
         }
 
-        if (!this.bulkPrices || this.bulkPrices.length === 0) return productPrice;
+        if (!this.bulkPrices || this.bulkPrices.length === 0) return (priceDiff + productPrice);
 
         const bulkPrice = this.bulkPrices.reduce((prev, item) => {
             return item.minimumQuantity && qty >= item.minimumQuantity && item.minimumQuantity > prev.minimumQuantity ? item : prev;
