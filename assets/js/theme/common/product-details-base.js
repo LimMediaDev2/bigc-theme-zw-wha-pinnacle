@@ -478,7 +478,7 @@ export default class ProductDetailsBase {
             TableData = TableData + `<td>`;
 
             if (bulk_discount_rate.type == 'percent') {
-                TableData = TableData + this.moneyFormatterLocal(priceDiff - ((bulk_discount_rate.discount.value * priceDiff) / 100));
+                TableData = TableData + this.moneyFormatterLocal((price_value / 100) * bulk_discount_rate.discount.value);
             }
 
             if (bulk_discount_rate.type == 'fixed') {
@@ -486,7 +486,7 @@ export default class ProductDetailsBase {
             }
 
             if (bulk_discount_rate.type == 'price') {
-                TableData = TableData + this.moneyFormatterLocal(priceDiff - bulk_discount_rate.discount.value);
+                TableData = TableData + this.moneyFormatterLocal(price_value - bulk_discount_rate.discount.value);
             }
 
             TableData = TableData + `</td>`;
@@ -502,11 +502,11 @@ export default class ProductDetailsBase {
             }
 
             if (bulk_discount_rate.type == 'fixed') {
-                TableData = TableData + Math.round(100 - (100 * ((bulk_discount_rate.discount.value + priceDiff) / price_value))).toString() + '%';
+                TableData = TableData + Math.ceil(100 - (100 * ((bulk_discount_rate.discount.value + priceDiff) / price_value))).toString() + '%';
             }
 
             if (bulk_discount_rate.type == 'price') {
-                TableData = TableData + Math.round(100 - (100 * ((bulk_discount_rate.discount.value + priceDiff) / price_value))).toString() + '%';
+                TableData = TableData + Math.ceil(100 - (((price_value - bulk_discount_rate.discount.value) / price_value) * 100)).toString() + '%';
             }
 
             TableData = TableData + `</td>`;
