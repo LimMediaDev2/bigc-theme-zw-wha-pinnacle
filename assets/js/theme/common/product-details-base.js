@@ -304,6 +304,7 @@ export default class ProductDetailsBase {
             viewModel.priceLabel.$span.show();
             viewModel.$priceWithTax.html(updatedPrice);
             viewModel.$priceAsLowAs.html(price.with_tax.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(updatedPrice.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (price.without_tax) {
@@ -313,24 +314,28 @@ export default class ProductDetailsBase {
             viewModel.priceLabel.$span.show();
             viewModel.$priceWithoutTax.html(updatedPrice);
             viewModel.$priceAsLowAs.html(price.without_tax.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(updatedPrice.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (price.rrp_with_tax) {
             viewModel.rrpWithTax.$div.show();
             viewModel.rrpWithTax.$span.html(price.rrp_with_tax.formatted);
             viewModel.$priceAsLowAs.html(price.rrp_with_tax.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(price.rrp_with_tax.formatted.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (price.rrp_without_tax) {
             viewModel.rrpWithoutTax.$div.show();
             viewModel.rrpWithoutTax.$span.html(price.rrp_without_tax.formatted);
             viewModel.$priceAsLowAs.html(price.rrp_without_tax.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(price.rrp_without_tax.formatted.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (price.saved) {
             viewModel.priceSaved.$div.show();
             viewModel.priceSaved.$span.html(price.saved.formatted);
             viewModel.$priceAsLowAs.html(price.saved.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(price.saved.formatted.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (price.non_sale_price_with_tax) {
@@ -339,6 +344,7 @@ export default class ProductDetailsBase {
             viewModel.priceNowLabel.$span.show();
             viewModel.nonSaleWithTax.$span.html(price.non_sale_price_with_tax.formatted);
             viewModel.$priceAsLowAs.html(price.non_sale_price_with_tax.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(price.non_sale_price_with_tax.formatted.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (price.non_sale_price_without_tax) {
@@ -347,6 +353,7 @@ export default class ProductDetailsBase {
             viewModel.priceNowLabel.$span.show();
             viewModel.nonSaleWithoutTax.$span.html(price.non_sale_price_without_tax.formatted);
             viewModel.$priceAsLowAs.html(price.non_sale_price_without_tax.formatted); /** LimMedia.io */
+            this.originalPrice = parseFloat(price.non_sale_price_without_tax.formatted.toString().replace(/\$|,/g, '')); /** LimMedia.io */
         }
 
         if (viewModel.$priceAsLowAs[0]) {
